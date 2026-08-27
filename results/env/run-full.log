@@ -18,3 +18,34 @@ grid: 342 runs
 [17/342] skip (done) topicmodels-gibbs__ap__k50__i200__t1__r1
 [18/342] skip (done) lda__ap__k50__i200__t1__r1
 [19/342] mallet__ap__k50__i200__t1__r1
+[20/342] tomotopy__ap__k50__i200__t1__r1
+[21/342] topicmodels-vem__ap__k100__i1__t1__r1
+[22/342] topicmodels-vem__ap__k100__i1__t1__r2
+[23/342] topicmodels-vem__ap__k100__i1__t1__r3
+[24/342] gensim__ap__k100__i1__t1__r1
+[25/342] gensim__ap__k100__i1__t1__r2
+[26/342] gensim__ap__k100__i1__t1__r3
+[27/342] sklearn__ap__k100__i1__t1__r1
+[28/342] sklearn__ap__k100__i1__t1__r2
+[29/342] sklearn__ap__k100__i1__t1__r3
+[30/342] topicmodels-vem__ap__k100__i2__t1__r1
+[31/342] topicmodels-vem__ap__k100__i2__t1__r2
+[32/342] topicmodels-vem__ap__k100__i2__t1__r3
+[33/342] gensim__ap__k100__i2__t1__r1
+[34/342] gensim__ap__k100__i2__t1__r2
+[35/342] gensim__ap__k100__i2__t1__r3
+[36/342] sklearn__ap__k100__i2__t1__r1
+[37/342] sklearn__ap__k100__i2__t1__r2
+[38/342] sklearn__ap__k100__i2__t1__r3
+[39/342] topicmodels-vem__ap__k100__i5__t1__r1
+[40/342] topicmodels-vem__ap__k100__i5__t1__r2
+[41/342] topicmodels-vem__ap__k100__i5__t1__r3
+[42/342] gensim__ap__k100__i5__t1__r1
+[43/342] gensim__ap__k100__i5__t1__r2
+[44/342] gensim__ap__k100__i5__t1__r3
+[45/342] sklearn__ap__k100__i5__t1__r1
+[46/342] sklearn__ap__k100__i5__t1__r2
+[47/342] sklearn__ap__k100__i5__t1__r3
+[48/342] skip (done) topicmodels-vem__ap__k100__i10__t1__r1
+[49/342] topicmodels-vem__ap__k100__i10__t1__r2
+[50/342] topicmodels-vem__ap__k100__i10__t1__r3

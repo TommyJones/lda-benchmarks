@@ -60,6 +60,15 @@ just be a comparison of two arbitrary numbers. Instead each engine is run at a l
 iteration counts and we plot what quality it reached against how long it took. The comparison is
 which curve dominates.
 
+**The iteration axis is not comparable across engines, and one case is worse than it looks.**
+Beyond the Gibbs-vs-variational mismatch, `text2vec`'s `fit_transform(n_iter = N)` runs N
+sampling passes with `update_topics = TRUE` and then, inside `transform_internal()`, a *second*
+run of N passes with topics frozen to infer the document-topic matrix. At the same nominal
+`n_iter` it therefore does roughly twice the passes of every other engine here. This does not
+affect the quality-vs-time frontier, which plots measured time against measured quality and
+never uses the iteration count as an axis — but it does mean no per-iteration claim should be
+made from the raw `iters` column.
+
 **One OS process per run**, launched under `/usr/bin/time -v`. That puts peak RSS on the same
 footing across R, Python and the JVM, and stops runs from contaminating each other.
 
