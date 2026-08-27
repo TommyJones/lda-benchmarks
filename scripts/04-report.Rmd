@@ -1,0 +1,278 @@
+---
+title: "LDA implementations in R and Python"
+subtitle: "Where tidylda sits in the ecosystem"
+output:
+  html_document:
+    theme: null
+    css: null
+    toc: true
+    toc_float: true
+    df_print: kable
+    fig_width: 10
+    fig_height: 6
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE, dpi = 130)
+
+suppressPackageStartupMessages({
+  library(dplyr)
+  library(tidyr)
+  library(ggplot2)
+})
+
+root <- Sys.getenv("LDA_BENCH_ROOT", unset = path.expand("~/lda-benchmarks"))
+source(file.path(root, "R", "grid.R"))
+source(file.path(root, "R", "theme.R"))
+
+runs <- read.csv(file.path(root, "results", "runs.csv"), stringsAsFactors = FALSE)
+
+families <- vapply(names(ENGINES), function(e) ENGINES[[e]]$family, character(1))
+runs$family <- unname(families[runs$engine])
+runs$family <- factor(runs$family, levels = names(FAMILY_COLORS))
+runs$corpus <- factor(runs$corpus, levels = c("ap", "20ng"),
+                      labels = c("AP (2.2k docs)", "20 Newsgroups (17.7k docs)"))
+
+# Reps are collapsed by median: with three runs the median is the robust choice
+# and it is what the timing numbers in the text refer to.
+agg <- runs %>%
+  group_by(block, engine, family, corpus, k, iters, threads) %>%
+  summarise(
+    n_reps    = dplyr::n(),
+    fit_sec   = median(fit_sec),
+    wall_sec  = median(wall_sec),
+    max_rss_mb = median(max_rss_kb) / 1024,
+    r2        = median(r2),
+    coherence = median(coherence_mean),
+    .groups = "drop"
+  )
+
+# Label only the end of each curve, never every point.
+end_labels <- function(d, xvar, yvar) {
+  d %>% group_by(engine, corpus) %>%
+    slice_max(order_by = .data[[xvar]], n = 1, with_ties = FALSE) %>%
+    ungroup()
+}
+```
+
+## What this measures
+
+Ten LDA implementations, fit on identical document-term matrices with identical
+hyperparameters (`alpha = 0.1`, `eta = 0.05`, no hyperparameter optimization anywhere), scored
+by one common code path. Each run is its own OS process under `/usr/bin/time -v`.
+
+Color encodes the algorithm family. Engine names are labeled directly on the curves.
+
+```{r corpora}
+manifests <- lapply(c("ap", "20ng"), function(cp) {
+  m <- jsonlite::fromJSON(file.path(root, "data", cp, "manifest.json"))
+  data.frame(Corpus = cp, Documents = m$n_docs, Terms = m$n_terms,
+             Tokens = m$n_tokens, `Mean doc length` = round(m$mean_doc_len, 1),
+             check.names = FALSE)
+})
+knitr::kable(do.call(rbind, manifests), format.args = list(big.mark = ","),
+             caption = "Corpora")
+```
+
+## 1. Quality against wall-clock time
+
+The headline result. A Gibbs sweep and a variational pass are different units of work, so
+comparing "200 iterations each" would compare two arbitrary numbers. Instead each engine is run
+at a ladder of iteration counts, single threaded, and we plot the quality it reached against how
+long it took. **Down and to the right is worse; up and to the left is better.** A curve that sits
+above and to the left of another dominates it.
+
+```{r frontier-coherence, fig.height = 5.5}
+d <- agg %>% filter(block == "frontier", threads == 1)
+
+ggplot(d, aes(fit_sec, coherence, color = family, group = engine)) +
+  geom_line(linewidth = 0.7, alpha = 0.9) +
+  geom_point(size = 2.2) +
+  ggrepel::geom_text_repel(
+    data = end_labels(d, "fit_sec", "coherence"),
+    aes(label = engine), size = 3.1, hjust = 0, direction = "y",
+    nudge_x = 0.08, segment.color = INK_MUTED, segment.size = 0.25,
+    min.segment.length = 0, show.legend = FALSE
+  ) +
+  scale_x_log10() +
+  scale_color_manual(values = FAMILY_COLORS, name = NULL) +
+  facet_wrap(~corpus, scales = "free") +
+  labs(
+    title = "Mean probabilistic coherence vs. fit time",
+    subtitle = "k = 100, single threaded. Each point is one iteration-ladder setting.",
+    x = "Fit time (seconds, log scale)", y = "Mean probabilistic coherence",
+    caption = "Median of replicate runs. Coherence computed by tidylda::calc_prob_coherence(m = 5) on the training DTM."
+  ) +
+  theme_bench() +
+  expand_limits(x = max(d$fit_sec) * 1.6)
+```
+
+```{r frontier-r2, fig.height = 5.5}
+ggplot(d, aes(fit_sec, r2, color = family, group = engine)) +
+  geom_line(linewidth = 0.7, alpha = 0.9) +
+  geom_point(size = 2.2) +
+  ggrepel::geom_text_repel(
+    data = end_labels(d, "fit_sec", "r2"),
+    aes(label = engine), size = 3.1, hjust = 0, direction = "y",
+    nudge_x = 0.08, segment.color = INK_MUTED, segment.size = 0.25,
+    min.segment.length = 0, show.legend = FALSE
+  ) +
+  scale_x_log10() +
+  scale_color_manual(values = FAMILY_COLORS, name = NULL) +
+  facet_wrap(~corpus, scales = "free") +
+  labs(
+    title = "R-squared vs. fit time",
+    subtitle = "k = 100, single threaded.",
+    x = "Fit time (seconds, log scale)", y = expression(R^2),
+    caption = "In-sample, via mvrsquared::calc_rsquared on the training DTM."
+  ) +
+  theme_bench() +
+  expand_limits(x = max(d$fit_sec) * 1.6)
+```
+
+## 2. Thread scaling
+
+Only some engines thread at all. For those that do, this is speedup relative to their own
+single-threaded time — so it answers "does adding cores help *this* package", not "which package
+is fastest" (that is the chart above).
+
+```{r thread-speedup, fig.height = 6}
+base <- agg %>%
+  filter(block == "frontier", threads == 1) %>%
+  select(engine, corpus, k, iters, base_sec = fit_sec)
+
+sc <- agg %>%
+  filter(block %in% c("threads", "frontier")) %>%
+  inner_join(base, by = c("engine", "corpus", "k", "iters")) %>%
+  mutate(speedup = base_sec / fit_sec)
+
+if (nrow(sc)) {
+  ggplot(sc, aes(threads, speedup, color = family)) +
+    geom_abline(slope = 1, intercept = 0, linetype = "22",
+                color = INK_MUTED, linewidth = 0.4) +
+    geom_line(linewidth = 0.7) +
+    geom_point(size = 2) +
+    facet_grid(corpus ~ engine) +
+    scale_color_manual(values = FAMILY_COLORS, name = NULL) +
+    scale_x_continuous(breaks = THREAD_LEVELS) +
+    labs(
+      title = "Speedup from additional cores",
+      subtitle = "Relative to each engine's own single-threaded time. Dashed line is linear scaling.",
+      x = "Threads", y = "Speedup",
+      caption = "Engines absent from this panel are single threaded by construction."
+    ) +
+    theme_bench()
+}
+```
+
+Threading is not free of consequences for every engine. MALLET and tomotopy use parallel samplers
+that do not preserve the exact collapsed Gibbs chain; tidylda's is documented to be invariant to
+thread count, and `scripts/98-verify.R` confirms its parameters are bit-identical at 1 and 20
+threads. So it is worth checking whether quality moves as cores are added:
+
+```{r thread-quality, fig.height = 5}
+if (nrow(sc)) {
+  ggplot(sc, aes(threads, coherence, color = family, group = engine)) +
+    geom_line(linewidth = 0.7) +
+    geom_point(size = 2) +
+    facet_grid(corpus ~ engine, scales = "free_y") +
+    scale_color_manual(values = FAMILY_COLORS, name = NULL) +
+    scale_x_continuous(breaks = THREAD_LEVELS) +
+    labs(
+      title = "Does quality change with thread count?",
+      subtitle = "Flat is what an exact sampler looks like.",
+      x = "Threads", y = "Mean coherence"
+    ) +
+    theme_bench()
+}
+```
+
+## 3. Memory
+
+Peak resident set size of the whole process, so it includes the interpreter or JVM baseline.
+The baselines are shown rather than subtracted.
+
+```{r memory, fig.height = 5}
+mem <- agg %>%
+  filter(block == "frontier", threads == 1, k == DEFAULT_K) %>%
+  group_by(engine, family, corpus) %>%
+  slice_max(order_by = iters, n = 1, with_ties = FALSE) %>%
+  ungroup()
+
+ggplot(mem, aes(reorder(engine, max_rss_mb), max_rss_mb, fill = family)) +
+  geom_col(width = 0.7) +
+  coord_flip() +
+  facet_wrap(~corpus, scales = "free_x") +
+  scale_fill_manual(values = FAMILY_COLORS, name = NULL) +
+  labs(
+    title = "Peak memory",
+    subtitle = "Whole-process peak RSS at the longest iteration setting, k = 100, single threaded.",
+    x = NULL, y = "Peak RSS (MB)"
+  ) +
+  theme_bench()
+```
+
+## 4. Quality across topic counts
+
+```{r ksweep, fig.height = 5}
+ks <- agg %>%
+  filter(corpus == levels(agg$corpus)[1], threads == 1,
+         block %in% c("k", "frontier")) %>%
+  filter(iters == vapply(engine, engine_fixed_iters, numeric(1)))
+
+if (nrow(ks)) {
+  ks %>%
+    pivot_longer(c(coherence, r2), names_to = "metric", values_to = "value") %>%
+    mutate(metric = recode(metric, coherence = "Mean coherence", r2 = "R-squared")) %>%
+    ggplot(aes(k, value, color = family, group = engine)) +
+    geom_line(linewidth = 0.7) +
+    geom_point(size = 2) +
+    ggrepel::geom_text_repel(
+      data = function(d) d %>% group_by(engine, metric) %>%
+        slice_max(k, n = 1, with_ties = FALSE) %>% ungroup(),
+      aes(label = engine), size = 3, hjust = 0, direction = "y",
+      nudge_x = 8, segment.color = INK_MUTED, segment.size = 0.25,
+      min.segment.length = 0, show.legend = FALSE
+    ) +
+    facet_wrap(~metric, scales = "free_y") +
+    scale_color_manual(values = FAMILY_COLORS, name = NULL) +
+    scale_x_continuous(breaks = K_LEVELS) +
+    labs(title = "Quality across topic counts", subtitle = "AP, single threaded.",
+         x = "Number of topics (k)", y = NULL) +
+    theme_bench() +
+    expand_limits(x = max(K_LEVELS) * 1.35)
+}
+```
+
+## 5. The numbers
+
+Identity is never carried by color alone: here is every aggregated run.
+
+```{r table}
+agg %>%
+  filter(block == "frontier", threads == 1) %>%
+  transmute(Corpus = corpus, Engine = engine, Family = family, k, Iterations = iters,
+            `Fit (s)` = round(fit_sec, 2),
+            `Peak RSS (MB)` = round(max_rss_mb),
+            `R^2` = round(r2, 4),
+            Coherence = round(coherence, 4),
+            Reps = n_reps) %>%
+  arrange(Corpus, Engine, Iterations) %>%
+  knitr::kable()
+```
+
+## Environment
+
+```{r env, comment = ""}
+cat(readLines(file.path(root, "results", "env", "hardware.txt")), sep = "\n")
+cat("\n")
+cat(readLines(file.path(root, "results", "env", "tidylda-provenance.txt")), sep = "\n")
+```
+
+```{r versions}
+runs %>%
+  distinct(engine, language, version) %>%
+  arrange(language, engine) %>%
+  rename(Engine = engine, Language = language, Version = version) %>%
+  knitr::kable(caption = "Implementation versions")
+```

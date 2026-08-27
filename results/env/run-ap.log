@@ -1,0 +1,4 @@
+grid: 285 runs
+[1/285] topicmodels-vem__ap__k25__i10__t1__r1
+[2/285] gensim__ap__k25__i10__t1__r1
+[3/285] sklearn__ap__k25__i10__t1__r1

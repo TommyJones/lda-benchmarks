@@ -1,0 +1,9 @@
+# Corpora and per-run artifacts are rebuildable from the scripts; only the
+# scored summary (results/runs.csv) and the environment records are committed.
+data/
+results/raw/
+.venv/
+*.mtx
+*.Rproj.user
+.Rhistory
+scripts/04-report.html

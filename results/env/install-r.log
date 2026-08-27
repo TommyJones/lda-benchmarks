@@ -1,0 +1,98 @@
+installing: topicmodels, lda
+Installing packages into ‘/home/tommy/R/x86_64-pc-linux-gnu-library/4.6’
+(as ‘lib’ is unspecified)
+also installing the dependency ‘modeltools’
+
+trying URL 'https://cloud.r-project.org/src/contrib/modeltools_0.2-24.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/topicmodels_0.2-17.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/lda_1.5.2.tar.gz'
+* installing *source* package ‘modeltools’ ...
+** this is package ‘modeltools’ version ‘0.2-24’
+** package ‘modeltools’ successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+Creating a generic function for ‘na.pass’ from package ‘stats’ in package ‘modeltools’
+Creating a generic function from function ‘MEapply’ in package ‘modeltools’
+** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (modeltools)
+* installing *source* package ‘lda’ ...
+** this is package ‘lda’ version ‘1.5.2’
+** package ‘lda’ successfully unpacked and MD5 sums checked
+** using staged installation
+** libs
+using C compiler: ‘x86_64-linux-gnu-gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0’
+x86_64-linux-gnu-gcc -std=gnu2x -I"/usr/share/R/include" -DNDEBUG       -fpic  -g -O2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -ffile-prefix-map=/build/r-base-JCUh2C/r-base-4.6.0=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -fcf-protection -fdebug-prefix-map=/build/r-base-JCUh2C/r-base-4.6.0=/usr/src/r-base-4.6.0-4.2404.0 -Wdate-time -D_FORTIFY_SOURCE=3  -c cvb0.c -o cvb0.o
+x86_64-linux-gnu-gcc -std=gnu2x -I"/usr/share/R/include" -DNDEBUG       -fpic  -g -O2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -ffile-prefix-map=/build/r-base-JCUh2C/r-base-4.6.0=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -fcf-protection -fdebug-prefix-map=/build/r-base-JCUh2C/r-base-4.6.0=/usr/src/r-base-4.6.0-4.2404.0 -Wdate-time -D_FORTIFY_SOURCE=3  -c gibbs.c -o gibbs.o
+x86_64-linux-gnu-gcc -std=gnu2x -I"/usr/share/R/include" -DNDEBUG       -fpic  -g -O2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -ffile-prefix-map=/build/r-base-JCUh2C/r-base-4.6.0=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -fcf-protection -fdebug-prefix-map=/build/r-base-JCUh2C/r-base-4.6.0=/usr/src/r-base-4.6.0-4.2404.0 -Wdate-time -D_FORTIFY_SOURCE=3  -c lda-init.c -o lda-init.o
+x86_64-linux-gnu-gcc -std=gnu2x -shared -L/usr/lib/R/lib -Wl,-Bsymbolic-functions -flto=auto -ffat-lto-objects -Wl,-z,relro -o lda.so cvb0.o gibbs.o lda-init.o -L/usr/lib/R/lib -lR
+installing to /home/tommy/R/x86_64-pc-linux-gnu-library/4.6/00LOCK-lda/00new/lda/libs
+** R
+** data
+** demo
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (lda)
+* installing *source* package ‘topicmodels’ ...
+** this is package ‘topicmodels’ version ‘0.2-17’
+** package ‘topicmodels’ successfully unpacked and MD5 sums checked
+** using staged installation
+** libs
+using C compiler: ‘x86_64-linux-gnu-gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0’
+using C++ compiler: ‘x86_64-linux-gnu-g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0’
+x86_64-linux-gnu-gcc -std=gnu2x -I"/usr/share/R/include" -DNDEBUG       -fpic  -g -O2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -ffile-prefix-map=/build/r-base-JCUh2C/r-base-4.6.0=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -fcf-protection -fdebug-prefix-map=/build/r-base-JCUh2C/r-base-4.6.0=/usr/src/r-base-4.6.0-4.2404.0 -Wdate-time -D_FORTIFY_SOURCE=3  -c cokus.c -o cokus.o
+x86_64-linux-gnu-gcc -std=gnu2x -I"/usr/share/R/include" -DNDEBUG       -fpic  -g -O2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -ffile-prefix-map=/build/r-base-JCUh2C/r-base-4.6.0=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -fcf-protection -fdebug-prefix-map=/build/r-base-JCUh2C/r-base-4.6.0=/usr/src/r-base-4.6.0-4.2404.0 -Wdate-time -D_FORTIFY_SOURCE=3  -c common.c -o common.o
+x86_64-linux-gnu-gcc -std=gnu2x -I"/usr/share/R/include" -DNDEBUG       -fpic  -g -O2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -ffile-prefix-map=/build/r-base-JCUh2C/r-base-4.6.0=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -fcf-protection -fdebug-prefix-map=/build/r-base-JCUh2C/r-base-4.6.0=/usr/src/r-base-4.6.0-4.2404.0 -Wdate-time -D_FORTIFY_SOURCE=3  -c ctm.c -o ctm.o
+ctm.c:29:10: fatal error: gsl/gsl_rng.h: No such file or directory
+   29 | #include <gsl/gsl_rng.h>
+      |          ^~~~~~~~~~~~~~~
+compilation terminated.
+make: *** [/usr/lib/R/etc/Makeconf:190: ctm.o] Error 1
+ERROR: compilation failed for package ‘topicmodels’
+* removing ‘/home/tommy/R/x86_64-pc-linux-gnu-library/4.6/topicmodels’
+
+The downloaded source packages are in
+	‘/tmp/RtmpL8XF6i/downloaded_packages’
+Warning message:
+In install.packages(missing, repos = repos) :
+  installation of package ‘topicmodels’ had non-zero exit status
+installing tidylda from source: /home/tommy/tidylda
+Installing package into ‘/home/tommy/R/x86_64-pc-linux-gnu-library/4.6’
+(as ‘lib’ is unspecified)
+* installing *source* package ‘tidylda’ ...
+** this is package ‘tidylda’ version ‘0.1.0’
+** using staged installation
+** libs
+using C compiler: ‘x86_64-linux-gnu-gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0’
+using C++ compiler: ‘x86_64-linux-gnu-g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0’
+make: Nothing to be done for 'all'.
+installing to /home/tommy/R/x86_64-pc-linux-gnu-library/4.6/00LOCK-tidylda/00new/tidylda/libs
+** R
+** data
+*** moving datasets to lazyload DB
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (tidylda)
+Error: failed to install: topicmodels
+Execution halted

@@ -1,0 +1,13 @@
+# Point R's compiler at the userland GSL built by setup/install-gsl.sh.
+#
+# topicmodels has no configure check for GSL -- src/ctm.c just includes
+# <gsl/gsl_rng.h> and the build fails if it is not on the default include path.
+# Putting gsl-config on PATH is not enough for that reason. This file is applied
+# via R_MAKEVARS_USER (see setup/install-r-deps.R) so it stays scoped to this
+# project rather than landing in ~/.R/Makevars.
+#
+# The rpath means the compiled .so finds libgsl at load time without every
+# runner needing LD_LIBRARY_PATH set.
+
+CPPFLAGS += -I$(HOME)/opt/gsl/include
+LDFLAGS += -L$(HOME)/opt/gsl/lib -Wl,-rpath,$(HOME)/opt/gsl/lib
