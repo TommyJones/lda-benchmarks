@@ -16,6 +16,19 @@ export LD_LIBRARY_PATH="$GSL_HOME/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
 
 export LDA_BENCH_PYTHON="$LDA_BENCH_ROOT/.venv/bin/python"
 
+# rmarkdown needs pandoc, which is not installed system-wide here. RStudio Server
+# ships one; fall back to a userland copy in ~/opt if that ever goes away.
+for _pandoc_dir in \
+  /usr/lib/rstudio-server/bin/quarto/bin/tools/x86_64 \
+  "$HOME/opt/pandoc/bin"; do
+  if [ -x "$_pandoc_dir/pandoc" ]; then
+    export RSTUDIO_PANDOC="$_pandoc_dir"
+    export PATH="$_pandoc_dir:$PATH"
+    break
+  fi
+done
+unset _pandoc_dir
+
 # Pin implicit parallelism to one core unless a runner overrides it.
 lda_bench_set_threads() {
   local n="${1:-1}"

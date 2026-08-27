@@ -1,0 +1,9 @@
+cores: 24
+R: R version 4.6.0 (2026-04-24)
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        52Gi        14Gi        23Mi        59Gi        72Gi
+Model name:                              Intel(R) Core(TM) i9-10920X CPU @ 3.50GHz
+Thread(s) per core:                      2
+Core(s) per socket:                      12
+Socket(s):                               1
+Linux price 6.8.0-134-generic #134-Ubuntu SMP PREEMPT_DYNAMIC Fri Jun 26 18:43:11 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux

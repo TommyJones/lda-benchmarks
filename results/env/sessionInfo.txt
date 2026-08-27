@@ -1,0 +1,42 @@
+R version 4.6.0 (2026-04-24)
+Platform: x86_64-pc-linux-gnu
+Running under: Ubuntu 24.04.4 LTS
+
+Matrix products: default
+BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.12.0 
+LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.12.0  LAPACK version 3.12.0
+
+locale:
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+ [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+ [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+ [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+
+time zone: America/New_York
+tzcode source: system (glibc)
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] mvrsquared_0.1.5   lda_1.5.2          topicmodels_0.2-17 textmineR_3.0.6   
+[5] Matrix_1.7-5       text2vec_0.6.6     tidylda_0.1.0     
+
+loaded via a namespace (and not attached):
+ [1] float_0.3-3         crayon_1.5.3        janeaustenr_1.0.0  
+ [4] dplyr_1.2.1         compiler_4.6.0      stopwords_2.3      
+ [7] gtools_3.9.5        tidyselect_1.2.1    Rcpp_1.1.2         
+[10] tidytext_0.4.3      slam_0.1-56         xml2_1.5.2         
+[13] stringr_1.6.0       parallel_4.6.0      tidyr_1.3.2        
+[16] RhpcBLASctl_0.23-42 lattice_0.22-9      R6_2.6.1           
+[19] SnowballC_0.7.1     generics_0.1.4      tibble_3.3.1       
+[22] pillar_1.11.1       tokenizers_0.3.0    rlang_1.3.0        
+[25] stringi_1.8.9       lgr_0.5.2           modeltools_0.2-24  
+[28] mlapi_0.1.1         cli_3.6.6           magrittr_2.0.5     
+[31] digest_0.6.39       grid_4.6.0          tm_0.7-19          
+[34] lifecycle_1.0.5     vctrs_0.7.3         rsparse_0.5.3      
+[37] glue_1.8.1          data.table_1.18.4   RcppProgress_0.4.2 
+[40] NLP_0.3-3           stats4_4.6.0        purrr_1.2.2        
+[43] tools_4.6.0         pkgconfig_2.0.3    

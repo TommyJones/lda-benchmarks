@@ -29,7 +29,11 @@ LADDER <- list(
 # than iterations (thread scaling, the k sweep).
 FIXED_ITERS <- list(WarpLDA = 200, Gibbs = 200, Variational = 10)
 
-THREAD_LEVELS <- c(1, 2, 4, 8, 16, 20)  # capped at 20 of 24 cores
+# Capped at 12 of the machine's 24 cores. This box is shared: another user runs
+# a steady ~7 cores of headless browser work, so 16- and 20-thread runs would be
+# measuring contention for cores that were never free rather than measuring the
+# sampler. 12 leaves clear headroom and every point stays trustworthy.
+THREAD_LEVELS <- c(1, 2, 4, 8, 12)
 K_LEVELS <- c(25, 50, 100, 200)
 DEFAULT_K <- 100
 

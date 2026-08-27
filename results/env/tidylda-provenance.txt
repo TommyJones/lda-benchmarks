@@ -1,0 +1,4 @@
+tidylda version: 0.1.0
+tidylda source: /home/tommy/tidylda
+tidylda git sha: 14e02b7a637c14e159bcc64f555ddfe173918d99
+tidylda working tree dirty: FALSE

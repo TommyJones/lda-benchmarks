@@ -3,8 +3,7 @@ title: "LDA implementations in R and Python"
 subtitle: "Where tidylda sits in the ecosystem"
 output:
   html_document:
-    theme: null
-    css: null
+    theme: readable
     toc: true
     toc_float: true
     df_print: kable
@@ -27,11 +26,18 @@ source(file.path(root, "R", "theme.R"))
 
 runs <- read.csv(file.path(root, "results", "runs.csv"), stringsAsFactors = FALSE)
 
+# The nih corpus exists only as a smoke test for the runners; it is not part of
+# the experiment and never appears in the report.
+runs <- runs[runs$corpus %in% c("ap", "20ng"), ]
+stopifnot("no ap/20ng runs scored yet -- run scripts/02-run-grid.R" = nrow(runs) > 0)
+
 families <- vapply(names(ENGINES), function(e) ENGINES[[e]]$family, character(1))
 runs$family <- unname(families[runs$engine])
 runs$family <- factor(runs$family, levels = names(FAMILY_COLORS))
-runs$corpus <- factor(runs$corpus, levels = c("ap", "20ng"),
-                      labels = c("AP (2.2k docs)", "20 Newsgroups (17.7k docs)"))
+runs$corpus <- droplevels(factor(
+  runs$corpus, levels = c("ap", "20ng"),
+  labels = c("AP (2.2k docs)", "20 Newsgroups (17.7k docs)")
+))
 
 # Reps are collapsed by median: with three runs the median is the robust choice
 # and it is what the timing numbers in the text refer to.
@@ -84,7 +90,8 @@ above and to the left of another dominates it.
 
 ```{r frontier-coherence, fig.height = 5.5}
 d <- agg %>% filter(block == "frontier", threads == 1)
-
+have_frontier <- nrow(d) > 0
+if (have_frontier) print(
 ggplot(d, aes(fit_sec, coherence, color = family, group = engine)) +
   geom_line(linewidth = 0.7, alpha = 0.9) +
   geom_point(size = 2.2) +
@@ -105,9 +112,11 @@ ggplot(d, aes(fit_sec, coherence, color = family, group = engine)) +
   ) +
   theme_bench() +
   expand_limits(x = max(d$fit_sec) * 1.6)
+)
 ```
 
 ```{r frontier-r2, fig.height = 5.5}
+if (have_frontier) print(
 ggplot(d, aes(fit_sec, r2, color = family, group = engine)) +
   geom_line(linewidth = 0.7, alpha = 0.9) +
   geom_point(size = 2.2) +
@@ -128,6 +137,7 @@ ggplot(d, aes(fit_sec, r2, color = family, group = engine)) +
   ) +
   theme_bench() +
   expand_limits(x = max(d$fit_sec) * 1.6)
+)
 ```
 
 ## 2. Thread scaling
@@ -199,6 +209,7 @@ mem <- agg %>%
   slice_max(order_by = iters, n = 1, with_ties = FALSE) %>%
   ungroup()
 
+if (nrow(mem)) print(
 ggplot(mem, aes(reorder(engine, max_rss_mb), max_rss_mb, fill = family)) +
   geom_col(width = 0.7) +
   coord_flip() +
@@ -210,6 +221,7 @@ ggplot(mem, aes(reorder(engine, max_rss_mb), max_rss_mb, fill = family)) +
     x = NULL, y = "Peak RSS (MB)"
   ) +
   theme_bench()
+)
 ```
 
 ## 4. Quality across topic counts
