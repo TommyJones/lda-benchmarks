@@ -17,6 +17,20 @@ FAMILY_COLORS <- c(
   "Variational" = "#1baf7a"   # slot 3
 )
 
+# Language, for the headline "what can each engine actually reach" chart. Three
+# categories, which is the subset of the palette that validates on all pairs.
+LANG_COLORS <- c(
+  "R"      = "#2a78d6",
+  "Python" = "#eb6834",
+  "Java"   = "#1baf7a"
+)
+
+# Highlight-one-series encoding, for charts whose job is "tidylda versus the
+# field". One accent against a recessive gray reads instantly and avoids
+# spending eight hues on a comparison that only has two sides.
+ACCENT <- "#2a78d6"
+MUTED  <- "#b0aea6"
+
 SURFACE      <- "#fcfcfb"
 INK_PRIMARY  <- "#0b0b0b"
 INK_SECOND   <- "#52514e"
