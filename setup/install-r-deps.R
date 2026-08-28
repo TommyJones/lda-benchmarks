@@ -1,9 +1,12 @@
 #!/usr/bin/env Rscript
 # Install the R-side dependencies for the benchmark.
 #
-# tidylda 0.1.0 is not on CRAN yet (CRAN still has 0.0.7, which uses the old
-# collapsed Gibbs sampler). We therefore install from the local source tree and
-# record its git SHA in results/env/ so the numbers are traceable.
+# tidylda 0.1.0 is on CRAN as of 2026-08-28, but the benchmark predates its
+# acceptance and ran against a source build of the same version. We keep
+# installing from the local tree, and record its git SHA in results/env/, so a
+# re-run reproduces the exact binary that produced the published numbers rather
+# than whatever CRAN carries later. Point this at CRAN instead if you want to
+# benchmark the released build.
 
 repos <- "https://cloud.r-project.org"
 

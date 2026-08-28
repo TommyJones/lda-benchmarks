@@ -15,8 +15,9 @@ capture <- function(file, expr) {
 
 capture("sessionInfo.txt", print(sessionInfo()))
 
-# tidylda is installed from a local source tree rather than CRAN (CRAN still has
-# 0.0.7, the old Gibbs sampler), so pin down exactly which commit that was.
+# tidylda is installed from a local source tree rather than CRAN. 0.1.0 reached
+# CRAN on 2026-08-28, after these runs, so pin down exactly which commit the
+# benchmarked binary was built from.
 tidylda_src <- path.expand("~/tidylda")
 sha <- tryCatch(
   system2("git", c("-C", tidylda_src, "rev-parse", "HEAD"), stdout = TRUE),

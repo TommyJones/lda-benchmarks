@@ -32,8 +32,14 @@ only tidylda offers, is also out of scope — this is about the common case.
 
 Worth knowing before reading the results: **tidylda 0.1.0 is a WarpLDA sampler, not collapsed
 Gibbs** (that changed after 0.0.7). Its closest algorithmic neighbor here is therefore text2vec,
-not textmineR. As of this writing CRAN still carries tidylda 0.0.7, so the benchmark installs
-0.1.0 from source and records the commit in `results/env/tidylda-provenance.txt`.
+not textmineR.
+
+tidylda 0.1.0 is now [on CRAN](https://cran.r-project.org/package=tidylda). The benchmark
+predates its acceptance, so these runs used a source build of the same version from
+`~/tidylda` at commit `14e02b7`, recorded in `results/env/tidylda-provenance.txt`.
+`setup/install-r-deps.R` still prefers that local source when present so the numbers stay
+reproducible against the exact tree that produced them; delete the source tree, or edit that
+script, to benchmark the CRAN build instead.
 
 ## How the comparison is kept fair
 
