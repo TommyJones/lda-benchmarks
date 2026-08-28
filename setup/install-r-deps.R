@@ -50,8 +50,24 @@ tidylda_src <- path.expand("~/tidylda")
 if (!dir.exists(tidylda_src)) {
   stop("tidylda source not found at ", tidylda_src)
 }
-message("installing tidylda from source: ", tidylda_src)
-install.packages(tidylda_src, repos = NULL, type = "source")
+# Install from a CLEAN COPY, never the working tree directly.
+#
+# R CMD INSTALL on a source directory copies whatever is in src/, including
+# stale .o and .so files, and make then relinks them rather than recompiling.
+# If those objects came from devtools/pkgbuild (which compile at -O0 by
+# default), the installed package is unoptimized -- and nothing downstream
+# says so. That mistake produced the first version of this benchmark, where
+# tidylda was measured ~5x slower than it actually is.
+scratch <- file.path(tempdir(), "tidylda-src")
+unlink(scratch, recursive = TRUE)
+dir.create(scratch, recursive = TRUE)
+file.copy(list.files(tidylda_src, full.names = TRUE, all.files = TRUE,
+                     no.. = TRUE), scratch, recursive = TRUE)
+unlink(list.files(file.path(scratch, "src"), pattern = "\\.(o|so|dll)$",
+                  full.names = TRUE))
+
+message("installing tidylda from a clean copy of: ", tidylda_src)
+install.packages(scratch, repos = NULL, type = "source")
 
 still_missing <- setdiff(c(needed, "tidylda"), rownames(installed.packages()))
 if (length(still_missing)) {

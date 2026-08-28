@@ -20,6 +20,15 @@ import tomotopy as tp  # noqa: E402
 def fit(dtm, vocab, k, iters, threads, seed, timer):
     model = tp.LDAModel(k=k, alpha=ALPHA, eta=ETA, seed=seed)
 
+    # DISABLE HYPERPARAMETER OPTIMIZATION. tomotopy's `optim_interval` defaults
+    # to 10, so out of the box it re-estimates alpha every 10 iterations and
+    # drifts to an asymmetric prior (measured: 0.1 -> ~0.3-0.5 within 100
+    # iterations). That is not a fair comparison in either direction -- it costs
+    # time the other engines do not spend, and an optimized asymmetric alpha is
+    # known to improve topic quality, so it flatters the fit as well. It is not
+    # a constructor argument, only a settable attribute.
+    model.optim_interval = 0
+
     # tomotopy takes token streams, so expand counts back into repeated tokens.
     # Its internal vocabulary is built in first-seen order, so we reindex phi
     # onto the canonical vocab afterwards rather than assuming they agree.

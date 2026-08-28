@@ -8,18 +8,41 @@ Blog-post rigor, not paper rigor: one machine, three replicates where the corpus
 enough, no statistical testing. 342 runs, zero failures. Every number below is in
 [`results/runs.csv`](results/runs.csv).
 
+> **Correction, 2026-08-28.** The first published version of these results measured an
+> **unoptimized (`-O0`) build of tidylda** and reported it roughly 5× slower than it is.
+> `~/tidylda/src/` held stale `.o` files from a `devtools`/`pkgbuild` debug build, and
+> `install.packages()` on a source *directory* relinks such objects instead of recompiling
+> them. CRAN builds from a tarball, which strips them, so **released tidylda was never
+> affected** — only this benchmark was. All tidylda runs have been redone with a verified
+> `-O2` build, and [`scripts/00-check-builds.R`](scripts/00-check-builds.R) now reads each
+> engine's DWARF `DW_AT_producer` string and fails the run if anything is unoptimized. Because
+> the two builds are bit-identical in output, **only timings and memory changed** — every R²,
+> coherence, and thread-invariance number was unaffected. One text2vec run was also re-measured
+> after a load spike inflated it (71.3s against a ~45.1s cluster).
+>
+> **A second correction, same day.** tomotopy's `optim_interval` defaults to **10**, so it was
+> re-estimating an asymmetric alpha every 10 iterations (measured drift: 0.1 → ~0.3–0.5 over 100
+> iterations) while every other engine ran a fixed symmetric prior. That broke the fairness rule
+> stated below in both directions — it cost tomotopy time nobody else spent, and bought it fit
+> quality nobody else was allowed. It is a settable attribute rather than a constructor argument,
+> which is how it was missed. All tomotopy runs were redone with `optim_interval = 0`; it got
+> **faster** (9.9s → 7.7s best) and **worse on quality** (coherence 0.1780 → 0.1663, R² 0.590 →
+> 0.578), exactly as expected. The other nine engines were then audited the same way and are
+> clean.
+
 ---
 
 ## Headline findings
 
-**1. tidylda is the fastest LDA sampler implemented natively in R**, by about 3× over the
-next one. The only implementations that beat it are a Python C++ extension and a Java program.
+**1. tidylda is the fastest implementation measured here** — single threaded *and*
+multithreaded, on both corpora. On 20 Newsgroups it reaches 4.5s against tomotopy's 7.7s and
+MALLET's 12.6s; single threaded it is 23.4s against MALLET's 38.0s.
 
 **2. It is the only implementation whose results do not change with thread count.** Every
 other threaded engine here gives a different answer depending on how many cores it ran on.
 
-**3. It is not the fastest overall.** tomotopy and MALLET are faster, and tomotopy also leads
-on quality. Both are shown alongside throughout.
+**3. It is not the best on quality.** tomotopy leads on both coherence and R² on both corpora;
+tidylda sits mid-pack. Fastest and best are different packages here.
 
 ### Speed
 
@@ -30,9 +53,9 @@ package supports:
 
 | Implementation | Language | Best time | Cores used |
 |---|---|---|---|
-| tomotopy | Python | 9.9 s | 12 |
+| **tidylda** | **R** | **4.5 s** | 12 |
+| tomotopy | Python | 7.7 s | 12 |
 | mallet | Java | 12.6 s | 12 |
-| **tidylda** | **R** | **15.0 s** | 12 |
 | sklearn | Python | 21.7 s | 12 |
 | text2vec | R | 45.0 s | 12 |
 | gensim | Python | 59.1 s | 8 |
@@ -55,10 +78,10 @@ Swing in mean topic coherence across 1–12 threads. Lower is more reproducible:
 | Implementation | AP | 20 Newsgroups |
 |---|---|---|
 | **tidylda** | **0.0%** | **0.0%** |
-| tomotopy | 3.7% | 9.9% |
+| tomotopy | 4.1% | 4.0% |
+| sklearn | 13.8% | 8.1% |
 | mallet | 6.8% | 9.5% |
 | gensim | 7.0% | 28.8% |
-| sklearn | 13.8% | 8.1% |
 
 tidylda seeds every work item independently and holds the topic-count vector read-only within
 a pass, so its output is bit-identical at any thread count — verified by
@@ -69,10 +92,9 @@ scoring reproduces tidylda's own native R² and coherence exactly.
 
 ![Speedup from additional cores](results/figures/fig-scaling.png)
 
-tidylda is the best scaler in the set — 9.46× on 12 cores versus tomotopy's 4.69× and
-MALLET's 3.01× — and it was still climbing near-linearly at the cap. The sweep stops at 12
-because the benchmark host is shared; the crossover where tidylda would overtake, if it
-exists, is above the range measured here.
+tidylda is the best scaler in the set — 5.23× on 12 cores versus tomotopy's 4.93× and
+MALLET's 3.01×. The sweep stops at 12 because the benchmark host is shared and another
+workload held roughly 7 of its 24 cores throughout.
 
 ### Quality against wall-clock time
 
@@ -87,13 +109,13 @@ At the top of each ladder (20 Newsgroups, k = 100, single threaded):
 
 | Implementation | Iterations | Time | Peak RSS | R² | Coherence |
 |---|---|---|---|---|---|
-| tomotopy | 500 | 116 s | 236 MB | 0.590 | 0.1780 |
+| tomotopy | 500 | 93 s | 236 MB | 0.578 | 0.1663 |
 | textmineR | 500 | 4144 s | 394 MB | 0.553 | 0.1616 |
 | topicmodels-gibbs | 500 | 671 s | 26318 MB | 0.542 | 0.1599 |
 | topicmodels-vem | 25 | 2030 s | 23728 MB | 0.550 | 0.1594 |
 | text2vec | 500 | 109 s | 400 MB | 0.542 | 0.1590 |
 | mallet | 500 | 90 s | 1340 MB | 0.544 | 0.1572 |
-| tidylda | 500 | 266 s | 476 MB | 0.546 | 0.1517 |
+| tidylda | 500 | 49 s | 476 MB | 0.546 | 0.1517 |
 | lda | 500 | 149 s | 285 MB | 0.503 | 0.1504 |
 | sklearn | 25 | 177 s | 265 MB | 0.537 | 0.1236 |
 | gensim | 25 | 198 s | 244 MB | 0.481 | 0.1077 |
@@ -157,7 +179,10 @@ satisfy the contract, and pushes all of them through the same two functions:
 Both are in-sample, computed on the training DTM. That is how tidylda reports them natively.
 
 **Identical hyperparameters, no tuning.** `alpha = 0.1` per topic, `eta`/`beta = 0.05`, and
-every engine's hyperparameter optimizer explicitly disabled. Where a package has a different
+every engine's hyperparameter optimizer explicitly disabled — verified per engine, not assumed:
+`optimize_alpha = FALSE` (textmineR), `estimate.alpha = FALSE` (topicmodels-VEM),
+`--optimize-interval 0` (MALLET), `optim_interval = 0` (tomotopy, whose default is 10), fixed
+prior arrays for gensim and scikit-learn, and no optimizer at all in `lda`, text2vec or tidylda. Where a package has a different
 convention the runner converts: MALLET's `--alpha` is the sum over topics, so it gets `k * 0.1`.
 
 **The iteration axis is not comparable across engines, and one case is worse than it looks.**

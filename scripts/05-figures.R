@@ -73,7 +73,7 @@ save_fig("fig-speed.png",
     scale_color_manual(values = LANG_COLORS, name = NULL) +
     labs(title = "Fastest time each implementation can reach",
          subtitle = paste0(BIG, ", k = 100, using as many cores as the package supports.\n",
-                           "tidylda is the fastest of the R implementations; only a Python and a Java one are faster."),
+                           "tidylda is the fastest implementation measured, ahead of a Python C++ extension and a Java program."),
          x = "Fit time, seconds (log scale)", y = NULL,
          caption = "Median of replicate runs. Gibbs/WarpLDA at 200 iterations, variational at 10 passes.") +
     theme_bench())
