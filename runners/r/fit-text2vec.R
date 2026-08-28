@@ -6,9 +6,12 @@ source(file.path(Sys.getenv("LDA_BENCH_ROOT", path.expand("~/lda-benchmarks")),
 suppressPackageStartupMessages(library(text2vec))
 
 fit <- function(dtm, k, iters, threads, seed, timer) {
-  # text2vec's WarpLDA parallelizes with OpenMP, configured through options
-  # rather than a function argument. The driver already exports OMP_NUM_THREADS;
-  # these set the same cap through the paths text2vec and rsparse consult.
+  # text2vec's WarpLDA is SINGLE THREADED. src/mcemlda/LDA.hpp has plain serial
+  # loops in sample_by_doc/sample_by_word with no OpenMP pragmas anywhere, and
+  # src/Makevars does not link OpenMP at all. The measured 1.00x across the
+  # thread sweep is real. These options are set anyway so that if a future
+  # version does parallelize, the runner caps it rather than silently using
+  # every core.
   options(rsparse_omp_threads = threads, text2vec.mc.cores = threads)
   Sys.setenv(OMP_NUM_THREADS = threads)
   lda <- text2vec::LDA$new(

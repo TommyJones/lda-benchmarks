@@ -49,3 +49,563 @@ grid: 342 runs
 [48/342] skip (done) topicmodels-vem__ap__k100__i10__t1__r1
 [49/342] topicmodels-vem__ap__k100__i10__t1__r2
 [50/342] topicmodels-vem__ap__k100__i10__t1__r3
+[51/342] skip (done) gensim__ap__k100__i10__t1__r1
+[52/342] gensim__ap__k100__i10__t1__r2
+[53/342] gensim__ap__k100__i10__t1__r3
+[54/342] skip (done) sklearn__ap__k100__i10__t1__r1
+[55/342] sklearn__ap__k100__i10__t1__r2
+[56/342] sklearn__ap__k100__i10__t1__r3
+[57/342] gensim__ap__k100__i10__t2__r1
+[58/342] gensim__ap__k100__i10__t2__r2
+[59/342] gensim__ap__k100__i10__t2__r3
+[60/342] sklearn__ap__k100__i10__t2__r1
+[61/342] sklearn__ap__k100__i10__t2__r2
+[62/342] sklearn__ap__k100__i10__t2__r3
+[63/342] gensim__ap__k100__i10__t4__r1
+[64/342] gensim__ap__k100__i10__t4__r2
+[65/342] gensim__ap__k100__i10__t4__r3
+[66/342] sklearn__ap__k100__i10__t4__r1
+[67/342] sklearn__ap__k100__i10__t4__r2
+[68/342] sklearn__ap__k100__i10__t4__r3
+[69/342] gensim__ap__k100__i10__t8__r1
+[70/342] gensim__ap__k100__i10__t8__r2
+[71/342] gensim__ap__k100__i10__t8__r3
+[72/342] sklearn__ap__k100__i10__t8__r1
+[73/342] sklearn__ap__k100__i10__t8__r2
+[74/342] sklearn__ap__k100__i10__t8__r3
+[75/342] gensim__ap__k100__i10__t12__r1
+[76/342] gensim__ap__k100__i10__t12__r2
+[77/342] gensim__ap__k100__i10__t12__r3
+[78/342] sklearn__ap__k100__i10__t12__r1
+[79/342] sklearn__ap__k100__i10__t12__r2
+[80/342] sklearn__ap__k100__i10__t12__r3
+[81/342] tidylda__ap__k100__i20__t1__r1
+[82/342] tidylda__ap__k100__i20__t1__r2
+[83/342] tidylda__ap__k100__i20__t1__r3
+[84/342] text2vec__ap__k100__i20__t1__r1
+[85/342] text2vec__ap__k100__i20__t1__r2
+[86/342] text2vec__ap__k100__i20__t1__r3
+[87/342] textmineR__ap__k100__i20__t1__r1
+[88/342] textmineR__ap__k100__i20__t1__r2
+[89/342] textmineR__ap__k100__i20__t1__r3
+[90/342] topicmodels-gibbs__ap__k100__i20__t1__r1
+[91/342] topicmodels-gibbs__ap__k100__i20__t1__r2
+[92/342] topicmodels-gibbs__ap__k100__i20__t1__r3
+[93/342] lda__ap__k100__i20__t1__r1
+[94/342] lda__ap__k100__i20__t1__r2
+[95/342] lda__ap__k100__i20__t1__r3
+[96/342] mallet__ap__k100__i20__t1__r1
+[97/342] mallet__ap__k100__i20__t1__r2
+[98/342] mallet__ap__k100__i20__t1__r3
+[99/342] tomotopy__ap__k100__i20__t1__r1
+[100/342] tomotopy__ap__k100__i20__t1__r2
+[101/342] tomotopy__ap__k100__i20__t1__r3
+[102/342] topicmodels-vem__ap__k100__i25__t1__r1
+[103/342] topicmodels-vem__ap__k100__i25__t1__r2
+[104/342] topicmodels-vem__ap__k100__i25__t1__r3
+[105/342] gensim__ap__k100__i25__t1__r1
+[106/342] gensim__ap__k100__i25__t1__r2
+[107/342] gensim__ap__k100__i25__t1__r3
+[108/342] sklearn__ap__k100__i25__t1__r1
+[109/342] sklearn__ap__k100__i25__t1__r2
+[110/342] sklearn__ap__k100__i25__t1__r3
+[111/342] tidylda__ap__k100__i50__t1__r1
+[112/342] tidylda__ap__k100__i50__t1__r2
+[113/342] tidylda__ap__k100__i50__t1__r3
+[114/342] text2vec__ap__k100__i50__t1__r1
+[115/342] text2vec__ap__k100__i50__t1__r2
+[116/342] text2vec__ap__k100__i50__t1__r3
+[117/342] textmineR__ap__k100__i50__t1__r1
+[118/342] textmineR__ap__k100__i50__t1__r2
+[119/342] textmineR__ap__k100__i50__t1__r3
+[120/342] topicmodels-gibbs__ap__k100__i50__t1__r1
+[121/342] topicmodels-gibbs__ap__k100__i50__t1__r2
+[122/342] topicmodels-gibbs__ap__k100__i50__t1__r3
+[123/342] lda__ap__k100__i50__t1__r1
+[124/342] lda__ap__k100__i50__t1__r2
+[125/342] lda__ap__k100__i50__t1__r3
+[126/342] mallet__ap__k100__i50__t1__r1
+[127/342] mallet__ap__k100__i50__t1__r2
+[128/342] mallet__ap__k100__i50__t1__r3
+[129/342] tomotopy__ap__k100__i50__t1__r1
+[130/342] tomotopy__ap__k100__i50__t1__r2
+[131/342] tomotopy__ap__k100__i50__t1__r3
+[132/342] tidylda__ap__k100__i100__t1__r1
+[133/342] tidylda__ap__k100__i100__t1__r2
+[134/342] tidylda__ap__k100__i100__t1__r3
+[135/342] text2vec__ap__k100__i100__t1__r1
+[136/342] text2vec__ap__k100__i100__t1__r2
+[137/342] text2vec__ap__k100__i100__t1__r3
+[138/342] textmineR__ap__k100__i100__t1__r1
+[139/342] textmineR__ap__k100__i100__t1__r2
+[140/342] textmineR__ap__k100__i100__t1__r3
+[141/342] topicmodels-gibbs__ap__k100__i100__t1__r1
+[142/342] topicmodels-gibbs__ap__k100__i100__t1__r2
+[143/342] topicmodels-gibbs__ap__k100__i100__t1__r3
+[144/342] lda__ap__k100__i100__t1__r1
+[145/342] lda__ap__k100__i100__t1__r2
+[146/342] lda__ap__k100__i100__t1__r3
+[147/342] mallet__ap__k100__i100__t1__r1
+[148/342] mallet__ap__k100__i100__t1__r2
+[149/342] mallet__ap__k100__i100__t1__r3
+[150/342] tomotopy__ap__k100__i100__t1__r1
+[151/342] tomotopy__ap__k100__i100__t1__r2
+[152/342] tomotopy__ap__k100__i100__t1__r3
+[153/342] skip (done) tidylda__ap__k100__i200__t1__r1
+[154/342] tidylda__ap__k100__i200__t1__r2
+[155/342] tidylda__ap__k100__i200__t1__r3
+[156/342] skip (done) text2vec__ap__k100__i200__t1__r1
+[157/342] text2vec__ap__k100__i200__t1__r2
+[158/342] text2vec__ap__k100__i200__t1__r3
+[159/342] skip (done) textmineR__ap__k100__i200__t1__r1
+[160/342] textmineR__ap__k100__i200__t1__r2
+[161/342] textmineR__ap__k100__i200__t1__r3
+[162/342] skip (done) topicmodels-gibbs__ap__k100__i200__t1__r1
+[163/342] topicmodels-gibbs__ap__k100__i200__t1__r2
+[164/342] topicmodels-gibbs__ap__k100__i200__t1__r3
+[165/342] skip (done) lda__ap__k100__i200__t1__r1
+[166/342] lda__ap__k100__i200__t1__r2
+[167/342] lda__ap__k100__i200__t1__r3
+[168/342] skip (done) mallet__ap__k100__i200__t1__r1
+[169/342] mallet__ap__k100__i200__t1__r2
+[170/342] mallet__ap__k100__i200__t1__r3
+[171/342] skip (done) tomotopy__ap__k100__i200__t1__r1
+[172/342] tomotopy__ap__k100__i200__t1__r2
+[173/342] tomotopy__ap__k100__i200__t1__r3
+[174/342] tidylda__ap__k100__i200__t2__r1
+[175/342] tidylda__ap__k100__i200__t2__r2
+[176/342] tidylda__ap__k100__i200__t2__r3
+[177/342] text2vec__ap__k100__i200__t2__r1
+[178/342] text2vec__ap__k100__i200__t2__r2
+[179/342] text2vec__ap__k100__i200__t2__r3
+[180/342] textmineR__ap__k100__i200__t2__r1
+[181/342] textmineR__ap__k100__i200__t2__r2
+[182/342] textmineR__ap__k100__i200__t2__r3
+[183/342] mallet__ap__k100__i200__t2__r1
+[184/342] mallet__ap__k100__i200__t2__r2
+[185/342] mallet__ap__k100__i200__t2__r3
+[186/342] tomotopy__ap__k100__i200__t2__r1
+[187/342] tomotopy__ap__k100__i200__t2__r2
+[188/342] tomotopy__ap__k100__i200__t2__r3
+[189/342] tidylda__ap__k100__i200__t4__r1
+[190/342] tidylda__ap__k100__i200__t4__r2
+[191/342] tidylda__ap__k100__i200__t4__r3
+[192/342] text2vec__ap__k100__i200__t4__r1
+[193/342] text2vec__ap__k100__i200__t4__r2
+[194/342] text2vec__ap__k100__i200__t4__r3
+[195/342] textmineR__ap__k100__i200__t4__r1
+[196/342] textmineR__ap__k100__i200__t4__r2
+[197/342] textmineR__ap__k100__i200__t4__r3
+[198/342] mallet__ap__k100__i200__t4__r1
+[199/342] mallet__ap__k100__i200__t4__r2
+[200/342] mallet__ap__k100__i200__t4__r3
+[201/342] tomotopy__ap__k100__i200__t4__r1
+[202/342] tomotopy__ap__k100__i200__t4__r2
+[203/342] tomotopy__ap__k100__i200__t4__r3
+[204/342] tidylda__ap__k100__i200__t8__r1
+[205/342] tidylda__ap__k100__i200__t8__r2
+[206/342] tidylda__ap__k100__i200__t8__r3
+[207/342] text2vec__ap__k100__i200__t8__r1
+[208/342] text2vec__ap__k100__i200__t8__r2
+[209/342] text2vec__ap__k100__i200__t8__r3
+[210/342] textmineR__ap__k100__i200__t8__r1
+[211/342] textmineR__ap__k100__i200__t8__r2
+[212/342] textmineR__ap__k100__i200__t8__r3
+[213/342] mallet__ap__k100__i200__t8__r1
+[214/342] mallet__ap__k100__i200__t8__r2
+[215/342] mallet__ap__k100__i200__t8__r3
+[216/342] tomotopy__ap__k100__i200__t8__r1
+[217/342] tomotopy__ap__k100__i200__t8__r2
+[218/342] tomotopy__ap__k100__i200__t8__r3
+[219/342] tidylda__ap__k100__i200__t12__r1
+[220/342] tidylda__ap__k100__i200__t12__r2
+[221/342] tidylda__ap__k100__i200__t12__r3
+[222/342] text2vec__ap__k100__i200__t12__r1
+[223/342] text2vec__ap__k100__i200__t12__r2
+[224/342] text2vec__ap__k100__i200__t12__r3
+[225/342] textmineR__ap__k100__i200__t12__r1
+[226/342] textmineR__ap__k100__i200__t12__r2
+[227/342] textmineR__ap__k100__i200__t12__r3
+[228/342] mallet__ap__k100__i200__t12__r1
+[229/342] mallet__ap__k100__i200__t12__r2
+[230/342] mallet__ap__k100__i200__t12__r3
+[231/342] tomotopy__ap__k100__i200__t12__r1
+[232/342] tomotopy__ap__k100__i200__t12__r2
+[233/342] tomotopy__ap__k100__i200__t12__r3
+[234/342] tidylda__ap__k100__i500__t1__r1
+[235/342] tidylda__ap__k100__i500__t1__r2
+[236/342] tidylda__ap__k100__i500__t1__r3
+[237/342] text2vec__ap__k100__i500__t1__r1
+[238/342] text2vec__ap__k100__i500__t1__r2
+[239/342] text2vec__ap__k100__i500__t1__r3
+[240/342] textmineR__ap__k100__i500__t1__r1
+[241/342] textmineR__ap__k100__i500__t1__r2
+[242/342] textmineR__ap__k100__i500__t1__r3
+[243/342] topicmodels-gibbs__ap__k100__i500__t1__r1
+[244/342] topicmodels-gibbs__ap__k100__i500__t1__r2
+[245/342] topicmodels-gibbs__ap__k100__i500__t1__r3
+[246/342] lda__ap__k100__i500__t1__r1
+[247/342] lda__ap__k100__i500__t1__r2
+[248/342] lda__ap__k100__i500__t1__r3
+[249/342] mallet__ap__k100__i500__t1__r1
+[250/342] mallet__ap__k100__i500__t1__r2
+[251/342] mallet__ap__k100__i500__t1__r3
+[252/342] tomotopy__ap__k100__i500__t1__r1
+[253/342] tomotopy__ap__k100__i500__t1__r2
+[254/342] tomotopy__ap__k100__i500__t1__r3
+[255/342] topicmodels-vem__ap__k200__i10__t1__r1
+[256/342] gensim__ap__k200__i10__t1__r1
+[257/342] sklearn__ap__k200__i10__t1__r1
+[258/342] tidylda__ap__k200__i200__t1__r1
+[259/342] text2vec__ap__k200__i200__t1__r1
+[260/342] textmineR__ap__k200__i200__t1__r1
+[261/342] topicmodels-gibbs__ap__k200__i200__t1__r1
+[262/342] lda__ap__k200__i200__t1__r1
+[263/342] mallet__ap__k200__i200__t1__r1
+[264/342] tomotopy__ap__k200__i200__t1__r1
+[265/342] topicmodels-vem__20ng__k100__i1__t1__r1
+grid: 342 runs
+[1/342] skip (done) topicmodels-vem__ap__k25__i10__t1__r1
+[2/342] skip (done) gensim__ap__k25__i10__t1__r1
+[3/342] skip (done) sklearn__ap__k25__i10__t1__r1
+[4/342] skip (done) tidylda__ap__k25__i200__t1__r1
+[5/342] skip (done) text2vec__ap__k25__i200__t1__r1
+[6/342] skip (done) textmineR__ap__k25__i200__t1__r1
+[7/342] skip (done) topicmodels-gibbs__ap__k25__i200__t1__r1
+[8/342] skip (done) lda__ap__k25__i200__t1__r1
+[9/342] skip (done) mallet__ap__k25__i200__t1__r1
+[10/342] skip (done) tomotopy__ap__k25__i200__t1__r1
+[11/342] skip (done) topicmodels-vem__ap__k50__i10__t1__r1
+[12/342] skip (done) gensim__ap__k50__i10__t1__r1
+[13/342] skip (done) sklearn__ap__k50__i10__t1__r1
+[14/342] skip (done) tidylda__ap__k50__i200__t1__r1
+[15/342] skip (done) text2vec__ap__k50__i200__t1__r1
+[16/342] skip (done) textmineR__ap__k50__i200__t1__r1
+[17/342] skip (done) topicmodels-gibbs__ap__k50__i200__t1__r1
+[18/342] skip (done) lda__ap__k50__i200__t1__r1
+[19/342] skip (done) mallet__ap__k50__i200__t1__r1
+[20/342] skip (done) tomotopy__ap__k50__i200__t1__r1
+[21/342] skip (done) topicmodels-vem__ap__k100__i1__t1__r1
+[22/342] skip (done) topicmodels-vem__ap__k100__i1__t1__r2
+[23/342] skip (done) topicmodels-vem__ap__k100__i1__t1__r3
+[24/342] skip (done) gensim__ap__k100__i1__t1__r1
+[25/342] skip (done) gensim__ap__k100__i1__t1__r2
+[26/342] skip (done) gensim__ap__k100__i1__t1__r3
+[27/342] skip (done) sklearn__ap__k100__i1__t1__r1
+[28/342] skip (done) sklearn__ap__k100__i1__t1__r2
+[29/342] skip (done) sklearn__ap__k100__i1__t1__r3
+[30/342] skip (done) topicmodels-vem__ap__k100__i2__t1__r1
+[31/342] skip (done) topicmodels-vem__ap__k100__i2__t1__r2
+[32/342] skip (done) topicmodels-vem__ap__k100__i2__t1__r3
+[33/342] skip (done) gensim__ap__k100__i2__t1__r1
+[34/342] skip (done) gensim__ap__k100__i2__t1__r2
+[35/342] skip (done) gensim__ap__k100__i2__t1__r3
+[36/342] skip (done) sklearn__ap__k100__i2__t1__r1
+[37/342] skip (done) sklearn__ap__k100__i2__t1__r2
+[38/342] skip (done) sklearn__ap__k100__i2__t1__r3
+[39/342] skip (done) topicmodels-vem__ap__k100__i5__t1__r1
+[40/342] skip (done) topicmodels-vem__ap__k100__i5__t1__r2
+[41/342] skip (done) topicmodels-vem__ap__k100__i5__t1__r3
+[42/342] skip (done) gensim__ap__k100__i5__t1__r1
+[43/342] skip (done) gensim__ap__k100__i5__t1__r2
+[44/342] skip (done) gensim__ap__k100__i5__t1__r3
+[45/342] skip (done) sklearn__ap__k100__i5__t1__r1
+[46/342] skip (done) sklearn__ap__k100__i5__t1__r2
+[47/342] skip (done) sklearn__ap__k100__i5__t1__r3
+[48/342] skip (done) topicmodels-vem__ap__k100__i10__t1__r1
+[49/342] skip (done) topicmodels-vem__ap__k100__i10__t1__r2
+[50/342] skip (done) topicmodels-vem__ap__k100__i10__t1__r3
+[51/342] skip (done) gensim__ap__k100__i10__t1__r1
+[52/342] skip (done) gensim__ap__k100__i10__t1__r2
+[53/342] skip (done) gensim__ap__k100__i10__t1__r3
+[54/342] skip (done) sklearn__ap__k100__i10__t1__r1
+[55/342] skip (done) sklearn__ap__k100__i10__t1__r2
+[56/342] skip (done) sklearn__ap__k100__i10__t1__r3
+[57/342] skip (done) gensim__ap__k100__i10__t2__r1
+[58/342] skip (done) gensim__ap__k100__i10__t2__r2
+[59/342] skip (done) gensim__ap__k100__i10__t2__r3
+[60/342] skip (done) sklearn__ap__k100__i10__t2__r1
+[61/342] skip (done) sklearn__ap__k100__i10__t2__r2
+[62/342] skip (done) sklearn__ap__k100__i10__t2__r3
+[63/342] skip (done) gensim__ap__k100__i10__t4__r1
+[64/342] skip (done) gensim__ap__k100__i10__t4__r2
+[65/342] skip (done) gensim__ap__k100__i10__t4__r3
+[66/342] skip (done) sklearn__ap__k100__i10__t4__r1
+[67/342] skip (done) sklearn__ap__k100__i10__t4__r2
+[68/342] skip (done) sklearn__ap__k100__i10__t4__r3
+[69/342] skip (done) gensim__ap__k100__i10__t8__r1
+[70/342] skip (done) gensim__ap__k100__i10__t8__r2
+[71/342] skip (done) gensim__ap__k100__i10__t8__r3
+[72/342] skip (done) sklearn__ap__k100__i10__t8__r1
+[73/342] skip (done) sklearn__ap__k100__i10__t8__r2
+[74/342] skip (done) sklearn__ap__k100__i10__t8__r3
+[75/342] skip (done) gensim__ap__k100__i10__t12__r1
+[76/342] skip (done) gensim__ap__k100__i10__t12__r2
+[77/342] skip (done) gensim__ap__k100__i10__t12__r3
+[78/342] skip (done) sklearn__ap__k100__i10__t12__r1
+[79/342] skip (done) sklearn__ap__k100__i10__t12__r2
+[80/342] skip (done) sklearn__ap__k100__i10__t12__r3
+[81/342] skip (done) tidylda__ap__k100__i20__t1__r1
+[82/342] skip (done) tidylda__ap__k100__i20__t1__r2
+[83/342] skip (done) tidylda__ap__k100__i20__t1__r3
+[84/342] skip (done) text2vec__ap__k100__i20__t1__r1
+[85/342] skip (done) text2vec__ap__k100__i20__t1__r2
+[86/342] skip (done) text2vec__ap__k100__i20__t1__r3
+[87/342] skip (done) textmineR__ap__k100__i20__t1__r1
+[88/342] skip (done) textmineR__ap__k100__i20__t1__r2
+[89/342] skip (done) textmineR__ap__k100__i20__t1__r3
+[90/342] skip (done) topicmodels-gibbs__ap__k100__i20__t1__r1
+[91/342] skip (done) topicmodels-gibbs__ap__k100__i20__t1__r2
+[92/342] skip (done) topicmodels-gibbs__ap__k100__i20__t1__r3
+[93/342] skip (done) lda__ap__k100__i20__t1__r1
+[94/342] skip (done) lda__ap__k100__i20__t1__r2
+[95/342] skip (done) lda__ap__k100__i20__t1__r3
+[96/342] skip (done) mallet__ap__k100__i20__t1__r1
+[97/342] skip (done) mallet__ap__k100__i20__t1__r2
+[98/342] skip (done) mallet__ap__k100__i20__t1__r3
+[99/342] skip (done) tomotopy__ap__k100__i20__t1__r1
+[100/342] skip (done) tomotopy__ap__k100__i20__t1__r2
+[101/342] skip (done) tomotopy__ap__k100__i20__t1__r3
+[102/342] skip (done) topicmodels-vem__ap__k100__i25__t1__r1
+[103/342] skip (done) topicmodels-vem__ap__k100__i25__t1__r2
+[104/342] skip (done) topicmodels-vem__ap__k100__i25__t1__r3
+[105/342] skip (done) gensim__ap__k100__i25__t1__r1
+[106/342] skip (done) gensim__ap__k100__i25__t1__r2
+[107/342] skip (done) gensim__ap__k100__i25__t1__r3
+[108/342] skip (done) sklearn__ap__k100__i25__t1__r1
+[109/342] skip (done) sklearn__ap__k100__i25__t1__r2
+[110/342] skip (done) sklearn__ap__k100__i25__t1__r3
+[111/342] skip (done) tidylda__ap__k100__i50__t1__r1
+[112/342] skip (done) tidylda__ap__k100__i50__t1__r2
+[113/342] skip (done) tidylda__ap__k100__i50__t1__r3
+[114/342] skip (done) text2vec__ap__k100__i50__t1__r1
+[115/342] skip (done) text2vec__ap__k100__i50__t1__r2
+[116/342] skip (done) text2vec__ap__k100__i50__t1__r3
+[117/342] skip (done) textmineR__ap__k100__i50__t1__r1
+[118/342] skip (done) textmineR__ap__k100__i50__t1__r2
+[119/342] skip (done) textmineR__ap__k100__i50__t1__r3
+[120/342] skip (done) topicmodels-gibbs__ap__k100__i50__t1__r1
+[121/342] skip (done) topicmodels-gibbs__ap__k100__i50__t1__r2
+[122/342] skip (done) topicmodels-gibbs__ap__k100__i50__t1__r3
+[123/342] skip (done) lda__ap__k100__i50__t1__r1
+[124/342] skip (done) lda__ap__k100__i50__t1__r2
+[125/342] skip (done) lda__ap__k100__i50__t1__r3
+[126/342] skip (done) mallet__ap__k100__i50__t1__r1
+[127/342] skip (done) mallet__ap__k100__i50__t1__r2
+[128/342] skip (done) mallet__ap__k100__i50__t1__r3
+[129/342] skip (done) tomotopy__ap__k100__i50__t1__r1
+[130/342] skip (done) tomotopy__ap__k100__i50__t1__r2
+[131/342] skip (done) tomotopy__ap__k100__i50__t1__r3
+[132/342] skip (done) tidylda__ap__k100__i100__t1__r1
+[133/342] skip (done) tidylda__ap__k100__i100__t1__r2
+[134/342] skip (done) tidylda__ap__k100__i100__t1__r3
+[135/342] skip (done) text2vec__ap__k100__i100__t1__r1
+[136/342] skip (done) text2vec__ap__k100__i100__t1__r2
+[137/342] skip (done) text2vec__ap__k100__i100__t1__r3
+[138/342] skip (done) textmineR__ap__k100__i100__t1__r1
+[139/342] skip (done) textmineR__ap__k100__i100__t1__r2
+[140/342] skip (done) textmineR__ap__k100__i100__t1__r3
+[141/342] skip (done) topicmodels-gibbs__ap__k100__i100__t1__r1
+[142/342] skip (done) topicmodels-gibbs__ap__k100__i100__t1__r2
+[143/342] skip (done) topicmodels-gibbs__ap__k100__i100__t1__r3
+[144/342] skip (done) lda__ap__k100__i100__t1__r1
+[145/342] skip (done) lda__ap__k100__i100__t1__r2
+[146/342] skip (done) lda__ap__k100__i100__t1__r3
+[147/342] skip (done) mallet__ap__k100__i100__t1__r1
+[148/342] skip (done) mallet__ap__k100__i100__t1__r2
+[149/342] skip (done) mallet__ap__k100__i100__t1__r3
+[150/342] skip (done) tomotopy__ap__k100__i100__t1__r1
+[151/342] skip (done) tomotopy__ap__k100__i100__t1__r2
+[152/342] skip (done) tomotopy__ap__k100__i100__t1__r3
+[153/342] skip (done) tidylda__ap__k100__i200__t1__r1
+[154/342] skip (done) tidylda__ap__k100__i200__t1__r2
+[155/342] skip (done) tidylda__ap__k100__i200__t1__r3
+[156/342] skip (done) text2vec__ap__k100__i200__t1__r1
+[157/342] skip (done) text2vec__ap__k100__i200__t1__r2
+[158/342] skip (done) text2vec__ap__k100__i200__t1__r3
+[159/342] skip (done) textmineR__ap__k100__i200__t1__r1
+[160/342] skip (done) textmineR__ap__k100__i200__t1__r2
+[161/342] skip (done) textmineR__ap__k100__i200__t1__r3
+[162/342] skip (done) topicmodels-gibbs__ap__k100__i200__t1__r1
+[163/342] skip (done) topicmodels-gibbs__ap__k100__i200__t1__r2
+[164/342] skip (done) topicmodels-gibbs__ap__k100__i200__t1__r3
+[165/342] skip (done) lda__ap__k100__i200__t1__r1
+[166/342] skip (done) lda__ap__k100__i200__t1__r2
+[167/342] skip (done) lda__ap__k100__i200__t1__r3
+[168/342] skip (done) mallet__ap__k100__i200__t1__r1
+[169/342] skip (done) mallet__ap__k100__i200__t1__r2
+[170/342] skip (done) mallet__ap__k100__i200__t1__r3
+[171/342] skip (done) tomotopy__ap__k100__i200__t1__r1
+[172/342] skip (done) tomotopy__ap__k100__i200__t1__r2
+[173/342] skip (done) tomotopy__ap__k100__i200__t1__r3
+[174/342] skip (done) tidylda__ap__k100__i200__t2__r1
+[175/342] skip (done) tidylda__ap__k100__i200__t2__r2
+[176/342] skip (done) tidylda__ap__k100__i200__t2__r3
+[177/342] skip (done) text2vec__ap__k100__i200__t2__r1
+[178/342] skip (done) text2vec__ap__k100__i200__t2__r2
+[179/342] skip (done) text2vec__ap__k100__i200__t2__r3
+[180/342] skip (done) textmineR__ap__k100__i200__t2__r1
+[181/342] skip (done) textmineR__ap__k100__i200__t2__r2
+[182/342] skip (done) textmineR__ap__k100__i200__t2__r3
+[183/342] skip (done) mallet__ap__k100__i200__t2__r1
+[184/342] skip (done) mallet__ap__k100__i200__t2__r2
+[185/342] skip (done) mallet__ap__k100__i200__t2__r3
+[186/342] skip (done) tomotopy__ap__k100__i200__t2__r1
+[187/342] skip (done) tomotopy__ap__k100__i200__t2__r2
+[188/342] skip (done) tomotopy__ap__k100__i200__t2__r3
+[189/342] skip (done) tidylda__ap__k100__i200__t4__r1
+[190/342] skip (done) tidylda__ap__k100__i200__t4__r2
+[191/342] skip (done) tidylda__ap__k100__i200__t4__r3
+[192/342] skip (done) text2vec__ap__k100__i200__t4__r1
+[193/342] skip (done) text2vec__ap__k100__i200__t4__r2
+[194/342] skip (done) text2vec__ap__k100__i200__t4__r3
+[195/342] skip (done) textmineR__ap__k100__i200__t4__r1
+[196/342] skip (done) textmineR__ap__k100__i200__t4__r2
+[197/342] skip (done) textmineR__ap__k100__i200__t4__r3
+[198/342] skip (done) mallet__ap__k100__i200__t4__r1
+[199/342] skip (done) mallet__ap__k100__i200__t4__r2
+[200/342] skip (done) mallet__ap__k100__i200__t4__r3
+[201/342] skip (done) tomotopy__ap__k100__i200__t4__r1
+[202/342] skip (done) tomotopy__ap__k100__i200__t4__r2
+[203/342] skip (done) tomotopy__ap__k100__i200__t4__r3
+[204/342] skip (done) tidylda__ap__k100__i200__t8__r1
+[205/342] skip (done) tidylda__ap__k100__i200__t8__r2
+[206/342] skip (done) tidylda__ap__k100__i200__t8__r3
+[207/342] skip (done) text2vec__ap__k100__i200__t8__r1
+[208/342] skip (done) text2vec__ap__k100__i200__t8__r2
+[209/342] skip (done) text2vec__ap__k100__i200__t8__r3
+[210/342] skip (done) textmineR__ap__k100__i200__t8__r1
+[211/342] skip (done) textmineR__ap__k100__i200__t8__r2
+[212/342] skip (done) textmineR__ap__k100__i200__t8__r3
+[213/342] skip (done) mallet__ap__k100__i200__t8__r1
+[214/342] skip (done) mallet__ap__k100__i200__t8__r2
+[215/342] skip (done) mallet__ap__k100__i200__t8__r3
+[216/342] skip (done) tomotopy__ap__k100__i200__t8__r1
+[217/342] skip (done) tomotopy__ap__k100__i200__t8__r2
+[218/342] skip (done) tomotopy__ap__k100__i200__t8__r3
+[219/342] skip (done) tidylda__ap__k100__i200__t12__r1
+[220/342] skip (done) tidylda__ap__k100__i200__t12__r2
+[221/342] skip (done) tidylda__ap__k100__i200__t12__r3
+[222/342] skip (done) text2vec__ap__k100__i200__t12__r1
+[223/342] skip (done) text2vec__ap__k100__i200__t12__r2
+[224/342] skip (done) text2vec__ap__k100__i200__t12__r3
+[225/342] skip (done) textmineR__ap__k100__i200__t12__r1
+[226/342] skip (done) textmineR__ap__k100__i200__t12__r2
+[227/342] skip (done) textmineR__ap__k100__i200__t12__r3
+[228/342] skip (done) mallet__ap__k100__i200__t12__r1
+[229/342] skip (done) mallet__ap__k100__i200__t12__r2
+[230/342] skip (done) mallet__ap__k100__i200__t12__r3
+[231/342] skip (done) tomotopy__ap__k100__i200__t12__r1
+[232/342] skip (done) tomotopy__ap__k100__i200__t12__r2
+[233/342] skip (done) tomotopy__ap__k100__i200__t12__r3
+[234/342] skip (done) tidylda__ap__k100__i500__t1__r1
+[235/342] skip (done) tidylda__ap__k100__i500__t1__r2
+[236/342] skip (done) tidylda__ap__k100__i500__t1__r3
+[237/342] skip (done) text2vec__ap__k100__i500__t1__r1
+[238/342] skip (done) text2vec__ap__k100__i500__t1__r2
+[239/342] skip (done) text2vec__ap__k100__i500__t1__r3
+[240/342] skip (done) textmineR__ap__k100__i500__t1__r1
+[241/342] skip (done) textmineR__ap__k100__i500__t1__r2
+[242/342] skip (done) textmineR__ap__k100__i500__t1__r3
+[243/342] skip (done) topicmodels-gibbs__ap__k100__i500__t1__r1
+[244/342] skip (done) topicmodels-gibbs__ap__k100__i500__t1__r2
+[245/342] skip (done) topicmodels-gibbs__ap__k100__i500__t1__r3
+[246/342] skip (done) lda__ap__k100__i500__t1__r1
+[247/342] skip (done) lda__ap__k100__i500__t1__r2
+[248/342] skip (done) lda__ap__k100__i500__t1__r3
+[249/342] skip (done) mallet__ap__k100__i500__t1__r1
+[250/342] skip (done) mallet__ap__k100__i500__t1__r2
+[251/342] skip (done) mallet__ap__k100__i500__t1__r3
+[252/342] skip (done) tomotopy__ap__k100__i500__t1__r1
+[253/342] skip (done) tomotopy__ap__k100__i500__t1__r2
+[254/342] skip (done) tomotopy__ap__k100__i500__t1__r3
+[255/342] skip (done) topicmodels-vem__ap__k200__i10__t1__r1
+[256/342] skip (done) gensim__ap__k200__i10__t1__r1
+[257/342] skip (done) sklearn__ap__k200__i10__t1__r1
+[258/342] skip (done) tidylda__ap__k200__i200__t1__r1
+[259/342] skip (done) text2vec__ap__k200__i200__t1__r1
+[260/342] skip (done) textmineR__ap__k200__i200__t1__r1
+[261/342] skip (done) topicmodels-gibbs__ap__k200__i200__t1__r1
+[262/342] skip (done) lda__ap__k200__i200__t1__r1
+[263/342] skip (done) mallet__ap__k200__i200__t1__r1
+[264/342] skip (done) tomotopy__ap__k200__i200__t1__r1
+[265/342] topicmodels-vem__20ng__k100__i1__t1__r1
+[266/342] gensim__20ng__k100__i1__t1__r1
+[267/342] sklearn__20ng__k100__i1__t1__r1
+[268/342] topicmodels-vem__20ng__k100__i2__t1__r1
+[269/342] gensim__20ng__k100__i2__t1__r1
+[270/342] sklearn__20ng__k100__i2__t1__r1
+[271/342] topicmodels-vem__20ng__k100__i5__t1__r1
+[272/342] gensim__20ng__k100__i5__t1__r1
+[273/342] sklearn__20ng__k100__i5__t1__r1
+[274/342] topicmodels-vem__20ng__k100__i10__t1__r1
+[275/342] gensim__20ng__k100__i10__t1__r1
+[276/342] sklearn__20ng__k100__i10__t1__r1
+[277/342] gensim__20ng__k100__i10__t2__r1
+[278/342] sklearn__20ng__k100__i10__t2__r1
+[279/342] gensim__20ng__k100__i10__t4__r1
+[280/342] sklearn__20ng__k100__i10__t4__r1
+[281/342] gensim__20ng__k100__i10__t8__r1
+[282/342] sklearn__20ng__k100__i10__t8__r1
+[283/342] gensim__20ng__k100__i10__t12__r1
+[284/342] sklearn__20ng__k100__i10__t12__r1
+[285/342] tidylda__20ng__k100__i20__t1__r1
+[286/342] text2vec__20ng__k100__i20__t1__r1
+[287/342] textmineR__20ng__k100__i20__t1__r1
+[288/342] topicmodels-gibbs__20ng__k100__i20__t1__r1
+[289/342] lda__20ng__k100__i20__t1__r1
+[290/342] mallet__20ng__k100__i20__t1__r1
+[291/342] tomotopy__20ng__k100__i20__t1__r1
+[292/342] topicmodels-vem__20ng__k100__i25__t1__r1
+[293/342] gensim__20ng__k100__i25__t1__r1
+[294/342] sklearn__20ng__k100__i25__t1__r1
+[295/342] tidylda__20ng__k100__i50__t1__r1
+[296/342] text2vec__20ng__k100__i50__t1__r1
+[297/342] textmineR__20ng__k100__i50__t1__r1
+[298/342] topicmodels-gibbs__20ng__k100__i50__t1__r1
+[299/342] lda__20ng__k100__i50__t1__r1
+[300/342] mallet__20ng__k100__i50__t1__r1
+[301/342] tomotopy__20ng__k100__i50__t1__r1
+[302/342] tidylda__20ng__k100__i100__t1__r1
+[303/342] text2vec__20ng__k100__i100__t1__r1
+[304/342] textmineR__20ng__k100__i100__t1__r1
+[305/342] topicmodels-gibbs__20ng__k100__i100__t1__r1
+[306/342] lda__20ng__k100__i100__t1__r1
+[307/342] mallet__20ng__k100__i100__t1__r1
+[308/342] tomotopy__20ng__k100__i100__t1__r1
+[309/342] tidylda__20ng__k100__i200__t1__r1
+[310/342] text2vec__20ng__k100__i200__t1__r1
+[311/342] textmineR__20ng__k100__i200__t1__r1
+[312/342] topicmodels-gibbs__20ng__k100__i200__t1__r1
+[313/342] lda__20ng__k100__i200__t1__r1
+[314/342] mallet__20ng__k100__i200__t1__r1
+[315/342] tomotopy__20ng__k100__i200__t1__r1
+[316/342] tidylda__20ng__k100__i200__t2__r1
+[317/342] text2vec__20ng__k100__i200__t2__r1
+[318/342] textmineR__20ng__k100__i200__t2__r1
+[319/342] mallet__20ng__k100__i200__t2__r1
+[320/342] tomotopy__20ng__k100__i200__t2__r1
+[321/342] tidylda__20ng__k100__i200__t4__r1
+[322/342] text2vec__20ng__k100__i200__t4__r1
+[323/342] textmineR__20ng__k100__i200__t4__r1
+[324/342] mallet__20ng__k100__i200__t4__r1
+[325/342] tomotopy__20ng__k100__i200__t4__r1
+[326/342] tidylda__20ng__k100__i200__t8__r1
+[327/342] text2vec__20ng__k100__i200__t8__r1
+[328/342] textmineR__20ng__k100__i200__t8__r1
+[329/342] mallet__20ng__k100__i200__t8__r1
+[330/342] tomotopy__20ng__k100__i200__t8__r1
+[331/342] tidylda__20ng__k100__i200__t12__r1
+[332/342] text2vec__20ng__k100__i200__t12__r1
+[333/342] textmineR__20ng__k100__i200__t12__r1
+[334/342] mallet__20ng__k100__i200__t12__r1
+[335/342] tomotopy__20ng__k100__i200__t12__r1
+[336/342] tidylda__20ng__k100__i500__t1__r1
+[337/342] text2vec__20ng__k100__i500__t1__r1
+[338/342] textmineR__20ng__k100__i500__t1__r1
+[339/342] topicmodels-gibbs__20ng__k100__i500__t1__r1
+[340/342] lda__20ng__k100__i500__t1__r1
+[341/342] mallet__20ng__k100__i500__t1__r1
+[342/342] tomotopy__20ng__k100__i500__t1__r1
+
+all runs completed

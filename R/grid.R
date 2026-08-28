@@ -4,8 +4,12 @@
 # than one core at all -- the thread-scaling sweep only covers those.
 ENGINES <- list(
   tidylda           = list(kind = "R",      script = "runners/r/fit-tidylda.R",           family = "WarpLDA",   parallel = TRUE),
-  text2vec          = list(kind = "R",      script = "runners/r/fit-text2vec.R",          family = "WarpLDA",   parallel = TRUE),
-  textmineR         = list(kind = "R",      script = "runners/r/fit-textminer.R",         family = "Gibbs",     parallel = TRUE),
+  # text2vec and textmineR are single threaded: text2vec's warpLDA has no
+  # OpenMP anywhere in src/mcemlda/, and textmineR 3.0.6's FitLdaModel has no
+  # threading argument at all. Both were measured flat across the sweep before
+  # being marked here.
+  text2vec          = list(kind = "R",      script = "runners/r/fit-text2vec.R",          family = "WarpLDA",   parallel = FALSE),
+  textmineR         = list(kind = "R",      script = "runners/r/fit-textminer.R",         family = "Gibbs",     parallel = FALSE),
   `topicmodels-gibbs` = list(kind = "R",    script = "runners/r/fit-topicmodels-gibbs.R", family = "Gibbs",     parallel = FALSE),
   `topicmodels-vem` = list(kind = "R",      script = "runners/r/fit-topicmodels-vem.R",   family = "Variational", parallel = FALSE),
   lda               = list(kind = "R",      script = "runners/r/fit-lda.R",               family = "Gibbs",     parallel = FALSE),

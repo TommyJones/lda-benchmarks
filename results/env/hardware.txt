@@ -1,7 +1,7 @@
 cores: 24
 R: R version 4.6.0 (2026-04-24)
                total        used        free      shared  buff/cache   available
-Mem:           125Gi        52Gi        14Gi        23Mi        59Gi        72Gi
+Mem:           125Gi        53Gi        21Gi        18Mi        52Gi        72Gi
 Model name:                              Intel(R) Core(TM) i9-10920X CPU @ 3.50GHz
 Thread(s) per core:                      2
 Core(s) per socket:                      12
