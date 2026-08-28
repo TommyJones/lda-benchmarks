@@ -12,3 +12,7 @@ scripts/04-report.html
 # are candid editorial deliberation -- including how to frame competitors'
 # numbers. Delete this line to publish it along with everything else.
 linkedin-draft.md
+
+# Build/run transcripts: noisy, machine-specific, and superseded by
+# results/env/{sessionInfo,hardware,pip-freeze,tidylda-provenance}.txt
+results/env/*.log

@@ -5,6 +5,7 @@
 #   make smoke     one cheap run per engine -- do this before `make run`
 #   make run       the full grid (hours)
 #   make score     compute R^2 and coherence -> results/runs.csv
+#   make figures   render the README's charts -> results/figures/
 #   make report    render the HTML writeup
 #
 # Everything is resumable: `make run` skips runs that already completed.
@@ -13,9 +14,9 @@ SHELL := /bin/bash
 ROOT := $(shell pwd)
 R := LDA_BENCH_ROOT=$(ROOT) Rscript
 
-.PHONY: all setup corpora smoke run score report env clean-runs
+.PHONY: all setup corpora smoke run score figures report env clean-runs
 
-all: corpora run score report
+all: corpora run score figures report
 
 setup:
 	bash setup/install-gsl.sh
@@ -35,6 +36,9 @@ run:
 
 score:
 	$(R) scripts/03-score.R
+
+figures:
+	$(R) scripts/05-figures.R
 
 report:
 	$(R) -e 'rmarkdown::render("scripts/04-report.Rmd", output_dir = "results")'
