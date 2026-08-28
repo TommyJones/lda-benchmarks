@@ -7,3 +7,8 @@ results/raw/
 *.Rproj.user
 .Rhistory
 scripts/04-report.html
+
+# Unpublished draft. This repo is public and the draft's "notes before posting"
+# are candid editorial deliberation -- including how to frame competitors'
+# numbers. Delete this line to publish it along with everything else.
+linkedin-draft.md
