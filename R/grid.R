@@ -16,7 +16,8 @@ ENGINES <- list(
   mallet            = list(kind = "shell",  script = "runners/mallet/fit-mallet.sh",      family = "Gibbs",     parallel = TRUE),
   gensim            = list(kind = "python", script = "runners/py/fit-gensim.py",          family = "Variational", parallel = TRUE),
   sklearn           = list(kind = "python", script = "runners/py/fit-sklearn.py",         family = "Variational", parallel = TRUE),
-  tomotopy          = list(kind = "python", script = "runners/py/fit-tomotopy.py",        family = "Gibbs",     parallel = TRUE)
+  tomotopy          = list(kind = "python", script = "runners/py/fit-tomotopy.py",        family = "Gibbs",     parallel = TRUE),
+  pylda             = list(kind = "python", script = "runners/py/fit-pylda.py",           family = "Gibbs",     parallel = FALSE)
 )
 
 # Iteration ladders. A Gibbs/MH sweep and a variational pass are different units
