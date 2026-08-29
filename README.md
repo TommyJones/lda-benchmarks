@@ -1,11 +1,11 @@
 # LDA implementations in R and Python: a bake-off
 
-Ten LDA implementations across R, Python and Java, fit on identical document-term matrices
+Eleven LDA implementations across R, Python and Java, fit on identical document-term matrices
 with identical hyperparameters, and scored by one common code path. Built to find out where
 [tidylda](https://cran.r-project.org/package=tidylda) actually stands in the ecosystem.
 
 Blog-post rigor, not paper rigor: one machine, three replicates where the corpus is cheap
-enough, no statistical testing. 342 runs, zero failures. Every number below is in
+enough, no statistical testing. 365 runs, zero failures. Every number below is in
 [`results/runs.csv`](results/runs.csv).
 
 > **Correction, 2026-08-28.** The first published version of these results measured an
@@ -60,6 +60,7 @@ package supports:
 | text2vec | R | 45.0 s | 12 |
 | gensim | Python | 59.1 s | 8 |
 | lda | R | 59.2 s | 1 |
+| pylda | Python | 235 s | 1 |
 | topicmodels-gibbs | R | 271 s | 1 |
 | topicmodels-vem | R | 955 s | 1 |
 | textmineR | R | 1660 s | 12 |
@@ -113,6 +114,7 @@ At the top of each ladder (20 Newsgroups, k = 100, single threaded):
 | textmineR | 500 | 4144 s | 394 MB | 0.553 | 0.1616 |
 | topicmodels-gibbs | 500 | 671 s | 26318 MB | 0.542 | 0.1599 |
 | topicmodels-vem | 25 | 2030 s | 23728 MB | 0.550 | 0.1594 |
+| pylda | 500 | 585 s | 179 MB | 0.552 | 0.1591 |
 | text2vec | 500 | 109 s | 400 MB | 0.542 | 0.1590 |
 | mallet | 500 | 90 s | 1340 MB | 0.544 | 0.1572 |
 | tidylda | 500 | 49 s | 476 MB | 0.546 | 0.1517 |
@@ -120,8 +122,17 @@ At the top of each ladder (20 Newsgroups, k = 100, single threaded):
 | sklearn | 25 | 177 s | 265 MB | 0.537 | 0.1236 |
 | gensim | 25 | 198 s | 244 MB | 0.481 | 0.1077 |
 
-R² lands in a tight band for everything except gensim and `lda`. Coherence spreads a little
-wider, with tomotopy ahead on both corpora and the variational engines trailing.
+R² lands in a tight band for everything except gensim and R's `lda`. Coherence spreads a
+little wider, with tomotopy ahead on both corpora and the variational engines trailing.
+
+**The two `lda` packages are worth reading against each other.** R's `lda` (Chang, in C) and
+Python's `pylda` (Riddell, in Cython) implement the same collapsed Gibbs sampler, so the pair
+isolates the binding rather than the algorithm. Python's is **3.9× slower** on 20 Newsgroups
+(585s vs 149s at 500 iterations) and 4.1× slower on AP, but reaches noticeably better
+quality — coherence 0.1591 vs 0.1504 and R² 0.552 vs 0.503 on 20NG, with the same pattern on
+AP. Same algorithm and same hyperparameters, so the quality gap points to a difference in
+initialization or in how each draws its chain, not to one being a better model. It is the
+cleanest same-algorithm comparison in the set and it is not a wash in either direction.
 
 ### Memory
 
@@ -146,6 +157,7 @@ topicmodels is the outlier by an order of magnitude, at 26 GB on 20 Newsgroups.
 | gensim | Python | online variational Bayes | `workers` |
 | scikit-learn | Python | online variational Bayes | `n_jobs` |
 | tomotopy | Python | collapsed Gibbs | `workers` |
+| pylda (Riddell) | Python | collapsed Gibbs | single threaded |
 
 The inclusion criterion is *popular and easy to use from R or Python*. Faster implementations
 exist — the reference WarpLDA code beats everything here — but they are not something you can
@@ -182,7 +194,7 @@ Both are in-sample, computed on the training DTM. That is how tidylda reports th
 every engine's hyperparameter optimizer explicitly disabled — verified per engine, not assumed:
 `optimize_alpha = FALSE` (textmineR), `estimate.alpha = FALSE` (topicmodels-VEM),
 `--optimize-interval 0` (MALLET), `optim_interval = 0` (tomotopy, whose default is 10), fixed
-prior arrays for gensim and scikit-learn, and no optimizer at all in `lda`, text2vec or tidylda. Where a package has a different
+prior arrays for gensim and scikit-learn, and no optimizer at all in `lda`, `pylda`, text2vec or tidylda. Where a package has a different
 convention the runner converts: MALLET's `--alpha` is the sum over topics, so it gets `k * 0.1`.
 
 **The iteration axis is not comparable across engines, and one case is worse than it looks.**
