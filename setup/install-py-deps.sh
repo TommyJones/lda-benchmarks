@@ -17,14 +17,16 @@ fi
   "scipy" \
   "scikit-learn" \
   "gensim" \
-  "tomotopy"
+  "tomotopy" \
+  "lda"
 
 "$VENV/bin/python" -c "
-import gensim, sklearn, tomotopy, numpy, scipy
+import gensim, sklearn, tomotopy, numpy, scipy, lda
 print('gensim', gensim.__version__)
 print('sklearn', sklearn.__version__)
 print('tomotopy', tomotopy.__version__)
 print('numpy', numpy.__version__)
 print('scipy', scipy.__version__)
+print('lda', lda.__version__)
 "
 echo "python deps OK"
