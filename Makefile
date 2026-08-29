@@ -21,6 +21,7 @@ all: corpora run score figures report
 setup:
 	bash setup/install-gsl.sh
 	bash setup/install-java-mallet.sh
+	bash setup/install-vw.sh
 	bash setup/install-py-deps.sh
 	$(R) setup/install-r-deps.R
 

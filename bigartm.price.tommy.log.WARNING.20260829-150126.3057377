@@ -1,0 +1,4 @@
+Log file created at: 2026/08/29 15:01:26
+Running on machine: price
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+W0829 15:01:26.684024 3057377 check_messages.h:1082] Inconsistent fields size in ThetaMatrix: 2242 vs 0 vs 2242 vs 0;

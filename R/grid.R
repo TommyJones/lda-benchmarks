@@ -17,7 +17,15 @@ ENGINES <- list(
   gensim            = list(kind = "python", script = "runners/py/fit-gensim.py",          family = "Variational", parallel = TRUE),
   sklearn           = list(kind = "python", script = "runners/py/fit-sklearn.py",         family = "Variational", parallel = TRUE),
   tomotopy          = list(kind = "python", script = "runners/py/fit-tomotopy.py",        family = "Gibbs",     parallel = TRUE),
-  pylda             = list(kind = "python", script = "runners/py/fit-pylda.py",           family = "Gibbs",     parallel = FALSE)
+  pylda             = list(kind = "python", script = "runners/py/fit-pylda.py",           family = "Gibbs",     parallel = FALSE),
+  bigartm           = list(kind = "python", script = "runners/py/fit-bigartm.py",         family = "Variational", parallel = TRUE)
+  # Vowpal Wabbit is deliberately NOT in this list, though a working runner and
+  # builder exist (runners/py/fit-vowpalwabbit.py, setup/install-vw.sh). Its LDA
+  # fails the inclusion criterion: the Python bindings cannot drive it at all
+  # ("unsupported label parser used" from example(), learn() and predict()
+  # alike), and the pip wheel ships no binary, so it requires a from-source
+  # CMake build. The code is kept because it is the starting point if the
+  # criterion is ever widened. See README for the full reasoning.
 )
 
 # Iteration ladders. A Gibbs/MH sweep and a variational pass are different units

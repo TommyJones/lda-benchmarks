@@ -1,11 +1,11 @@
 # LDA implementations in R and Python: a bake-off
 
-Eleven LDA implementations across R, Python and Java, fit on identical document-term matrices
+Twelve LDA implementations across R, Python and Java, fit on identical document-term matrices
 with identical hyperparameters, and scored by one common code path. Built to find out where
 [tidylda](https://cran.r-project.org/package=tidylda) actually stands in the ecosystem.
 
 Blog-post rigor, not paper rigor: one machine, three replicates where the corpus is cheap
-enough, no statistical testing. 365 runs, zero failures. Every number below is in
+enough, no statistical testing. 404 runs, zero failures. Every number below is in
 [`results/runs.csv`](results/runs.csv).
 
 > **Correction, 2026-08-28.** The first published version of these results measured an
@@ -63,6 +63,7 @@ package supports:
 | text2vec | R | 45.0 s | 12 |
 | gensim | Python | 59.1 s | 8 |
 | lda | R | 59.2 s | 1 |
+| bigartm | Python | 62.9 s | 12 |
 | pylda | Python | 235 s | 1 |
 | topicmodels-gibbs | R | 271 s | 1 |
 | topicmodels-vem | R | 955 s | 1 |
@@ -123,6 +124,7 @@ columns as a cluster, not a ranking** — see the note below the table:
 | mallet | 500 | 90 s | 1340 MB | 0.544 | 0.1572 |
 | tidylda | 500 | 49 s | 476 MB | 0.546 | 0.1517 |
 | lda | 500 | 149 s | 285 MB | 0.503 | 0.1504 |
+| bigartm | 25 | 123 s | 4324 MB | 0.500 | 0.1281 |
 | sklearn | 25 | 177 s | 265 MB | 0.537 | 0.1236 |
 | gensim | 25 | 198 s | 244 MB | 0.481 | 0.1077 |
 
@@ -173,12 +175,22 @@ topicmodels is the outlier by an order of magnitude, at 26 GB on 20 Newsgroups.
 | scikit-learn | Python | online variational Bayes | `n_jobs` |
 | tomotopy | Python | collapsed Gibbs | `workers` |
 | pylda (Riddell) | Python | collapsed Gibbs | single threaded |
+| BigARTM | Python | offline EM (regularized) | `num_processors` |
 
 The inclusion criterion is *popular and easy to use from R or Python*. Faster implementations
 exist — the reference WarpLDA code beats everything here — but they are not something you can
 `install.packages()` or `pip install` and call from a normal analysis, so they are out of
 scope. `stm` is excluded as a different model rather than an LDA implementation. Transfer
 learning, which only tidylda offers, is also out of scope.
+
+**Vowpal Wabbit is excluded under the same criterion**, despite being a natural candidate. Its
+LDA cannot be driven from its Python bindings at all — `example()`, `learn()` and `predict()`
+each raise `RuntimeError: unsupported label parser used`, because LDA has no label parser —
+and the pip wheel ships no `vw` binary, so reaching its LDA at all required building 9.11.2
+from source with CMake and recursive submodules. That is a statement about the packaging of
+one algorithm, not about VW, which is actively maintained. A working runner and build script
+are kept in the repo (`runners/py/fit-vowpalwabbit.py`, `setup/install-vw.sh`) for anyone who
+wants to widen the criterion; no VW numbers are reported here.
 
 Two things worth knowing before reading the results:
 

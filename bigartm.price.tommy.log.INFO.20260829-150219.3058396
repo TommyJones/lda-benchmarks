@@ -1,0 +1,407 @@
+Log file created at: 2026/08/29 15:02:19
+Running on machine: price
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0829 15:02:19.273283 3058396 c_interface.cc:127] Logging enabled to .
+I0829 15:02:19.273429 3058396 c_interface.cc:128] BigARTM version: v0.9.2
+I0829 15:02:19.273448 3058396 c_interface.cc:271] Pass MasterModelConfig: topic_name_size=0, score_config_size=1, num_processors=0, pwt_name=pwt, nwt_name=nwt, num_document_passes=0, reuse_theta=no, cache_theta=no, opt_for_avx=yes, disk_cache_path= to ArtmCreateMasterModel
+I0829 15:02:19.273459 3058396 c_interface.cc:274] Creating MasterModel (id=1)...
+I0829 15:02:22.935264 3058396 c_interface.cc:375] Pass 5281e372-6cb1-4e8e-976f-be971bf4cfa9 to MN4artm4core15MasterComponentEFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
+I0829 15:02:22.947381 3058396 dictionary_operations.cc:589] Dictionary name='5281e372-6cb1-4e8e-976f-be971bf4cfa9' contains entries: @default_class:9172; 
+I0829 15:02:22.949133 3058396 c_interface.cc:271] Pass MasterModelConfig: topic_name_size=100, score_config_size=1, num_processors=8, pwt_name=pwt, nwt_name=nwt, num_document_passes=10, reuse_theta=yes, cache_theta=yes, opt_for_avx=yes, disk_cache_path= to ArtmCreateMasterModel
+I0829 15:02:22.949296 3058430 processor.cc:724] Processor thread started
+I0829 15:02:22.949311 3058431 processor.cc:724] Processor thread started
+I0829 15:02:22.949321 3058432 processor.cc:724] Processor thread started
+I0829 15:02:22.949322 3058433 processor.cc:724] Processor thread started
+I0829 15:02:22.949331 3058396 c_interface.cc:274] Creating MasterModel (id=2)...
+I0829 15:02:22.949402 3058396 c_interface.cc:375] Pass pwt to MN4artm4core15MasterComponentEFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
+I0829 15:02:22.949411 3058396 c_interface.cc:375] Pass nwt to MN4artm4core15MasterComponentEFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
+I0829 15:02:22.949414 3058434 processor.cc:724] Processor thread started
+I0829 15:02:22.949519 3058435 processor.cc:724] Processor thread started
+I0829 15:02:22.949569 3058437 processor.cc:724] Processor thread started
+I0829 15:02:22.949580 3058396 c_interface.cc:389] Pass InitializeModelArgs: model_name=pwt, dictionary_name=5281e372-6cb1-4e8e-976f-be971bf4cfa9, topic_name_size=100, seed=1 to MN4artm4core15MasterComponentEFvRKNS_19InitializeModelArgsEE
+I0829 15:02:22.949620 3058436 processor.cc:724] Processor thread started
+I0829 15:02:22.969437 3058430 processor.cc:740] No data in processing queue, waiting...
+I0829 15:02:22.969439 3058431 processor.cc:740] No data in processing queue, waiting...
+I0829 15:02:22.969439 3058432 processor.cc:740] No data in processing queue, waiting...
+I0829 15:02:22.969511 3058433 processor.cc:740] No data in processing queue, waiting...
+I0829 15:02:22.969631 3058434 processor.cc:740] No data in processing queue, waiting...
+I0829 15:02:22.969679 3058435 processor.cc:740] No data in processing queue, waiting...
+I0829 15:02:22.969736 3058437 processor.cc:740] No data in processing queue, waiting...
+I0829 15:02:22.969813 3058436 processor.cc:740] No data in processing queue, waiting...
+I0829 15:02:22.988004 3058396 master_component.cc:664] InitializeModel() created matrix pwt with 100 topics and 9172 tokens; 
+I0829 15:02:22.988186 3058396 c_interface.cc:389] Pass InitializeModelArgs: model_name=nwt, dictionary_name=5281e372-6cb1-4e8e-976f-be971bf4cfa9, topic_name_size=100, seed=1 to MN4artm4core15MasterComponentEFvRKNS_19InitializeModelArgsEE
+I0829 15:02:23.027031 3058396 master_component.cc:664] InitializeModel() created matrix nwt with 100 topics and 9172 tokens; 
+I0829 15:02:23.027165 3058396 c_interface.cc:231] ArtmCopyRequestedMessage is copying 1079 bytes...
+I0829 15:02:23.027689 3058396 c_interface.cc:389] Pass MasterModelConfig: topic_name_size=100, score_config_size=1, num_processors=8, pwt_name=pwt, nwt_name=nwt, num_document_passes=10, regularizer=(lda_theta_reg:0.1), reuse_theta=yes, cache_theta=yes, opt_for_avx=yes, disk_cache_path= to MN4artm4core15MasterComponentEFvRKNS_17MasterModelConfigEE
+I0829 15:02:23.027715 3058396 instance.cc:225] Regularizer 'lda_theta_reg' was cold-reconfigured
+I0829 15:02:23.027935 3058396 c_interface.cc:389] Pass MasterModelConfig: topic_name_size=100, score_config_size=1, num_processors=8, pwt_name=pwt, nwt_name=nwt, num_document_passes=10, regularizer=(lda_theta_reg:0.1), regularizer=(lda_phi_reg:0.05), reuse_theta=yes, cache_theta=yes, opt_for_avx=yes, disk_cache_path= to MN4artm4core15MasterComponentEFvRKNS_17MasterModelConfigEE
+I0829 15:02:23.027980 3058396 instance.cc:225] Regularizer 'lda_theta_reg' was cold-reconfigured
+I0829 15:02:23.027984 3058396 instance.cc:231] Regularizer 'lda_phi_reg' was cold-reconfigured
+I0829 15:02:23.028226 3058396 c_interface.cc:389] Pass MasterModelConfig: topic_name_size=100, score_config_size=2, num_processors=8, pwt_name=pwt, nwt_name=nwt, num_document_passes=10, regularizer=(lda_theta_reg:0.1), regularizer=(lda_phi_reg:0.05), reuse_theta=yes, cache_theta=yes, opt_for_avx=yes, disk_cache_path= to MN4artm4core15MasterComponentEFvRKNS_17MasterModelConfigEE
+I0829 15:02:23.028239 3058396 perplexity.cc:26] Perplexity score calculator created: model_type=1, dictionary_name=5281e372-6cb1-4e8e-976f-be971bf4cfa9
+I0829 15:02:23.028249 3058396 instance.cc:225] Regularizer 'lda_theta_reg' was cold-reconfigured
+I0829 15:02:23.028251 3058396 instance.cc:231] Regularizer 'lda_phi_reg' was cold-reconfigured
+I0829 15:02:23.028472 3058396 c_interface.cc:389] Pass MasterModelConfig: topic_name_size=100, score_config_size=3, num_processors=8, pwt_name=pwt, nwt_name=nwt, num_document_passes=10, regularizer=(lda_theta_reg:0.1), regularizer=(lda_phi_reg:0.05), reuse_theta=yes, cache_theta=yes, opt_for_avx=yes, disk_cache_path= to MN4artm4core15MasterComponentEFvRKNS_17MasterModelConfigEE
+I0829 15:02:23.028484 3058396 perplexity.cc:26] Perplexity score calculator created: model_type=1, dictionary_name=5281e372-6cb1-4e8e-976f-be971bf4cfa9
+I0829 15:02:23.028494 3058396 instance.cc:225] Regularizer 'lda_theta_reg' was cold-reconfigured
+I0829 15:02:23.028496 3058396 instance.cc:231] Regularizer 'lda_phi_reg' was cold-reconfigured
+I0829 15:02:23.028703 3058396 c_interface.cc:389] Pass MasterModelConfig: topic_name_size=100, score_config_size=4, num_processors=8, pwt_name=pwt, nwt_name=nwt, num_document_passes=10, regularizer=(lda_theta_reg:0.1), regularizer=(lda_phi_reg:0.05), reuse_theta=yes, cache_theta=yes, opt_for_avx=yes, disk_cache_path= to MN4artm4core15MasterComponentEFvRKNS_17MasterModelConfigEE
+I0829 15:02:23.028713 3058396 perplexity.cc:26] Perplexity score calculator created: model_type=1, dictionary_name=5281e372-6cb1-4e8e-976f-be971bf4cfa9
+I0829 15:02:23.028723 3058396 instance.cc:225] Regularizer 'lda_theta_reg' was cold-reconfigured
+I0829 15:02:23.028725 3058396 instance.cc:231] Regularizer 'lda_phi_reg' was cold-reconfigured
+I0829 15:02:23.029999 3058396 c_interface.cc:389] Pass FitOfflineMasterModelArgs, batch_filename_size=3, batch_weight_size=3, num_collection_passes=1, reset_nwt=yes to MN4artm4core15MasterComponentEFvRKNS_25FitOfflineMasterModelArgsEE
+I0829 15:02:23.030009 3058396 master_component.cc:1398] ProcessBatchesArgs: nwt_target_name=nwt, batch_filename_size=3, batch_size=0, batch_weight_size=3, pwt_source_name=pwt, num_document_passes=10, regularizer=(name:lda_theta_reg, tau:0.1), regularizer=(name:lda_phi_reg, tau:0.05), reuse_theta=yes, opt_for_avx=yes, predict_class_id=, reset_nwt=yes
+I0829 15:02:23.036144 3058396 master_component.cc:826] Batches count (=3) is smaller than num processors (=8), which may cause suboptimal performance.
+I0829 15:02:23.036450 3058433 processor.cc:747] Processing queue has data, processing started
+I0829 15:02:23.036823 3058436 processor.cc:747] Processing queue has data, processing started
+I0829 15:02:23.037217 3058432 processor.cc:747] Processing queue has data, processing started
+I0829 15:02:23.041203 3058433 processor.cc:820] Processor: start processing batch 2ee50040-2c23-43d0-99a2-bfee0609ca54 into model nwt
+I0829 15:02:23.041453 3058432 processor.cc:820] Processor: start processing batch f1308786-5039-4822-aeb9-42c78e8d0391 into model nwt
+I0829 15:02:23.050239 3058436 processor.cc:820] Processor: start processing batch f6aa7a68-65fc-4edc-ad95-a48fcec526de into model nwt
+I0829 15:02:23.132103 3058433 processor.cc:925] Processor: complete processing batch 2ee50040-2c23-43d0-99a2-bfee0609ca54 into model nwt
+I0829 15:02:23.132459 3058433 cuckoo_watch.h:45] 95ms in ProcessBatch(urnuuid287e5d74-a3dc-11f1-b895-085bd6902356/2ee50040-2c23-43d0-99a2-bfee0609ca54.batch) [including 4ms in LoadMessage; 0ms in InitializeSparseNdw; 0ms in FindReuseThetaCacheEntry; 0ms in InitializeTheta; 0ms in CreateRegularizerAgents; 76ms in InferThetaAndUpdateNwtSparse; 0ms in UpdateCacheEntry; 9ms in CalculateScore(perp_score); 0ms in CalculateScore(sp_theta_score); 3ms in CalculateScore(^^^ItemsProcessedScore^^^); ]
+I0829 15:02:23.152681 3058433 processor.cc:740] No data in processing queue, waiting...
+I0829 15:02:23.306901 3058432 processor.cc:925] Processor: complete processing batch f1308786-5039-4822-aeb9-42c78e8d0391 into model nwt
+I0829 15:02:23.307667 3058432 cuckoo_watch.h:45] 270ms in ProcessBatch(urnuuid287e5d74-a3dc-11f1-b895-085bd6902356/f1308786-5039-4822-aeb9-42c78e8d0391.batch) [including 4ms in LoadMessage; 1ms in InitializeSparseNdw; 0ms in FindReuseThetaCacheEntry; 0ms in InitializeTheta; 0ms in CreateRegularizerAgents; 212ms in InferThetaAndUpdateNwtSparse; 0ms in UpdateCacheEntry; 36ms in CalculateScore(perp_score); 1ms in CalculateScore(sp_theta_score); 13ms in CalculateScore(^^^ItemsProcessedScore^^^); ]
+I0829 15:02:23.327694 3058432 processor.cc:740] No data in processing queue, waiting...
+I0829 15:02:23.328290 3058436 processor.cc:925] Processor: complete processing batch f6aa7a68-65fc-4edc-ad95-a48fcec526de into model nwt
+I0829 15:02:23.329034 3058436 cuckoo_watch.h:45] 292ms in ProcessBatch(urnuuid287e5d74-a3dc-11f1-b895-085bd6902356/f6aa7a68-65fc-4edc-ad95-a48fcec526de.batch) [including 13ms in LoadMessage; 3ms in InitializeSparseNdw; 0ms in FindReuseThetaCacheEntry; 0ms in InitializeTheta; 0ms in CreateRegularizerAgents; 222ms in InferThetaAndUpdateNwtSparse; 0ms in UpdateCacheEntry; 35ms in CalculateScore(perp_score); 1ms in CalculateScore(sp_theta_score); 14ms in CalculateScore(^^^ItemsProcessedScore^^^); ]
+I0829 15:02:23.329447 3058396 master_component.cc:1436] RegularizeModelArgs: rwt_target_name=rwt, pwt_source_name=pwt, nwt_source_name=nwt
+I0829 15:02:23.329461 3058396 master_component.cc:976] MasterComponent: start regularizing model pwt
+I0829 15:02:23.349131 3058436 processor.cc:740] No data in processing queue, waiting...
+I0829 15:02:23.369728 3058396 master_component.cc:1002] MasterComponent: complete regularizing model pwt
+I0829 15:02:23.369737 3058396 master_component.cc:1449] NormalizeModelArgs: pwt_target_name=pwt, nwt_source_name=nwt, rwt_source_name=rwt
+I0829 15:02:23.369741 3058396 master_component.cc:1006] MasterComponent: start normalizing model nwt
+I0829 15:02:23.398963 3058396 master_component.cc:1034] MasterComponent: complete normalizing model nwt
+I0829 15:02:23.403015 3058396 master_component.cc:1473] DisposeModel rwt
+I0829 15:02:23.405332 3058396 master_component.cc:1059] FitOffline: ItemsProcessed, num_items=2242, num_batches=3, token_weight=424341, token_weight_in_effect=424341
+I0829 15:02:23.405589 3058396 c_interface.cc:389] Pass FitOfflineMasterModelArgs, batch_filename_size=3, batch_weight_size=3, num_collection_passes=1, reset_nwt=yes to MN4artm4core15MasterComponentEFvRKNS_25FitOfflineMasterModelArgsEE
+I0829 15:02:23.405602 3058396 master_component.cc:1398] ProcessBatchesArgs: nwt_target_name=nwt, batch_filename_size=3, batch_size=0, batch_weight_size=3, pwt_source_name=pwt, num_document_passes=10, regularizer=(name:lda_theta_reg, tau:0.1), regularizer=(name:lda_phi_reg, tau:0.05), reuse_theta=yes, opt_for_avx=yes, predict_class_id=, reset_nwt=yes
+I0829 15:02:23.412680 3058434 processor.cc:747] Processing queue has data, processing started
+I0829 15:02:23.412868 3058431 processor.cc:747] Processing queue has data, processing started
+I0829 15:02:23.413185 3058430 processor.cc:747] Processing queue has data, processing started
+I0829 15:02:23.417104 3058434 processor.cc:820] Processor: start processing batch 2ee50040-2c23-43d0-99a2-bfee0609ca54 into model nwt
+I0829 15:02:23.423363 3058431 processor.cc:820] Processor: start processing batch f6aa7a68-65fc-4edc-ad95-a48fcec526de into model nwt
+I0829 15:02:23.423784 3058430 processor.cc:820] Processor: start processing batch f1308786-5039-4822-aeb9-42c78e8d0391 into model nwt
+I0829 15:02:23.495404 3058434 processor.cc:925] Processor: complete processing batch 2ee50040-2c23-43d0-99a2-bfee0609ca54 into model nwt
+I0829 15:02:23.495759 3058434 cuckoo_watch.h:45] 83ms in ProcessBatch(urnuuid287e5d74-a3dc-11f1-b895-085bd6902356/2ee50040-2c23-43d0-99a2-bfee0609ca54.batch) [including 4ms in LoadMessage; 0ms in InitializeSparseNdw; 0ms in FindReuseThetaCacheEntry; 0ms in InitializeTheta; 0ms in CreateRegularizerAgents; 64ms in InferThetaAndUpdateNwtSparse; 0ms in UpdateCacheEntry; 8ms in CalculateScore(perp_score); 0ms in CalculateScore(sp_theta_score); 3ms in CalculateScore(^^^ItemsProcessedScore^^^); ]
+I0829 15:02:23.515817 3058434 processor.cc:740] No data in processing queue, waiting...
+I0829 15:02:23.700779 3058431 processor.cc:925] Processor: complete processing batch f6aa7a68-65fc-4edc-ad95-a48fcec526de into model nwt
+I0829 15:02:23.700800 3058430 processor.cc:925] Processor: complete processing batch f1308786-5039-4822-aeb9-42c78e8d0391 into model nwt
+I0829 15:02:23.701617 3058431 cuckoo_watch.h:45] 288ms in ProcessBatch(urnuuid287e5d74-a3dc-11f1-b895-085bd6902356/f6aa7a68-65fc-4edc-ad95-a48fcec526de.batch) [including 10ms in LoadMessage; 3ms in InitializeSparseNdw; 0ms in FindReuseThetaCacheEntry; 3ms in InitializeTheta; 0ms in CreateRegularizerAgents; 221ms in InferThetaAndUpdateNwtSparse; 0ms in UpdateCacheEntry; 34ms in CalculateScore(perp_score); 1ms in CalculateScore(sp_theta_score); 13ms in CalculateScore(^^^ItemsProcessedScore^^^); ]
+I0829 15:02:23.701658 3058430 cuckoo_watch.h:45] 288ms in ProcessBatch(urnuuid287e5d74-a3dc-11f1-b895-085bd6902356/f1308786-5039-4822-aeb9-42c78e8d0391.batch) [including 10ms in LoadMessage; 3ms in InitializeSparseNdw; 0ms in FindReuseThetaCacheEntry; 4ms in InitializeTheta; 0ms in CreateRegularizerAgents; 220ms in InferThetaAndUpdateNwtSparse; 0ms in UpdateCacheEntry; 34ms in CalculateScore(perp_score); 1ms in CalculateScore(sp_theta_score); 13ms in CalculateScore(^^^ItemsProcessedScore^^^); ]
+I0829 15:02:23.702167 3058396 master_component.cc:1436] RegularizeModelArgs: rwt_target_name=rwt, pwt_source_name=pwt, nwt_source_name=nwt
+I0829 15:02:23.702180 3058396 master_component.cc:976] MasterComponent: start regularizing model pwt
+I0829 15:02:23.721647 3058431 processor.cc:740] No data in processing queue, waiting...
+I0829 15:02:23.721704 3058430 processor.cc:740] No data in processing queue, waiting...
+I0829 15:02:23.741397 3058396 master_component.cc:1002] MasterComponent: complete regularizing model pwt
+I0829 15:02:23.741405 3058396 master_component.cc:1449] NormalizeModelArgs: pwt_target_name=pwt, nwt_source_name=nwt, rwt_source_name=rwt
+I0829 15:02:23.741410 3058396 master_component.cc:1006] MasterComponent: start normalizing model nwt
+I0829 15:02:23.770238 3058396 master_component.cc:1034] MasterComponent: complete normalizing model nwt
+I0829 15:02:23.774288 3058396 master_component.cc:1473] DisposeModel rwt
+I0829 15:02:23.776921 3058396 master_component.cc:1059] FitOffline: ItemsProcessed, num_items=2242, num_batches=3, token_weight=424341, token_weight_in_effect=424341
+I0829 15:02:23.777140 3058396 c_interface.cc:389] Pass FitOfflineMasterModelArgs, batch_filename_size=3, batch_weight_size=3, num_collection_passes=1, reset_nwt=yes to MN4artm4core15MasterComponentEFvRKNS_25FitOfflineMasterModelArgsEE
+I0829 15:02:23.777153 3058396 master_component.cc:1398] ProcessBatchesArgs: nwt_target_name=nwt, batch_filename_size=3, batch_size=0, batch_weight_size=3, pwt_source_name=pwt, num_document_passes=10, regularizer=(name:lda_theta_reg, tau:0.1), regularizer=(name:lda_phi_reg, tau:0.05), reuse_theta=yes, opt_for_avx=yes, predict_class_id=, reset_nwt=yes
+I0829 15:02:23.784183 3058431 processor.cc:747] Processing queue has data, processing started
+I0829 15:02:23.784504 3058437 processor.cc:747] Processing queue has data, processing started
+I0829 15:02:23.784749 3058435 processor.cc:747] Processing queue has data, processing started
+I0829 15:02:23.787149 3058431 processor.cc:820] Processor: start processing batch 2ee50040-2c23-43d0-99a2-bfee0609ca54 into model nwt
+I0829 15:02:23.795215 3058435 processor.cc:820] Processor: start processing batch f1308786-5039-4822-aeb9-42c78e8d0391 into model nwt
+I0829 15:02:23.795224 3058437 processor.cc:820] Processor: start processing batch f6aa7a68-65fc-4edc-ad95-a48fcec526de into model nwt
+I0829 15:02:23.885056 3058431 processor.cc:925] Processor: complete processing batch 2ee50040-2c23-43d0-99a2-bfee0609ca54 into model nwt
+I0829 15:02:23.885418 3058431 cuckoo_watch.h:45] 101ms in ProcessBatch(urnuuid287e5d74-a3dc-11f1-b895-085bd6902356/2ee50040-2c23-43d0-99a2-bfee0609ca54.batch) [including 2ms in LoadMessage; 0ms in InitializeSparseNdw; 0ms in FindReuseThetaCacheEntry; 0ms in InitializeTheta; 0ms in CreateRegularizerAgents; 84ms in InferThetaAndUpdateNwtSparse; 0ms in UpdateCacheEntry; 9ms in CalculateScore(perp_score); 0ms in CalculateScore(sp_theta_score); 3ms in CalculateScore(^^^ItemsProcessedScore^^^); ]
+I0829 15:02:23.905427 3058431 processor.cc:740] No data in processing queue, waiting...
+I0829 15:02:24.065544 3058435 processor.cc:925] Processor: complete processing batch f1308786-5039-4822-aeb9-42c78e8d0391 into model nwt
+I0829 15:02:24.066411 3058435 cuckoo_watch.h:45] 281ms in ProcessBatch(urnuuid287e5d74-a3dc-11f1-b895-085bd6902356/f1308786-5039-4822-aeb9-42c78e8d0391.batch) [including 10ms in LoadMessage; 2ms in InitializeSparseNdw; 0ms in FindReuseThetaCacheEntry; 1ms in InitializeTheta; 0ms in CreateRegularizerAgents; 215ms in InferThetaAndUpdateNwtSparse; 0ms in UpdateCacheEntry; 35ms in CalculateScore(perp_score); 1ms in CalculateScore(sp_theta_score); 13ms in CalculateScore(^^^ItemsProcessedScore^^^); ]
+I0829 15:02:24.083374 3058437 processor.cc:925] Processor: complete processing batch f6aa7a68-65fc-4edc-ad95-a48fcec526de into model nwt
+I0829 15:02:24.084201 3058437 cuckoo_watch.h:45] 299ms in ProcessBatch(urnuuid287e5d74-a3dc-11f1-b895-085bd6902356/f6aa7a68-65fc-4edc-ad95-a48fcec526de.batch) [including 10ms in LoadMessage; 2ms in InitializeSparseNdw; 0ms in FindReuseThetaCacheEntry; 3ms in InitializeTheta; 0ms in CreateRegularizerAgents; 231ms in InferThetaAndUpdateNwtSparse; 0ms in UpdateCacheEntry; 35ms in CalculateScore(perp_score); 1ms in CalculateScore(sp_theta_score); 13ms in CalculateScore(^^^ItemsProcessedScore^^^); ]
+I0829 15:02:24.084427 3058396 master_component.cc:1436] RegularizeModelArgs: rwt_target_name=rwt, pwt_source_name=pwt, nwt_source_name=nwt
+I0829 15:02:24.084442 3058396 master_component.cc:976] MasterComponent: start regularizing model pwt
+I0829 15:02:24.086424 3058435 processor.cc:740] No data in processing queue, waiting...
+I0829 15:02:24.104385 3058437 processor.cc:740] No data in processing queue, waiting...
+I0829 15:02:24.123273 3058396 master_component.cc:1002] MasterComponent: complete regularizing model pwt
+I0829 15:02:24.123281 3058396 master_component.cc:1449] NormalizeModelArgs: pwt_target_name=pwt, nwt_source_name=nwt, rwt_source_name=rwt
+I0829 15:02:24.123286 3058396 master_component.cc:1006] MasterComponent: start normalizing model nwt
+I0829 15:02:24.152282 3058396 master_component.cc:1034] MasterComponent: complete normalizing model nwt
+I0829 15:02:24.156311 3058396 master_component.cc:1473] DisposeModel rwt
+I0829 15:02:24.158902 3058396 master_component.cc:1059] FitOffline: ItemsProcessed, num_items=2242, num_batches=3, token_weight=424341, token_weight_in_effect=424341
+I0829 15:02:24.159118 3058396 c_interface.cc:389] Pass FitOfflineMasterModelArgs, batch_filename_size=3, batch_weight_size=3, num_collection_passes=1, reset_nwt=yes to MN4artm4core15MasterComponentEFvRKNS_25FitOfflineMasterModelArgsEE
+I0829 15:02:24.159130 3058396 master_component.cc:1398] ProcessBatchesArgs: nwt_target_name=nwt, batch_filename_size=3, batch_size=0, batch_weight_size=3, pwt_source_name=pwt, num_document_passes=10, regularizer=(name:lda_theta_reg, tau:0.1), regularizer=(name:lda_phi_reg, tau:0.05), reuse_theta=yes, opt_for_avx=yes, predict_class_id=, reset_nwt=yes
+I0829 15:02:24.166009 3058437 processor.cc:747] Processing queue has data, processing started
+I0829 15:02:24.166337 3058436 processor.cc:747] Processing queue has data, processing started
+I0829 15:02:24.166702 3058431 processor.cc:747] Processing queue has data, processing started
+I0829 15:02:24.169042 3058437 processor.cc:820] Processor: start processing batch 2ee50040-2c23-43d0-99a2-bfee0609ca54 into model nwt
+I0829 15:02:24.170060 3058436 processor.cc:820] Processor: start processing batch f6aa7a68-65fc-4edc-ad95-a48fcec526de into model nwt
+I0829 15:02:24.173740 3058431 processor.cc:820] Processor: start processing batch f1308786-5039-4822-aeb9-42c78e8d0391 into model nwt
+I0829 15:02:24.262108 3058437 processor.cc:925] Processor: complete processing batch 2ee50040-2c23-43d0-99a2-bfee0609ca54 into model nwt
+I0829 15:02:24.262467 3058437 cuckoo_watch.h:45] 96ms in ProcessBatch(urnuuid287e5d74-a3dc-11f1-b895-085bd6902356/2ee50040-2c23-43d0-99a2-bfee0609ca54.batch) [including 3ms in LoadMessage; 0ms in InitializeSparseNdw; 0ms in FindReuseThetaCacheEntry; 0ms in InitializeTheta; 0ms in CreateRegularizerAgents; 79ms in InferThetaAndUpdateNwtSparse; 0ms in UpdateCacheEntry; 9ms in CalculateScore(perp_score); 0ms in CalculateScore(sp_theta_score); 3ms in CalculateScore(^^^ItemsProcessedScore^^^); ]
+I0829 15:02:24.282488 3058437 processor.cc:740] No data in processing queue, waiting...
+I0829 15:02:24.439700 3058436 processor.cc:925] Processor: complete processing batch f6aa7a68-65fc-4edc-ad95-a48fcec526de into model nwt
+I0829 15:02:24.440572 3058436 cuckoo_watch.h:45] 274ms in ProcessBatch(urnuuid287e5d74-a3dc-11f1-b895-085bd6902356/f6aa7a68-65fc-4edc-ad95-a48fcec526de.batch) [including 3ms in LoadMessage; 0ms in InitializeSparseNdw; 0ms in FindReuseThetaCacheEntry; 1ms in InitializeTheta; 0ms in CreateRegularizerAgents; 214ms in InferThetaAndUpdateNwtSparse; 0ms in UpdateCacheEntry; 38ms in CalculateScore(perp_score); 1ms in CalculateScore(sp_theta_score); 13ms in CalculateScore(^^^ItemsProcessedScore^^^); ]
+I0829 15:02:24.460590 3058436 processor.cc:740] No data in processing queue, waiting...
+I0829 15:02:24.477093 3058431 processor.cc:925] Processor: complete processing batch f1308786-5039-4822-aeb9-42c78e8d0391 into model nwt
+I0829 15:02:24.477908 3058431 cuckoo_watch.h:45] 311ms in ProcessBatch(urnuuid287e5d74-a3dc-11f1-b895-085bd6902356/f1308786-5039-4822-aeb9-42c78e8d0391.batch) [including 7ms in LoadMessage; 1ms in InitializeSparseNdw; 0ms in FindReuseThetaCacheEntry; 4ms in InitializeTheta; 0ms in CreateRegularizerAgents; 247ms in InferThetaAndUpdateNwtSparse; 0ms in UpdateCacheEntry; 35ms in CalculateScore(perp_score); 1ms in CalculateScore(sp_theta_score); 13ms in CalculateScore(^^^ItemsProcessedScore^^^); ]
+I0829 15:02:24.478672 3058396 master_component.cc:1436] RegularizeModelArgs: rwt_target_name=rwt, pwt_source_name=pwt, nwt_source_name=nwt
+I0829 15:02:24.478713 3058396 master_component.cc:976] MasterComponent: start regularizing model pwt
+I0829 15:02:24.497915 3058431 processor.cc:740] No data in processing queue, waiting...
+I0829 15:02:24.552857 3058396 master_component.cc:1002] MasterComponent: complete regularizing model pwt
+I0829 15:02:24.552881 3058396 master_component.cc:1449] NormalizeModelArgs: pwt_target_name=pwt, nwt_source_name=nwt, rwt_source_name=rwt
+I0829 15:02:24.552891 3058396 master_component.cc:1006] MasterComponent: start normalizing model nwt
+I0829 15:02:24.595939 3058396 master_component.cc:1034] MasterComponent: complete normalizing model nwt
+I0829 15:02:24.604135 3058396 master_component.cc:1473] DisposeModel rwt
+I0829 15:02:24.607333 3058396 master_component.cc:1059] FitOffline: ItemsProcessed, num_items=2242, num_batches=3, token_weight=424341, token_weight_in_effect=424341
+I0829 15:02:24.607594 3058396 c_interface.cc:389] Pass FitOfflineMasterModelArgs, batch_filename_size=3, batch_weight_size=3, num_collection_passes=1, reset_nwt=yes to MN4artm4core15MasterComponentEFvRKNS_25FitOfflineMasterModelArgsEE
+I0829 15:02:24.607637 3058396 master_component.cc:1398] ProcessBatchesArgs: nwt_target_name=nwt, batch_filename_size=3, batch_size=0, batch_weight_size=3, pwt_source_name=pwt, num_document_passes=10, regularizer=(name:lda_theta_reg, tau:0.1), regularizer=(name:lda_phi_reg, tau:0.05), reuse_theta=yes, opt_for_avx=yes, predict_class_id=, reset_nwt=yes
+I0829 15:02:24.616166 3058431 processor.cc:747] Processing queue has data, processing started
+I0829 15:02:24.616410 3058433 processor.cc:747] Processing queue has data, processing started
+I0829 15:02:24.616736 3058432 processor.cc:747] Processing queue has data, processing started
+I0829 15:02:24.619135 3058431 processor.cc:820] Processor: start processing batch 2ee50040-2c23-43d0-99a2-bfee0609ca54 into model nwt
+I0829 15:02:24.619329 3058433 processor.cc:820] Processor: start processing batch f6aa7a68-65fc-4edc-ad95-a48fcec526de into model nwt
+I0829 15:02:24.623778 3058432 processor.cc:820] Processor: start processing batch f1308786-5039-4822-aeb9-42c78e8d0391 into model nwt
+I0829 15:02:24.701756 3058431 processor.cc:925] Processor: complete processing batch 2ee50040-2c23-43d0-99a2-bfee0609ca54 into model nwt
+I0829 15:02:24.702113 3058431 cuckoo_watch.h:45] 85ms in ProcessBatch(urnuuid287e5d74-a3dc-11f1-b895-085bd6902356/2ee50040-2c23-43d0-99a2-bfee0609ca54.batch) [including 2ms in LoadMessage; 0ms in InitializeSparseNdw; 0ms in FindReuseThetaCacheEntry; 0ms in InitializeTheta; 0ms in CreateRegularizerAgents; 68ms in InferThetaAndUpdateNwtSparse; 0ms in UpdateCacheEntry; 9ms in CalculateScore(perp_score); 0ms in CalculateScore(sp_theta_score); 3ms in CalculateScore(^^^ItemsProcessedScore^^^); ]
+I0829 15:02:24.722121 3058431 processor.cc:740] No data in processing queue, waiting...
+I0829 15:02:24.888954 3058433 processor.cc:925] Processor: complete processing batch f6aa7a68-65fc-4edc-ad95-a48fcec526de into model nwt
+I0829 15:02:24.889827 3058433 cuckoo_watch.h:45] 273ms in ProcessBatch(urnuuid287e5d74-a3dc-11f1-b895-085bd6902356/f6aa7a68-65fc-4edc-ad95-a48fcec526de.batch) [including 2ms in LoadMessage; 0ms in InitializeSparseNdw; 0ms in FindReuseThetaCacheEntry; 1ms in InitializeTheta; 0ms in CreateRegularizerAgents; 217ms in InferThetaAndUpdateNwtSparse; 0ms in UpdateCacheEntry; 35ms in CalculateScore(perp_score); 1ms in CalculateScore(sp_theta_score); 13ms in CalculateScore(^^^ItemsProcessedScore^^^); ]
+I0829 15:02:24.909860 3058433 processor.cc:740] No data in processing queue, waiting...
+I0829 15:02:24.911989 3058432 processor.cc:925] Processor: complete processing batch f1308786-5039-4822-aeb9-42c78e8d0391 into model nwt
+I0829 15:02:24.912814 3058432 cuckoo_watch.h:45] 296ms in ProcessBatch(urnuuid287e5d74-a3dc-11f1-b895-085bd6902356/f1308786-5039-4822-aeb9-42c78e8d0391.batch) [including 7ms in LoadMessage; 1ms in InitializeSparseNdw; 0ms in FindReuseThetaCacheEntry; 4ms in InitializeTheta; 0ms in CreateRegularizerAgents; 232ms in InferThetaAndUpdateNwtSparse; 0ms in UpdateCacheEntry; 35ms in CalculateScore(perp_score); 1ms in CalculateScore(sp_theta_score); 13ms in CalculateScore(^^^ItemsProcessedScore^^^); ]
+I0829 15:02:24.912917 3058396 master_component.cc:1436] RegularizeModelArgs: rwt_target_name=rwt, pwt_source_name=pwt, nwt_source_name=nwt
+I0829 15:02:24.912957 3058396 master_component.cc:976] MasterComponent: start regularizing model pwt
+I0829 15:02:24.932983 3058432 processor.cc:740] No data in processing queue, waiting...
+I0829 15:02:24.951138 3058396 master_component.cc:1002] MasterComponent: complete regularizing model pwt
+I0829 15:02:24.951148 3058396 master_component.cc:1449] NormalizeModelArgs: pwt_target_name=pwt, nwt_source_name=nwt, rwt_source_name=rwt
+I0829 15:02:24.951153 3058396 master_component.cc:1006] MasterComponent: start normalizing model nwt
+I0829 15:02:24.979282 3058396 master_component.cc:1034] MasterComponent: complete normalizing model nwt
+I0829 15:02:24.983302 3058396 master_component.cc:1473] DisposeModel rwt
+I0829 15:02:24.985955 3058396 master_component.cc:1059] FitOffline: ItemsProcessed, num_items=2242, num_batches=3, token_weight=424341, token_weight_in_effect=424341
+I0829 15:02:24.986198 3058396 c_interface.cc:389] Pass FitOfflineMasterModelArgs, batch_filename_size=3, batch_weight_size=3, num_collection_passes=1, reset_nwt=yes to MN4artm4core15MasterComponentEFvRKNS_25FitOfflineMasterModelArgsEE
+I0829 15:02:24.986210 3058396 master_component.cc:1398] ProcessBatchesArgs: nwt_target_name=nwt, batch_filename_size=3, batch_size=0, batch_weight_size=3, pwt_source_name=pwt, num_document_passes=10, regularizer=(name:lda_theta_reg, tau:0.1), regularizer=(name:lda_phi_reg, tau:0.05), reuse_theta=yes, opt_for_avx=yes, predict_class_id=, reset_nwt=yes
+I0829 15:02:24.993184 3058434 processor.cc:747] Processing queue has data, processing started
+I0829 15:02:24.993448 3058436 processor.cc:747] Processing queue has data, processing started
+I0829 15:02:24.993659 3058433 processor.cc:747] Processing queue has data, processing started
+I0829 15:02:24.996088 3058434 processor.cc:820] Processor: start processing batch 2ee50040-2c23-43d0-99a2-bfee0609ca54 into model nwt
+I0829 15:02:25.000401 3058436 processor.cc:820] Processor: start processing batch f6aa7a68-65fc-4edc-ad95-a48fcec526de into model nwt
+I0829 15:02:25.000686 3058433 processor.cc:820] Processor: start processing batch f1308786-5039-4822-aeb9-42c78e8d0391 into model nwt
+I0829 15:02:25.077889 3058434 processor.cc:925] Processor: complete processing batch 2ee50040-2c23-43d0-99a2-bfee0609ca54 into model nwt
+I0829 15:02:25.078248 3058434 cuckoo_watch.h:45] 85ms in ProcessBatch(urnuuid287e5d74-a3dc-11f1-b895-085bd6902356/2ee50040-2c23-43d0-99a2-bfee0609ca54.batch) [including 2ms in LoadMessage; 0ms in InitializeSparseNdw; 0ms in FindReuseThetaCacheEntry; 0ms in InitializeTheta; 0ms in CreateRegularizerAgents; 68ms in InferThetaAndUpdateNwtSparse; 0ms in UpdateCacheEntry; 9ms in CalculateScore(perp_score); 0ms in CalculateScore(sp_theta_score); 3ms in CalculateScore(^^^ItemsProcessedScore^^^); ]
+I0829 15:02:25.098305 3058434 processor.cc:740] No data in processing queue, waiting...
+I0829 15:02:25.296933 3058433 processor.cc:925] Processor: complete processing batch f1308786-5039-4822-aeb9-42c78e8d0391 into model nwt
+I0829 15:02:25.297770 3058433 cuckoo_watch.h:45] 304ms in ProcessBatch(urnuuid287e5d74-a3dc-11f1-b895-085bd6902356/f1308786-5039-4822-aeb9-42c78e8d0391.batch) [including 7ms in LoadMessage; 1ms in InitializeSparseNdw; 0ms in FindReuseThetaCacheEntry; 6ms in InitializeTheta; 0ms in CreateRegularizerAgents; 238ms in InferThetaAndUpdateNwtSparse; 0ms in UpdateCacheEntry; 35ms in CalculateScore(perp_score); 1ms in CalculateScore(sp_theta_score); 13ms in CalculateScore(^^^ItemsProcessedScore^^^); ]
+I0829 15:02:25.308643 3058436 processor.cc:925] Processor: complete processing batch f6aa7a68-65fc-4edc-ad95-a48fcec526de into model nwt
+I0829 15:02:25.309484 3058436 cuckoo_watch.h:45] 316ms in ProcessBatch(urnuuid287e5d74-a3dc-11f1-b895-085bd6902356/f6aa7a68-65fc-4edc-ad95-a48fcec526de.batch) [including 6ms in LoadMessage; 1ms in InitializeSparseNdw; 0ms in FindReuseThetaCacheEntry; 3ms in InitializeTheta; 0ms in CreateRegularizerAgents; 252ms in InferThetaAndUpdateNwtSparse; 0ms in UpdateCacheEntry; 35ms in CalculateScore(perp_score); 1ms in CalculateScore(sp_theta_score); 13ms in CalculateScore(^^^ItemsProcessedScore^^^); ]
+I0829 15:02:25.309856 3058396 master_component.cc:1436] RegularizeModelArgs: rwt_target_name=rwt, pwt_source_name=pwt, nwt_source_name=nwt
+I0829 15:02:25.309895 3058396 master_component.cc:976] MasterComponent: start regularizing model pwt
+I0829 15:02:25.317860 3058433 processor.cc:740] No data in processing queue, waiting...
+I0829 15:02:25.329684 3058436 processor.cc:740] No data in processing queue, waiting...
+I0829 15:02:25.348563 3058396 master_component.cc:1002] MasterComponent: complete regularizing model pwt
+I0829 15:02:25.348573 3058396 master_component.cc:1449] NormalizeModelArgs: pwt_target_name=pwt, nwt_source_name=nwt, rwt_source_name=rwt
+I0829 15:02:25.348578 3058396 master_component.cc:1006] MasterComponent: start normalizing model nwt
+I0829 15:02:25.377622 3058396 master_component.cc:1034] MasterComponent: complete normalizing model nwt
+I0829 15:02:25.381685 3058396 master_component.cc:1473] DisposeModel rwt
+I0829 15:02:25.384265 3058396 master_component.cc:1059] FitOffline: ItemsProcessed, num_items=2242, num_batches=3, token_weight=424341, token_weight_in_effect=424341
+I0829 15:02:25.384487 3058396 c_interface.cc:389] Pass FitOfflineMasterModelArgs, batch_filename_size=3, batch_weight_size=3, num_collection_passes=1, reset_nwt=yes to MN4artm4core15MasterComponentEFvRKNS_25FitOfflineMasterModelArgsEE
+I0829 15:02:25.384498 3058396 master_component.cc:1398] ProcessBatchesArgs: nwt_target_name=nwt, batch_filename_size=3, batch_size=0, batch_weight_size=3, pwt_source_name=pwt, num_document_passes=10, regularizer=(name:lda_theta_reg, tau:0.1), regularizer=(name:lda_phi_reg, tau:0.05), reuse_theta=yes, opt_for_avx=yes, predict_class_id=, reset_nwt=yes
+I0829 15:02:25.391685 3058434 processor.cc:747] Processing queue has data, processing started
+I0829 15:02:25.391696 3058437 processor.cc:747] Processing queue has data, processing started
+I0829 15:02:25.392050 3058432 processor.cc:747] Processing queue has data, processing started
+I0829 15:02:25.393105 3058434 processor.cc:820] Processor: start processing batch 2ee50040-2c23-43d0-99a2-bfee0609ca54 into model nwt
+I0829 15:02:25.398854 3058437 processor.cc:820] Processor: start processing batch f6aa7a68-65fc-4edc-ad95-a48fcec526de into model nwt
+I0829 15:02:25.399538 3058432 processor.cc:820] Processor: start processing batch f1308786-5039-4822-aeb9-42c78e8d0391 into model nwt
+I0829 15:02:25.460070 3058434 processor.cc:925] Processor: complete processing batch 2ee50040-2c23-43d0-99a2-bfee0609ca54 into model nwt
+I0829 15:02:25.460434 3058434 cuckoo_watch.h:45] 68ms in ProcessBatch(urnuuid287e5d74-a3dc-11f1-b895-085bd6902356/2ee50040-2c23-43d0-99a2-bfee0609ca54.batch) [including 1ms in LoadMessage; 0ms in InitializeSparseNdw; 0ms in FindReuseThetaCacheEntry; 0ms in InitializeTheta; 0ms in CreateRegularizerAgents; 54ms in InferThetaAndUpdateNwtSparse; 0ms in UpdateCacheEntry; 8ms in CalculateScore(perp_score); 0ms in CalculateScore(sp_theta_score); 3ms in CalculateScore(^^^ItemsProcessedScore^^^); ]
+I0829 15:02:25.480684 3058434 processor.cc:740] No data in processing queue, waiting...
+I0829 15:02:25.680465 3058437 processor.cc:925] Processor: complete processing batch f6aa7a68-65fc-4edc-ad95-a48fcec526de into model nwt
+I0829 15:02:25.681298 3058437 cuckoo_watch.h:45] 289ms in ProcessBatch(urnuuid287e5d74-a3dc-11f1-b895-085bd6902356/f6aa7a68-65fc-4edc-ad95-a48fcec526de.batch) [including 7ms in LoadMessage; 1ms in InitializeSparseNdw; 0ms in FindReuseThetaCacheEntry; 3ms in InitializeTheta; 0ms in CreateRegularizerAgents; 224ms in InferThetaAndUpdateNwtSparse; 0ms in UpdateCacheEntry; 37ms in CalculateScore(perp_score); 1ms in CalculateScore(sp_theta_score); 13ms in CalculateScore(^^^ItemsProcessedScore^^^); ]
+I0829 15:02:25.687420 3058432 processor.cc:925] Processor: complete processing batch f1308786-5039-4822-aeb9-42c78e8d0391 into model nwt
+I0829 15:02:25.688241 3058432 cuckoo_watch.h:45] 296ms in ProcessBatch(urnuuid287e5d74-a3dc-11f1-b895-085bd6902356/f1308786-5039-4822-aeb9-42c78e8d0391.batch) [including 7ms in LoadMessage; 1ms in InitializeSparseNdw; 0ms in FindReuseThetaCacheEntry; 3ms in InitializeTheta; 0ms in CreateRegularizerAgents; 232ms in InferThetaAndUpdateNwtSparse; 0ms in UpdateCacheEntry; 35ms in CalculateScore(perp_score); 1ms in CalculateScore(sp_theta_score); 13ms in CalculateScore(^^^ItemsProcessedScore^^^); ]
+I0829 15:02:25.688787 3058396 master_component.cc:1436] RegularizeModelArgs: rwt_target_name=rwt, pwt_source_name=pwt, nwt_source_name=nwt
+I0829 15:02:25.688827 3058396 master_component.cc:976] MasterComponent: start regularizing model pwt
+I0829 15:02:25.701560 3058437 processor.cc:740] No data in processing queue, waiting...
+I0829 15:02:25.708439 3058432 processor.cc:740] No data in processing queue, waiting...
+I0829 15:02:25.773875 3058396 master_component.cc:1002] MasterComponent: complete regularizing model pwt
+I0829 15:02:25.773916 3058396 master_component.cc:1449] NormalizeModelArgs: pwt_target_name=pwt, nwt_source_name=nwt, rwt_source_name=rwt
+I0829 15:02:25.773921 3058396 master_component.cc:1006] MasterComponent: start normalizing model nwt
+I0829 15:02:25.803550 3058396 master_component.cc:1034] MasterComponent: complete normalizing model nwt
+I0829 15:02:25.807600 3058396 master_component.cc:1473] DisposeModel rwt
+I0829 15:02:25.810513 3058396 master_component.cc:1059] FitOffline: ItemsProcessed, num_items=2242, num_batches=3, token_weight=424341, token_weight_in_effect=424341
+I0829 15:02:25.810741 3058396 c_interface.cc:389] Pass FitOfflineMasterModelArgs, batch_filename_size=3, batch_weight_size=3, num_collection_passes=1, reset_nwt=yes to MN4artm4core15MasterComponentEFvRKNS_25FitOfflineMasterModelArgsEE
+I0829 15:02:25.810755 3058396 master_component.cc:1398] ProcessBatchesArgs: nwt_target_name=nwt, batch_filename_size=3, batch_size=0, batch_weight_size=3, pwt_source_name=pwt, num_document_passes=10, regularizer=(name:lda_theta_reg, tau:0.1), regularizer=(name:lda_phi_reg, tau:0.05), reuse_theta=yes, opt_for_avx=yes, predict_class_id=, reset_nwt=yes
+I0829 15:02:25.817929 3058434 processor.cc:747] Processing queue has data, processing started
+I0829 15:02:25.818096 3058430 processor.cc:747] Processing queue has data, processing started
+I0829 15:02:25.818445 3058435 processor.cc:747] Processing queue has data, processing started
+I0829 15:02:25.820884 3058434 processor.cc:820] Processor: start processing batch 2ee50040-2c23-43d0-99a2-bfee0609ca54 into model nwt
+I0829 15:02:25.825217 3058430 processor.cc:820] Processor: start processing batch f6aa7a68-65fc-4edc-ad95-a48fcec526de into model nwt
+I0829 15:02:25.825464 3058435 processor.cc:820] Processor: start processing batch f1308786-5039-4822-aeb9-42c78e8d0391 into model nwt
+I0829 15:02:25.900980 3058434 processor.cc:925] Processor: complete processing batch 2ee50040-2c23-43d0-99a2-bfee0609ca54 into model nwt
+I0829 15:02:25.901337 3058434 cuckoo_watch.h:45] 83ms in ProcessBatch(urnuuid287e5d74-a3dc-11f1-b895-085bd6902356/2ee50040-2c23-43d0-99a2-bfee0609ca54.batch) [including 2ms in LoadMessage; 0ms in InitializeSparseNdw; 0ms in FindReuseThetaCacheEntry; 0ms in InitializeTheta; 0ms in CreateRegularizerAgents; 66ms in InferThetaAndUpdateNwtSparse; 0ms in UpdateCacheEntry; 8ms in CalculateScore(perp_score); 0ms in CalculateScore(sp_theta_score); 3ms in CalculateScore(^^^ItemsProcessedScore^^^); ]
+I0829 15:02:25.921510 3058434 processor.cc:740] No data in processing queue, waiting...
+I0829 15:02:26.091290 3058435 processor.cc:925] Processor: complete processing batch f1308786-5039-4822-aeb9-42c78e8d0391 into model nwt
+I0829 15:02:26.092136 3058435 cuckoo_watch.h:45] 273ms in ProcessBatch(urnuuid287e5d74-a3dc-11f1-b895-085bd6902356/f1308786-5039-4822-aeb9-42c78e8d0391.batch) [including 6ms in LoadMessage; 0ms in InitializeSparseNdw; 0ms in FindReuseThetaCacheEntry; 1ms in InitializeTheta; 0ms in CreateRegularizerAgents; 213ms in InferThetaAndUpdateNwtSparse; 0ms in UpdateCacheEntry; 36ms in CalculateScore(perp_score); 1ms in CalculateScore(sp_theta_score); 13ms in CalculateScore(^^^ItemsProcessedScore^^^); ]
+I0829 15:02:26.112197 3058435 processor.cc:740] No data in processing queue, waiting...
+I0829 15:02:26.115836 3058430 processor.cc:925] Processor: complete processing batch f6aa7a68-65fc-4edc-ad95-a48fcec526de into model nwt
+I0829 15:02:26.116669 3058430 cuckoo_watch.h:45] 298ms in ProcessBatch(urnuuid287e5d74-a3dc-11f1-b895-085bd6902356/f6aa7a68-65fc-4edc-ad95-a48fcec526de.batch) [including 7ms in LoadMessage; 1ms in InitializeSparseNdw; 0ms in FindReuseThetaCacheEntry; 3ms in InitializeTheta; 0ms in CreateRegularizerAgents; 236ms in InferThetaAndUpdateNwtSparse; 0ms in UpdateCacheEntry; 34ms in CalculateScore(perp_score); 1ms in CalculateScore(sp_theta_score); 13ms in CalculateScore(^^^ItemsProcessedScore^^^); ]
+I0829 15:02:26.117264 3058396 master_component.cc:1436] RegularizeModelArgs: rwt_target_name=rwt, pwt_source_name=pwt, nwt_source_name=nwt
+I0829 15:02:26.117295 3058396 master_component.cc:976] MasterComponent: start regularizing model pwt
+I0829 15:02:26.136909 3058430 processor.cc:740] No data in processing queue, waiting...
+I0829 15:02:26.167605 3058396 master_component.cc:1002] MasterComponent: complete regularizing model pwt
+I0829 15:02:26.167615 3058396 master_component.cc:1449] NormalizeModelArgs: pwt_target_name=pwt, nwt_source_name=nwt, rwt_source_name=rwt
+I0829 15:02:26.167619 3058396 master_component.cc:1006] MasterComponent: start normalizing model nwt
+I0829 15:02:26.196791 3058396 master_component.cc:1034] MasterComponent: complete normalizing model nwt
+I0829 15:02:26.200837 3058396 master_component.cc:1473] DisposeModel rwt
+I0829 15:02:26.203501 3058396 master_component.cc:1059] FitOffline: ItemsProcessed, num_items=2242, num_batches=3, token_weight=424341, token_weight_in_effect=424341
+I0829 15:02:26.203708 3058396 c_interface.cc:389] Pass FitOfflineMasterModelArgs, batch_filename_size=3, batch_weight_size=3, num_collection_passes=1, reset_nwt=yes to MN4artm4core15MasterComponentEFvRKNS_25FitOfflineMasterModelArgsEE
+I0829 15:02:26.203719 3058396 master_component.cc:1398] ProcessBatchesArgs: nwt_target_name=nwt, batch_filename_size=3, batch_size=0, batch_weight_size=3, pwt_source_name=pwt, num_document_passes=10, regularizer=(name:lda_theta_reg, tau:0.1), regularizer=(name:lda_phi_reg, tau:0.05), reuse_theta=yes, opt_for_avx=yes, predict_class_id=, reset_nwt=yes
+I0829 15:02:26.210860 3058437 processor.cc:747] Processing queue has data, processing started
+I0829 15:02:26.211093 3058436 processor.cc:747] Processing queue has data, processing started
+I0829 15:02:26.211220 3058430 processor.cc:747] Processing queue has data, processing started
+I0829 15:02:26.213763 3058437 processor.cc:820] Processor: start processing batch 2ee50040-2c23-43d0-99a2-bfee0609ca54 into model nwt
+I0829 15:02:26.218137 3058430 processor.cc:820] Processor: start processing batch f1308786-5039-4822-aeb9-42c78e8d0391 into model nwt
+I0829 15:02:26.218219 3058436 processor.cc:820] Processor: start processing batch f6aa7a68-65fc-4edc-ad95-a48fcec526de into model nwt
+I0829 15:02:26.299119 3058437 processor.cc:925] Processor: complete processing batch 2ee50040-2c23-43d0-99a2-bfee0609ca54 into model nwt
+I0829 15:02:26.299484 3058437 cuckoo_watch.h:45] 88ms in ProcessBatch(urnuuid287e5d74-a3dc-11f1-b895-085bd6902356/2ee50040-2c23-43d0-99a2-bfee0609ca54.batch) [including 2ms in LoadMessage; 0ms in InitializeSparseNdw; 0ms in FindReuseThetaCacheEntry; 0ms in InitializeTheta; 0ms in CreateRegularizerAgents; 71ms in InferThetaAndUpdateNwtSparse; 0ms in UpdateCacheEntry; 8ms in CalculateScore(perp_score); 0ms in CalculateScore(sp_theta_score); 3ms in CalculateScore(^^^ItemsProcessedScore^^^); ]
+I0829 15:02:26.319693 3058437 processor.cc:740] No data in processing queue, waiting...
+I0829 15:02:26.494884 3058430 processor.cc:925] Processor: complete processing batch f1308786-5039-4822-aeb9-42c78e8d0391 into model nwt
+I0829 15:02:26.495728 3058430 cuckoo_watch.h:45] 284ms in ProcessBatch(urnuuid287e5d74-a3dc-11f1-b895-085bd6902356/f1308786-5039-4822-aeb9-42c78e8d0391.batch) [including 6ms in LoadMessage; 1ms in InitializeSparseNdw; 0ms in FindReuseThetaCacheEntry; 4ms in InitializeTheta; 0ms in CreateRegularizerAgents; 219ms in InferThetaAndUpdateNwtSparse; 0ms in UpdateCacheEntry; 36ms in CalculateScore(perp_score); 1ms in CalculateScore(sp_theta_score); 13ms in CalculateScore(^^^ItemsProcessedScore^^^); ]
+I0829 15:02:26.496935 3058436 processor.cc:925] Processor: complete processing batch f6aa7a68-65fc-4edc-ad95-a48fcec526de into model nwt
+I0829 15:02:26.497772 3058436 cuckoo_watch.h:45] 286ms in ProcessBatch(urnuuid287e5d74-a3dc-11f1-b895-085bd6902356/f6aa7a68-65fc-4edc-ad95-a48fcec526de.batch) [including 7ms in LoadMessage; 1ms in InitializeSparseNdw; 0ms in FindReuseThetaCacheEntry; 3ms in InitializeTheta; 0ms in CreateRegularizerAgents; 222ms in InferThetaAndUpdateNwtSparse; 0ms in UpdateCacheEntry; 36ms in CalculateScore(perp_score); 1ms in CalculateScore(sp_theta_score); 13ms in CalculateScore(^^^ItemsProcessedScore^^^); ]
+I0829 15:02:26.498785 3058396 master_component.cc:1436] RegularizeModelArgs: rwt_target_name=rwt, pwt_source_name=pwt, nwt_source_name=nwt
+I0829 15:02:26.498818 3058396 master_component.cc:976] MasterComponent: start regularizing model pwt
+I0829 15:02:26.515825 3058430 processor.cc:740] No data in processing queue, waiting...
+I0829 15:02:26.517889 3058436 processor.cc:740] No data in processing queue, waiting...
+I0829 15:02:26.537765 3058396 master_component.cc:1002] MasterComponent: complete regularizing model pwt
+I0829 15:02:26.537772 3058396 master_component.cc:1449] NormalizeModelArgs: pwt_target_name=pwt, nwt_source_name=nwt, rwt_source_name=rwt
+I0829 15:02:26.537777 3058396 master_component.cc:1006] MasterComponent: start normalizing model nwt
+I0829 15:02:26.566737 3058396 master_component.cc:1034] MasterComponent: complete normalizing model nwt
+I0829 15:02:26.570779 3058396 master_component.cc:1473] DisposeModel rwt
+I0829 15:02:26.573393 3058396 master_component.cc:1059] FitOffline: ItemsProcessed, num_items=2242, num_batches=3, token_weight=424341, token_weight_in_effect=424341
+I0829 15:02:26.573603 3058396 c_interface.cc:389] Pass FitOfflineMasterModelArgs, batch_filename_size=3, batch_weight_size=3, num_collection_passes=1, reset_nwt=yes to MN4artm4core15MasterComponentEFvRKNS_25FitOfflineMasterModelArgsEE
+I0829 15:02:26.573616 3058396 master_component.cc:1398] ProcessBatchesArgs: nwt_target_name=nwt, batch_filename_size=3, batch_size=0, batch_weight_size=3, pwt_source_name=pwt, num_document_passes=10, regularizer=(name:lda_theta_reg, tau:0.1), regularizer=(name:lda_phi_reg, tau:0.05), reuse_theta=yes, opt_for_avx=yes, predict_class_id=, reset_nwt=yes
+I0829 15:02:26.580561 3058437 processor.cc:747] Processing queue has data, processing started
+I0829 15:02:26.580876 3058431 processor.cc:747] Processing queue has data, processing started
+I0829 15:02:26.581001 3058434 processor.cc:747] Processing queue has data, processing started
+I0829 15:02:26.583467 3058437 processor.cc:820] Processor: start processing batch 2ee50040-2c23-43d0-99a2-bfee0609ca54 into model nwt
+I0829 15:02:26.588137 3058431 processor.cc:820] Processor: start processing batch f6aa7a68-65fc-4edc-ad95-a48fcec526de into model nwt
+I0829 15:02:26.588212 3058434 processor.cc:820] Processor: start processing batch f1308786-5039-4822-aeb9-42c78e8d0391 into model nwt
+I0829 15:02:26.672425 3058437 processor.cc:925] Processor: complete processing batch 2ee50040-2c23-43d0-99a2-bfee0609ca54 into model nwt
+I0829 15:02:26.672781 3058437 cuckoo_watch.h:45] 92ms in ProcessBatch(urnuuid287e5d74-a3dc-11f1-b895-085bd6902356/2ee50040-2c23-43d0-99a2-bfee0609ca54.batch) [including 2ms in LoadMessage; 0ms in InitializeSparseNdw; 0ms in FindReuseThetaCacheEntry; 0ms in InitializeTheta; 0ms in CreateRegularizerAgents; 75ms in InferThetaAndUpdateNwtSparse; 0ms in UpdateCacheEntry; 8ms in CalculateScore(perp_score); 0ms in CalculateScore(sp_theta_score); 3ms in CalculateScore(^^^ItemsProcessedScore^^^); ]
+I0829 15:02:26.692942 3058437 processor.cc:740] No data in processing queue, waiting...
+I0829 15:02:26.866397 3058431 processor.cc:925] Processor: complete processing batch f6aa7a68-65fc-4edc-ad95-a48fcec526de into model nwt
+I0829 15:02:26.867182 3058434 processor.cc:925] Processor: complete processing batch f1308786-5039-4822-aeb9-42c78e8d0391 into model nwt
+I0829 15:02:26.867223 3058431 cuckoo_watch.h:45] 286ms in ProcessBatch(urnuuid287e5d74-a3dc-11f1-b895-085bd6902356/f6aa7a68-65fc-4edc-ad95-a48fcec526de.batch) [including 7ms in LoadMessage; 1ms in InitializeSparseNdw; 0ms in FindReuseThetaCacheEntry; 3ms in InitializeTheta; 0ms in CreateRegularizerAgents; 220ms in InferThetaAndUpdateNwtSparse; 0ms in UpdateCacheEntry; 37ms in CalculateScore(perp_score); 1ms in CalculateScore(sp_theta_score); 13ms in CalculateScore(^^^ItemsProcessedScore^^^); ]
+I0829 15:02:26.868008 3058434 cuckoo_watch.h:45] 286ms in ProcessBatch(urnuuid287e5d74-a3dc-11f1-b895-085bd6902356/f1308786-5039-4822-aeb9-42c78e8d0391.batch) [including 7ms in LoadMessage; 1ms in InitializeSparseNdw; 0ms in FindReuseThetaCacheEntry; 4ms in InitializeTheta; 0ms in CreateRegularizerAgents; 222ms in InferThetaAndUpdateNwtSparse; 0ms in UpdateCacheEntry; 36ms in CalculateScore(perp_score); 1ms in CalculateScore(sp_theta_score); 13ms in CalculateScore(^^^ItemsProcessedScore^^^); ]
+I0829 15:02:26.868500 3058396 master_component.cc:1436] RegularizeModelArgs: rwt_target_name=rwt, pwt_source_name=pwt, nwt_source_name=nwt
+I0829 15:02:26.868539 3058396 master_component.cc:976] MasterComponent: start regularizing model pwt
+I0829 15:02:26.887400 3058431 processor.cc:740] No data in processing queue, waiting...
+I0829 15:02:26.888128 3058434 processor.cc:740] No data in processing queue, waiting...
+I0829 15:02:26.948297 3058396 master_component.cc:1002] MasterComponent: complete regularizing model pwt
+I0829 15:02:26.948307 3058396 master_component.cc:1449] NormalizeModelArgs: pwt_target_name=pwt, nwt_source_name=nwt, rwt_source_name=rwt
+I0829 15:02:26.948313 3058396 master_component.cc:1006] MasterComponent: start normalizing model nwt
+I0829 15:02:26.977484 3058396 master_component.cc:1034] MasterComponent: complete normalizing model nwt
+I0829 15:02:26.981534 3058396 master_component.cc:1473] DisposeModel rwt
+I0829 15:02:26.984236 3058396 master_component.cc:1059] FitOffline: ItemsProcessed, num_items=2242, num_batches=3, token_weight=424341, token_weight_in_effect=424341
+I0829 15:02:26.984530 3058396 phi_matrix_operations.cc:84] RetrieveExternalTopicModel() with 100 topics, 9172 tokens
+I0829 15:02:26.991835 3058396 c_interface.cc:231] ArtmCopyRequestedMessage is copying 268779 bytes...
+I0829 15:02:27.073998 3058396 phi_matrix_operations.cc:84] RetrieveExternalTopicModel() with 100 topics, 9172 tokens
+I0829 15:02:27.081971 3058396 c_interface.cc:231] ArtmCopyRequestedMessage is copying 232091 bytes...
+I0829 15:02:27.100800 3058396 c_interface.cc:236] ArtmCopyRequestedObject is copying 3668800 bytes...
+I0829 15:02:27.117228 3058396 c_interface.cc:231] ArtmCopyRequestedMessage is copying 28900 bytes...
+W0829 15:02:27.132298 3058396 check_messages.h:1082] Inconsistent fields size in ThetaMatrix: 2242 vs 0 vs 2242 vs 0;
+I0829 15:02:27.132825 3058396 c_interface.cc:231] ArtmCopyRequestedMessage is copying 19932 bytes...
+I0829 15:02:27.137652 3058396 c_interface.cc:236] ArtmCopyRequestedObject is copying 896800 bytes...
+I0829 15:02:27.142635 3058430 processor.cc:732] Processor thread stopped
+I0829 15:02:27.142653 3058430 processor.cc:733] Total number of processed batches: 3
+I0829 15:02:27.143639 3058431 processor.cc:732] Processor thread stopped
+I0829 15:02:27.143659 3058431 processor.cc:733] Total number of processed batches: 5
+I0829 15:02:27.144770 3058432 processor.cc:732] Processor thread stopped
+I0829 15:02:27.144786 3058432 processor.cc:733] Total number of processed batches: 3
+I0829 15:02:27.145054 3058433 processor.cc:732] Processor thread stopped
+I0829 15:02:27.145071 3058433 processor.cc:733] Total number of processed batches: 3
+I0829 15:02:27.146548 3058434 processor.cc:732] Processor thread stopped
+I0829 15:02:27.146564 3058434 processor.cc:733] Total number of processed batches: 5
+I0829 15:02:27.146919 3058435 processor.cc:732] Processor thread stopped
+I0829 15:02:27.146935 3058435 processor.cc:733] Total number of processed batches: 2
+I0829 15:02:27.147068 3058436 processor.cc:732] Processor thread stopped
+I0829 15:02:27.147078 3058436 processor.cc:733] Total number of processed batches: 4
+I0829 15:02:27.147439 3058437 processor.cc:732] Processor thread stopped
+I0829 15:02:27.147455 3058437 processor.cc:733] Total number of processed batches: 5
+I0829 15:02:27.157354 3058396 c_interface.cc:339] Disposing MasterComponent (id=2)...
+I0829 15:02:27.158142 3058396 c_interface.cc:375] Pass 5281e372-6cb1-4e8e-976f-be971bf4cfa9 to MN4artm4core15MasterComponentEFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
+I0829 15:02:27.159301 3058396 c_interface.cc:339] Disposing MasterComponent (id=1)...
+I0829 15:02:27.244763 3058396 c_interface.cc:271] Pass MasterModelConfig: topic_name_size=1, score_config_size=1, num_processors=0, pwt_name=pwt, nwt_name=nwt, num_document_passes=10, reuse_theta=no, cache_theta=no, opt_for_avx=yes, disk_cache_path= to ArtmCreateMasterModel
+I0829 15:02:27.244820 3058396 instance.cc:401] MasterModelConfig.processors_count is automatically set to 24
+I0829 15:02:27.244874 3058488 processor.cc:724] Processor thread started
+I0829 15:02:27.244896 3058489 processor.cc:724] Processor thread started
+I0829 15:02:27.244910 3058490 processor.cc:724] Processor thread started
+I0829 15:02:27.244923 3058491 processor.cc:724] Processor thread started
+I0829 15:02:27.244971 3058492 processor.cc:724] Processor thread started
+I0829 15:02:27.244987 3058493 processor.cc:724] Processor thread started
+I0829 15:02:27.245008 3058494 processor.cc:724] Processor thread started
+I0829 15:02:27.245024 3058495 processor.cc:724] Processor thread started
+I0829 15:02:27.245052 3058496 processor.cc:724] Processor thread started
+I0829 15:02:27.245074 3058497 processor.cc:724] Processor thread started
+I0829 15:02:27.245093 3058498 processor.cc:724] Processor thread started
+I0829 15:02:27.245105 3058499 processor.cc:724] Processor thread started
+I0829 15:02:27.245127 3058500 processor.cc:724] Processor thread started
+I0829 15:02:27.245146 3058501 processor.cc:724] Processor thread started
+I0829 15:02:27.245162 3058502 processor.cc:724] Processor thread started
+I0829 15:02:27.245184 3058503 processor.cc:724] Processor thread started
+I0829 15:02:27.245198 3058504 processor.cc:724] Processor thread started
+I0829 15:02:27.245220 3058505 processor.cc:724] Processor thread started
+I0829 15:02:27.245232 3058506 processor.cc:724] Processor thread started
+I0829 15:02:27.245256 3058507 processor.cc:724] Processor thread started
+I0829 15:02:27.245281 3058508 processor.cc:724] Processor thread started
+I0829 15:02:27.245297 3058509 processor.cc:724] Processor thread started
+I0829 15:02:27.245318 3058510 processor.cc:724] Processor thread started
+I0829 15:02:27.245328 3058396 c_interface.cc:274] Creating MasterModel (id=3)...
+I0829 15:02:27.245338 3058511 processor.cc:724] Processor thread started
+I0829 15:02:27.245954 3058488 processor.cc:732] Processor thread stopped
+I0829 15:02:27.245960 3058488 processor.cc:733] Total number of processed batches: 0
+I0829 15:02:27.247031 3058489 processor.cc:732] Processor thread stopped
+I0829 15:02:27.247038 3058489 processor.cc:733] Total number of processed batches: 0
+I0829 15:02:27.248107 3058490 processor.cc:732] Processor thread stopped
+I0829 15:02:27.248113 3058490 processor.cc:733] Total number of processed batches: 0
+I0829 15:02:27.249182 3058491 processor.cc:732] Processor thread stopped
+I0829 15:02:27.249188 3058491 processor.cc:733] Total number of processed batches: 0
+I0829 15:02:27.249229 3058492 processor.cc:732] Processor thread stopped
+I0829 15:02:27.249236 3058492 processor.cc:733] Total number of processed batches: 0
+I0829 15:02:27.250303 3058493 processor.cc:732] Processor thread stopped
+I0829 15:02:27.250309 3058493 processor.cc:733] Total number of processed batches: 0
+I0829 15:02:27.251402 3058494 processor.cc:732] Processor thread stopped
+I0829 15:02:27.251410 3058494 processor.cc:733] Total number of processed batches: 0
+I0829 15:02:27.252441 3058495 processor.cc:732] Processor thread stopped
+I0829 15:02:27.252449 3058495 processor.cc:733] Total number of processed batches: 0
+I0829 15:02:27.252512 3058496 processor.cc:732] Processor thread stopped
+I0829 15:02:27.252521 3058496 processor.cc:733] Total number of processed batches: 0
+I0829 15:02:27.253567 3058497 processor.cc:732] Processor thread stopped
+I0829 15:02:27.253575 3058497 processor.cc:733] Total number of processed batches: 0
+I0829 15:02:27.254627 3058498 processor.cc:732] Processor thread stopped
+I0829 15:02:27.254640 3058498 processor.cc:733] Total number of processed batches: 0
+I0829 15:02:27.255671 3058499 processor.cc:732] Processor thread stopped
+I0829 15:02:27.255679 3058499 processor.cc:733] Total number of processed batches: 0
+I0829 15:02:27.255775 3058500 processor.cc:732] Processor thread stopped
+I0829 15:02:27.255785 3058500 processor.cc:733] Total number of processed batches: 0
+I0829 15:02:27.256839 3058501 processor.cc:732] Processor thread stopped
+I0829 15:02:27.256847 3058501 processor.cc:733] Total number of processed batches: 0
+I0829 15:02:27.257901 3058502 processor.cc:732] Processor thread stopped
+I0829 15:02:27.257911 3058502 processor.cc:733] Total number of processed batches: 0
+I0829 15:02:27.258980 3058503 processor.cc:732] Processor thread stopped
+I0829 15:02:27.258986 3058503 processor.cc:733] Total number of processed batches: 0
+I0829 15:02:27.260036 3058504 processor.cc:732] Processor thread stopped
+I0829 15:02:27.260044 3058504 processor.cc:733] Total number of processed batches: 0
+I0829 15:02:27.261207 3058505 processor.cc:732] Processor thread stopped
+I0829 15:02:27.261224 3058505 processor.cc:733] Total number of processed batches: 0
+I0829 15:02:27.262326 3058506 processor.cc:732] Processor thread stopped
+I0829 15:02:27.262341 3058506 processor.cc:733] Total number of processed batches: 0
+I0829 15:02:27.262496 3058507 processor.cc:732] Processor thread stopped
+I0829 15:02:27.262512 3058507 processor.cc:733] Total number of processed batches: 0
+I0829 15:02:27.263559 3058508 processor.cc:732] Processor thread stopped
+I0829 15:02:27.263576 3058508 processor.cc:733] Total number of processed batches: 0
+I0829 15:02:27.264645 3058509 processor.cc:732] Processor thread stopped
+I0829 15:02:27.264662 3058509 processor.cc:733] Total number of processed batches: 0
+I0829 15:02:27.265661 3058511 processor.cc:740] No data in processing queue, waiting...
+I0829 15:02:27.265702 3058510 processor.cc:732] Processor thread stopped
+I0829 15:02:27.265718 3058510 processor.cc:733] Total number of processed batches: 0
+I0829 15:02:27.266741 3058511 processor.cc:732] Processor thread stopped
+I0829 15:02:27.266748 3058511 processor.cc:733] Total number of processed batches: 0
+I0829 15:02:27.266825 3058396 c_interface.cc:339] Disposing MasterComponent (id=3)...

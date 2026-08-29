@@ -40,7 +40,7 @@ BIG <- levels(runs$corpus)[nlevels(runs$corpus)]
 LANG <- c(tidylda = "R", text2vec = "R", textmineR = "R", `topicmodels-gibbs` = "R",
           `topicmodels-vem` = "R", lda = "R", mallet = "Java",
           gensim = "Python", sklearn = "Python", tomotopy = "Python",
-          pylda = "Python")
+          pylda = "Python", bigartm = "Python")
 stopifnot("every engine needs a language for the speed chart" =
             all(names(ENGINES) %in% names(LANG)))
 fixed_it <- vapply(names(ENGINES), engine_fixed_iters, numeric(1))

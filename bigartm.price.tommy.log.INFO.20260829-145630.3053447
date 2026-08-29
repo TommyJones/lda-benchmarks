@@ -1,0 +1,81 @@
+Log file created at: 2026/08/29 14:56:30
+Running on machine: price
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0829 14:56:30.711490 3053447 c_interface.cc:127] Logging enabled to .
+I0829 14:56:30.711643 3053447 c_interface.cc:128] BigARTM version: v0.9.2
+I0829 14:56:30.711676 3053447 c_interface.cc:271] Pass MasterModelConfig: topic_name_size=1, score_config_size=1, num_processors=0, pwt_name=pwt, nwt_name=nwt, num_document_passes=10, reuse_theta=no, cache_theta=no, opt_for_avx=yes, disk_cache_path= to ArtmCreateMasterModel
+I0829 14:56:30.711714 3053447 instance.cc:401] MasterModelConfig.processors_count is automatically set to 24
+I0829 14:56:30.711972 3053472 processor.cc:724] Processor thread started
+I0829 14:56:30.712028 3053473 processor.cc:724] Processor thread started
+I0829 14:56:30.712071 3053474 processor.cc:724] Processor thread started
+I0829 14:56:30.712218 3053475 processor.cc:724] Processor thread started
+I0829 14:56:30.712486 3053476 processor.cc:724] Processor thread started
+I0829 14:56:30.712603 3053477 processor.cc:724] Processor thread started
+I0829 14:56:30.712664 3053478 processor.cc:724] Processor thread started
+I0829 14:56:30.712723 3053479 processor.cc:724] Processor thread started
+I0829 14:56:30.712828 3053480 processor.cc:724] Processor thread started
+I0829 14:56:30.712929 3053483 processor.cc:724] Processor thread started
+I0829 14:56:30.712946 3053481 processor.cc:724] Processor thread started
+I0829 14:56:30.713016 3053482 processor.cc:724] Processor thread started
+I0829 14:56:30.713032 3053484 processor.cc:724] Processor thread started
+I0829 14:56:30.713235 3053487 processor.cc:724] Processor thread started
+I0829 14:56:30.713241 3053485 processor.cc:724] Processor thread started
+I0829 14:56:30.713249 3053486 processor.cc:724] Processor thread started
+I0829 14:56:30.713344 3053488 processor.cc:724] Processor thread started
+I0829 14:56:30.713384 3053489 processor.cc:724] Processor thread started
+I0829 14:56:30.713478 3053490 processor.cc:724] Processor thread started
+I0829 14:56:30.713526 3053491 processor.cc:724] Processor thread started
+I0829 14:56:30.713575 3053492 processor.cc:724] Processor thread started
+I0829 14:56:30.713587 3053493 processor.cc:724] Processor thread started
+I0829 14:56:30.713624 3053447 c_interface.cc:274] Creating MasterModel (id=1)...
+I0829 14:56:30.713670 3053494 processor.cc:724] Processor thread started
+I0829 14:56:30.713696 3053495 processor.cc:724] Processor thread started
+I0829 14:56:30.714128 3053472 processor.cc:732] Processor thread stopped
+I0829 14:56:30.714135 3053472 processor.cc:733] Total number of processed batches: 0
+I0829 14:56:30.715237 3053473 processor.cc:732] Processor thread stopped
+I0829 14:56:30.715245 3053473 processor.cc:733] Total number of processed batches: 0
+I0829 14:56:30.716321 3053474 processor.cc:732] Processor thread stopped
+I0829 14:56:30.716329 3053474 processor.cc:733] Total number of processed batches: 0
+I0829 14:56:30.716441 3053475 processor.cc:732] Processor thread stopped
+I0829 14:56:30.716449 3053475 processor.cc:733] Total number of processed batches: 0
+I0829 14:56:30.716759 3053476 processor.cc:732] Processor thread stopped
+I0829 14:56:30.716775 3053476 processor.cc:733] Total number of processed batches: 0
+I0829 14:56:30.716866 3053477 processor.cc:732] Processor thread stopped
+I0829 14:56:30.716873 3053477 processor.cc:733] Total number of processed batches: 0
+I0829 14:56:30.716931 3053478 processor.cc:732] Processor thread stopped
+I0829 14:56:30.716938 3053478 processor.cc:733] Total number of processed batches: 0
+I0829 14:56:30.718046 3053479 processor.cc:732] Processor thread stopped
+I0829 14:56:30.718055 3053479 processor.cc:733] Total number of processed batches: 0
+I0829 14:56:30.718149 3053480 processor.cc:732] Processor thread stopped
+I0829 14:56:30.718156 3053480 processor.cc:733] Total number of processed batches: 0
+I0829 14:56:30.718286 3053481 processor.cc:732] Processor thread stopped
+I0829 14:56:30.718294 3053481 processor.cc:733] Total number of processed batches: 0
+I0829 14:56:30.718381 3053482 processor.cc:732] Processor thread stopped
+I0829 14:56:30.718389 3053482 processor.cc:733] Total number of processed batches: 0
+I0829 14:56:30.719452 3053483 processor.cc:732] Processor thread stopped
+I0829 14:56:30.719502 3053483 processor.cc:733] Total number of processed batches: 0
+I0829 14:56:30.720599 3053484 processor.cc:732] Processor thread stopped
+I0829 14:56:30.720616 3053484 processor.cc:733] Total number of processed batches: 0
+I0829 14:56:30.720688 3053485 processor.cc:732] Processor thread stopped
+I0829 14:56:30.720695 3053485 processor.cc:733] Total number of processed batches: 0
+I0829 14:56:30.720811 3053486 processor.cc:732] Processor thread stopped
+I0829 14:56:30.720827 3053486 processor.cc:733] Total number of processed batches: 0
+I0829 14:56:30.721858 3053487 processor.cc:732] Processor thread stopped
+I0829 14:56:30.721872 3053487 processor.cc:733] Total number of processed batches: 0
+I0829 14:56:30.723003 3053488 processor.cc:732] Processor thread stopped
+I0829 14:56:30.723017 3053488 processor.cc:733] Total number of processed batches: 0
+I0829 14:56:30.724049 3053489 processor.cc:732] Processor thread stopped
+I0829 14:56:30.724059 3053489 processor.cc:733] Total number of processed batches: 0
+I0829 14:56:30.724184 3053490 processor.cc:732] Processor thread stopped
+I0829 14:56:30.724200 3053490 processor.cc:733] Total number of processed batches: 0
+I0829 14:56:30.725350 3053491 processor.cc:732] Processor thread stopped
+I0829 14:56:30.725381 3053491 processor.cc:733] Total number of processed batches: 0
+I0829 14:56:30.726471 3053492 processor.cc:732] Processor thread stopped
+I0829 14:56:30.726487 3053492 processor.cc:733] Total number of processed batches: 0
+I0829 14:56:30.727627 3053493 processor.cc:732] Processor thread stopped
+I0829 14:56:30.727643 3053493 processor.cc:733] Total number of processed batches: 0
+I0829 14:56:30.728706 3053494 processor.cc:732] Processor thread stopped
+I0829 14:56:30.728722 3053494 processor.cc:733] Total number of processed batches: 0
+I0829 14:56:30.728852 3053495 processor.cc:732] Processor thread stopped
+I0829 14:56:30.728868 3053495 processor.cc:733] Total number of processed batches: 0
+I0829 14:56:30.728961 3053447 c_interface.cc:339] Disposing MasterComponent (id=1)...

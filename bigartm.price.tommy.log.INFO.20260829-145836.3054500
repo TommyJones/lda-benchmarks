@@ -1,0 +1,181 @@
+Log file created at: 2026/08/29 14:58:36
+Running on machine: price
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0829 14:58:36.768807 3054500 c_interface.cc:127] Logging enabled to .
+I0829 14:58:36.768901 3054500 c_interface.cc:128] BigARTM version: v0.9.2
+I0829 14:58:36.768919 3054500 c_interface.cc:271] Pass MasterModelConfig: topic_name_size=0, score_config_size=1, num_processors=0, pwt_name=pwt, nwt_name=nwt, num_document_passes=0, reuse_theta=no, cache_theta=no, opt_for_avx=yes, disk_cache_path= to ArtmCreateMasterModel
+I0829 14:58:36.768930 3054500 c_interface.cc:274] Creating MasterModel (id=1)...
+I0829 14:58:36.820663 3054500 c_interface.cc:375] Pass 07858c07-de84-463d-a66d-acfd26cfdf41 to MN4artm4core15MasterComponentEFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
+I0829 14:58:36.822459 3054500 dictionary_operations.cc:589] Dictionary name='07858c07-de84-463d-a66d-acfd26cfdf41' contains entries: @default_class:1309; 
+I0829 14:58:36.822945 3054500 c_interface.cc:271] Pass MasterModelConfig: topic_name_size=10, score_config_size=1, num_processors=1, pwt_name=pwt, nwt_name=nwt, num_document_passes=10, reuse_theta=yes, cache_theta=yes, opt_for_avx=yes, disk_cache_path= to ArtmCreateMasterModel
+I0829 14:58:36.822984 3054500 c_interface.cc:274] Creating MasterModel (id=2)...
+I0829 14:58:36.823045 3054500 c_interface.cc:375] Pass pwt to MN4artm4core15MasterComponentEFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
+I0829 14:58:36.823052 3054500 c_interface.cc:375] Pass nwt to MN4artm4core15MasterComponentEFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
+I0829 14:58:36.823081 3054549 processor.cc:724] Processor thread started
+I0829 14:58:36.823127 3054500 c_interface.cc:389] Pass InitializeModelArgs: model_name=pwt, dictionary_name=07858c07-de84-463d-a66d-acfd26cfdf41, topic_name_size=10, seed=1 to MN4artm4core15MasterComponentEFvRKNS_19InitializeModelArgsEE
+I0829 14:58:36.825680 3054500 master_component.cc:664] InitializeModel() created matrix pwt with 10 topics and 1309 tokens; 
+I0829 14:58:36.825750 3054500 c_interface.cc:389] Pass InitializeModelArgs: model_name=nwt, dictionary_name=07858c07-de84-463d-a66d-acfd26cfdf41, topic_name_size=10, seed=1 to MN4artm4core15MasterComponentEFvRKNS_19InitializeModelArgsEE
+I0829 14:58:36.828187 3054500 master_component.cc:664] InitializeModel() created matrix nwt with 10 topics and 1309 tokens; 
+I0829 14:58:36.828253 3054500 c_interface.cc:231] ArtmCopyRequestedMessage is copying 179 bytes...
+I0829 14:58:36.828564 3054500 c_interface.cc:389] Pass MasterModelConfig: topic_name_size=10, score_config_size=1, num_processors=1, pwt_name=pwt, nwt_name=nwt, num_document_passes=10, regularizer=(lda_theta_reg:0.1), reuse_theta=yes, cache_theta=yes, opt_for_avx=yes, disk_cache_path= to MN4artm4core15MasterComponentEFvRKNS_17MasterModelConfigEE
+I0829 14:58:36.828578 3054500 instance.cc:225] Regularizer 'lda_theta_reg' was cold-reconfigured
+I0829 14:58:36.828722 3054500 c_interface.cc:389] Pass MasterModelConfig: topic_name_size=10, score_config_size=1, num_processors=1, pwt_name=pwt, nwt_name=nwt, num_document_passes=10, regularizer=(lda_theta_reg:0.1), regularizer=(lda_phi_reg:0.05), reuse_theta=yes, cache_theta=yes, opt_for_avx=yes, disk_cache_path= to MN4artm4core15MasterComponentEFvRKNS_17MasterModelConfigEE
+I0829 14:58:36.828730 3054500 instance.cc:225] Regularizer 'lda_theta_reg' was cold-reconfigured
+I0829 14:58:36.828733 3054500 instance.cc:231] Regularizer 'lda_phi_reg' was cold-reconfigured
+I0829 14:58:36.828882 3054500 c_interface.cc:389] Pass MasterModelConfig: topic_name_size=10, score_config_size=2, num_processors=1, pwt_name=pwt, nwt_name=nwt, num_document_passes=10, regularizer=(lda_theta_reg:0.1), regularizer=(lda_phi_reg:0.05), reuse_theta=yes, cache_theta=yes, opt_for_avx=yes, disk_cache_path= to MN4artm4core15MasterComponentEFvRKNS_17MasterModelConfigEE
+I0829 14:58:36.828890 3054500 perplexity.cc:26] Perplexity score calculator created: model_type=1, dictionary_name=07858c07-de84-463d-a66d-acfd26cfdf41
+I0829 14:58:36.828895 3054500 instance.cc:225] Regularizer 'lda_theta_reg' was cold-reconfigured
+I0829 14:58:36.828897 3054500 instance.cc:231] Regularizer 'lda_phi_reg' was cold-reconfigured
+I0829 14:58:36.829038 3054500 c_interface.cc:389] Pass MasterModelConfig: topic_name_size=10, score_config_size=3, num_processors=1, pwt_name=pwt, nwt_name=nwt, num_document_passes=10, regularizer=(lda_theta_reg:0.1), regularizer=(lda_phi_reg:0.05), reuse_theta=yes, cache_theta=yes, opt_for_avx=yes, disk_cache_path= to MN4artm4core15MasterComponentEFvRKNS_17MasterModelConfigEE
+I0829 14:58:36.829063 3054500 perplexity.cc:26] Perplexity score calculator created: model_type=1, dictionary_name=07858c07-de84-463d-a66d-acfd26cfdf41
+I0829 14:58:36.829070 3054500 instance.cc:225] Regularizer 'lda_theta_reg' was cold-reconfigured
+I0829 14:58:36.829072 3054500 instance.cc:231] Regularizer 'lda_phi_reg' was cold-reconfigured
+I0829 14:58:36.829232 3054500 c_interface.cc:389] Pass MasterModelConfig: topic_name_size=10, score_config_size=4, num_processors=1, pwt_name=pwt, nwt_name=nwt, num_document_passes=10, regularizer=(lda_theta_reg:0.1), regularizer=(lda_phi_reg:0.05), reuse_theta=yes, cache_theta=yes, opt_for_avx=yes, disk_cache_path= to MN4artm4core15MasterComponentEFvRKNS_17MasterModelConfigEE
+I0829 14:58:36.829239 3054500 perplexity.cc:26] Perplexity score calculator created: model_type=1, dictionary_name=07858c07-de84-463d-a66d-acfd26cfdf41
+I0829 14:58:36.829246 3054500 instance.cc:225] Regularizer 'lda_theta_reg' was cold-reconfigured
+I0829 14:58:36.829248 3054500 instance.cc:231] Regularizer 'lda_phi_reg' was cold-reconfigured
+I0829 14:58:36.830224 3054500 c_interface.cc:389] Pass FitOfflineMasterModelArgs, batch_filename_size=1, batch_weight_size=1, num_collection_passes=1, reset_nwt=yes to MN4artm4core15MasterComponentEFvRKNS_25FitOfflineMasterModelArgsEE
+I0829 14:58:36.830232 3054500 master_component.cc:1398] ProcessBatchesArgs: nwt_target_name=nwt, batch_filename_size=1, batch_size=0, batch_weight_size=1, pwt_source_name=pwt, num_document_passes=10, regularizer=(name:lda_theta_reg, tau:0.1), regularizer=(name:lda_phi_reg, tau:0.05), reuse_theta=yes, opt_for_avx=yes, predict_class_id=, reset_nwt=yes
+I0829 14:58:36.832677 3054549 processor.cc:820] Processor: start processing batch 6005820a-d74b-4371-9747-2787fbd376b7 into model nwt
+I0829 14:58:36.846181 3054549 processor.cc:925] Processor: complete processing batch 6005820a-d74b-4371-9747-2787fbd376b7 into model nwt
+I0829 14:58:36.846432 3054549 cuckoo_watch.h:45] 14ms in ProcessBatch(urnuuida3deed18-a3db-11f1-b895-085bd6902356/6005820a-d74b-4371-9747-2787fbd376b7.batch) [including 1ms in LoadMessage; 0ms in InitializeSparseNdw; 0ms in FindReuseThetaCacheEntry; 0ms in InitializeTheta; 0ms in CreateRegularizerAgents; 7ms in InferThetaAndUpdateNwtSparse; 0ms in UpdateCacheEntry; 3ms in CalculateScore(perp_score); 0ms in CalculateScore(sp_theta_score); 2ms in CalculateScore(^^^ItemsProcessedScore^^^); ]
+I0829 14:58:36.846673 3054500 master_component.cc:1436] RegularizeModelArgs: rwt_target_name=rwt, pwt_source_name=pwt, nwt_source_name=nwt
+I0829 14:58:36.846691 3054500 master_component.cc:976] MasterComponent: start regularizing model pwt
+I0829 14:58:36.849949 3054500 master_component.cc:1002] MasterComponent: complete regularizing model pwt
+I0829 14:58:36.849956 3054500 master_component.cc:1449] NormalizeModelArgs: pwt_target_name=pwt, nwt_source_name=nwt, rwt_source_name=rwt
+I0829 14:58:36.849960 3054500 master_component.cc:1006] MasterComponent: start normalizing model nwt
+I0829 14:58:36.851776 3054500 master_component.cc:1034] MasterComponent: complete normalizing model nwt
+I0829 14:58:36.851908 3054500 master_component.cc:1473] DisposeModel rwt
+I0829 14:58:36.852113 3054500 master_component.cc:1059] FitOffline: ItemsProcessed, num_items=99, num_batches=1, token_weight=14318, token_weight_in_effect=14318
+I0829 14:58:36.852279 3054500 c_interface.cc:389] Pass FitOfflineMasterModelArgs, batch_filename_size=1, batch_weight_size=1, num_collection_passes=1, reset_nwt=yes to MN4artm4core15MasterComponentEFvRKNS_25FitOfflineMasterModelArgsEE
+I0829 14:58:36.852289 3054500 master_component.cc:1398] ProcessBatchesArgs: nwt_target_name=nwt, batch_filename_size=1, batch_size=0, batch_weight_size=1, pwt_source_name=pwt, num_document_passes=10, regularizer=(name:lda_theta_reg, tau:0.1), regularizer=(name:lda_phi_reg, tau:0.05), reuse_theta=yes, opt_for_avx=yes, predict_class_id=, reset_nwt=yes
+I0829 14:58:36.854596 3054549 processor.cc:820] Processor: start processing batch 6005820a-d74b-4371-9747-2787fbd376b7 into model nwt
+I0829 14:58:36.866920 3054549 processor.cc:925] Processor: complete processing batch 6005820a-d74b-4371-9747-2787fbd376b7 into model nwt
+I0829 14:58:36.867089 3054549 cuckoo_watch.h:45] 13ms in ProcessBatch(urnuuida3deed18-a3db-11f1-b895-085bd6902356/6005820a-d74b-4371-9747-2787fbd376b7.batch) [including 0ms in LoadMessage; 0ms in InitializeSparseNdw; 0ms in FindReuseThetaCacheEntry; 0ms in InitializeTheta; 0ms in CreateRegularizerAgents; 6ms in InferThetaAndUpdateNwtSparse; 0ms in UpdateCacheEntry; 3ms in CalculateScore(perp_score); 0ms in CalculateScore(sp_theta_score); 2ms in CalculateScore(^^^ItemsProcessedScore^^^); ]
+I0829 14:58:36.867314 3054500 master_component.cc:1436] RegularizeModelArgs: rwt_target_name=rwt, pwt_source_name=pwt, nwt_source_name=nwt
+I0829 14:58:36.867341 3054500 master_component.cc:976] MasterComponent: start regularizing model pwt
+I0829 14:58:36.871855 3054500 master_component.cc:1002] MasterComponent: complete regularizing model pwt
+I0829 14:58:36.871863 3054500 master_component.cc:1449] NormalizeModelArgs: pwt_target_name=pwt, nwt_source_name=nwt, rwt_source_name=rwt
+I0829 14:58:36.871868 3054500 master_component.cc:1006] MasterComponent: start normalizing model nwt
+I0829 14:58:36.874444 3054500 master_component.cc:1034] MasterComponent: complete normalizing model nwt
+I0829 14:58:36.874634 3054500 master_component.cc:1473] DisposeModel rwt
+I0829 14:58:36.874971 3054500 master_component.cc:1059] FitOffline: ItemsProcessed, num_items=99, num_batches=1, token_weight=14318, token_weight_in_effect=14318
+I0829 14:58:36.875176 3054500 c_interface.cc:389] Pass FitOfflineMasterModelArgs, batch_filename_size=1, batch_weight_size=1, num_collection_passes=1, reset_nwt=yes to MN4artm4core15MasterComponentEFvRKNS_25FitOfflineMasterModelArgsEE
+I0829 14:58:36.875190 3054500 master_component.cc:1398] ProcessBatchesArgs: nwt_target_name=nwt, batch_filename_size=1, batch_size=0, batch_weight_size=1, pwt_source_name=pwt, num_document_passes=10, regularizer=(name:lda_theta_reg, tau:0.1), regularizer=(name:lda_phi_reg, tau:0.05), reuse_theta=yes, opt_for_avx=yes, predict_class_id=, reset_nwt=yes
+I0829 14:58:36.877704 3054549 processor.cc:820] Processor: start processing batch 6005820a-d74b-4371-9747-2787fbd376b7 into model nwt
+I0829 14:58:36.889873 3054549 processor.cc:925] Processor: complete processing batch 6005820a-d74b-4371-9747-2787fbd376b7 into model nwt
+I0829 14:58:36.890081 3054549 cuckoo_watch.h:45] 13ms in ProcessBatch(urnuuida3deed18-a3db-11f1-b895-085bd6902356/6005820a-d74b-4371-9747-2787fbd376b7.batch) [including 0ms in LoadMessage; 0ms in InitializeSparseNdw; 0ms in FindReuseThetaCacheEntry; 0ms in InitializeTheta; 0ms in CreateRegularizerAgents; 6ms in InferThetaAndUpdateNwtSparse; 0ms in UpdateCacheEntry; 3ms in CalculateScore(perp_score); 0ms in CalculateScore(sp_theta_score); 1ms in CalculateScore(^^^ItemsProcessedScore^^^); ]
+I0829 14:58:36.890538 3054500 master_component.cc:1436] RegularizeModelArgs: rwt_target_name=rwt, pwt_source_name=pwt, nwt_source_name=nwt
+I0829 14:58:36.890573 3054500 master_component.cc:976] MasterComponent: start regularizing model pwt
+I0829 14:58:36.896327 3054500 master_component.cc:1002] MasterComponent: complete regularizing model pwt
+I0829 14:58:36.896337 3054500 master_component.cc:1449] NormalizeModelArgs: pwt_target_name=pwt, nwt_source_name=nwt, rwt_source_name=rwt
+I0829 14:58:36.896344 3054500 master_component.cc:1006] MasterComponent: start normalizing model nwt
+I0829 14:58:36.899912 3054500 master_component.cc:1034] MasterComponent: complete normalizing model nwt
+I0829 14:58:36.900166 3054500 master_component.cc:1473] DisposeModel rwt
+I0829 14:58:36.900628 3054500 master_component.cc:1059] FitOffline: ItemsProcessed, num_items=99, num_batches=1, token_weight=14318, token_weight_in_effect=14318
+I0829 14:58:36.900913 3054500 c_interface.cc:389] Pass FitOfflineMasterModelArgs, batch_filename_size=1, batch_weight_size=1, num_collection_passes=1, reset_nwt=yes to MN4artm4core15MasterComponentEFvRKNS_25FitOfflineMasterModelArgsEE
+I0829 14:58:36.900929 3054500 master_component.cc:1398] ProcessBatchesArgs: nwt_target_name=nwt, batch_filename_size=1, batch_size=0, batch_weight_size=1, pwt_source_name=pwt, num_document_passes=10, regularizer=(name:lda_theta_reg, tau:0.1), regularizer=(name:lda_phi_reg, tau:0.05), reuse_theta=yes, opt_for_avx=yes, predict_class_id=, reset_nwt=yes
+I0829 14:58:36.904004 3054549 processor.cc:820] Processor: start processing batch 6005820a-d74b-4371-9747-2787fbd376b7 into model nwt
+I0829 14:58:36.916954 3054549 processor.cc:925] Processor: complete processing batch 6005820a-d74b-4371-9747-2787fbd376b7 into model nwt
+I0829 14:58:36.917225 3054549 cuckoo_watch.h:45] 14ms in ProcessBatch(urnuuida3deed18-a3db-11f1-b895-085bd6902356/6005820a-d74b-4371-9747-2787fbd376b7.batch) [including 0ms in LoadMessage; 0ms in InitializeSparseNdw; 0ms in FindReuseThetaCacheEntry; 0ms in InitializeTheta; 0ms in CreateRegularizerAgents; 6ms in InferThetaAndUpdateNwtSparse; 0ms in UpdateCacheEntry; 3ms in CalculateScore(perp_score); 0ms in CalculateScore(sp_theta_score); 2ms in CalculateScore(^^^ItemsProcessedScore^^^); ]
+I0829 14:58:36.917462 3054500 master_component.cc:1436] RegularizeModelArgs: rwt_target_name=rwt, pwt_source_name=pwt, nwt_source_name=nwt
+I0829 14:58:36.917497 3054500 master_component.cc:976] MasterComponent: start regularizing model pwt
+I0829 14:58:36.923359 3054500 master_component.cc:1002] MasterComponent: complete regularizing model pwt
+I0829 14:58:36.923380 3054500 master_component.cc:1449] NormalizeModelArgs: pwt_target_name=pwt, nwt_source_name=nwt, rwt_source_name=rwt
+I0829 14:58:36.923388 3054500 master_component.cc:1006] MasterComponent: start normalizing model nwt
+I0829 14:58:36.926846 3054500 master_component.cc:1034] MasterComponent: complete normalizing model nwt
+I0829 14:58:36.927093 3054500 master_component.cc:1473] DisposeModel rwt
+I0829 14:58:36.927556 3054500 master_component.cc:1059] FitOffline: ItemsProcessed, num_items=99, num_batches=1, token_weight=14318, token_weight_in_effect=14318
+I0829 14:58:36.927809 3054500 c_interface.cc:389] Pass FitOfflineMasterModelArgs, batch_filename_size=1, batch_weight_size=1, num_collection_passes=1, reset_nwt=yes to MN4artm4core15MasterComponentEFvRKNS_25FitOfflineMasterModelArgsEE
+I0829 14:58:36.927826 3054500 master_component.cc:1398] ProcessBatchesArgs: nwt_target_name=nwt, batch_filename_size=1, batch_size=0, batch_weight_size=1, pwt_source_name=pwt, num_document_passes=10, regularizer=(name:lda_theta_reg, tau:0.1), regularizer=(name:lda_phi_reg, tau:0.05), reuse_theta=yes, opt_for_avx=yes, predict_class_id=, reset_nwt=yes
+I0829 14:58:36.930249 3054549 processor.cc:820] Processor: start processing batch 6005820a-d74b-4371-9747-2787fbd376b7 into model nwt
+I0829 14:58:36.941766 3054549 processor.cc:925] Processor: complete processing batch 6005820a-d74b-4371-9747-2787fbd376b7 into model nwt
+I0829 14:58:36.941982 3054549 cuckoo_watch.h:45] 12ms in ProcessBatch(urnuuida3deed18-a3db-11f1-b895-085bd6902356/6005820a-d74b-4371-9747-2787fbd376b7.batch) [including 0ms in LoadMessage; 0ms in InitializeSparseNdw; 0ms in FindReuseThetaCacheEntry; 0ms in InitializeTheta; 0ms in CreateRegularizerAgents; 6ms in InferThetaAndUpdateNwtSparse; 0ms in UpdateCacheEntry; 2ms in CalculateScore(perp_score); 0ms in CalculateScore(sp_theta_score); 2ms in CalculateScore(^^^ItemsProcessedScore^^^); ]
+I0829 14:58:36.942982 3054500 master_component.cc:1436] RegularizeModelArgs: rwt_target_name=rwt, pwt_source_name=pwt, nwt_source_name=nwt
+I0829 14:58:36.943017 3054500 master_component.cc:976] MasterComponent: start regularizing model pwt
+I0829 14:58:36.948457 3054500 master_component.cc:1002] MasterComponent: complete regularizing model pwt
+I0829 14:58:36.948468 3054500 master_component.cc:1449] NormalizeModelArgs: pwt_target_name=pwt, nwt_source_name=nwt, rwt_source_name=rwt
+I0829 14:58:36.948505 3054500 master_component.cc:1006] MasterComponent: start normalizing model nwt
+I0829 14:58:36.951958 3054500 master_component.cc:1034] MasterComponent: complete normalizing model nwt
+I0829 14:58:36.952207 3054500 master_component.cc:1473] DisposeModel rwt
+I0829 14:58:36.952677 3054500 master_component.cc:1059] FitOffline: ItemsProcessed, num_items=99, num_batches=1, token_weight=14318, token_weight_in_effect=14318
+I0829 14:58:36.952930 3054500 c_interface.cc:389] Pass FitOfflineMasterModelArgs, batch_filename_size=1, batch_weight_size=1, num_collection_passes=1, reset_nwt=yes to MN4artm4core15MasterComponentEFvRKNS_25FitOfflineMasterModelArgsEE
+I0829 14:58:36.952948 3054500 master_component.cc:1398] ProcessBatchesArgs: nwt_target_name=nwt, batch_filename_size=1, batch_size=0, batch_weight_size=1, pwt_source_name=pwt, num_document_passes=10, regularizer=(name:lda_theta_reg, tau:0.1), regularizer=(name:lda_phi_reg, tau:0.05), reuse_theta=yes, opt_for_avx=yes, predict_class_id=, reset_nwt=yes
+I0829 14:58:36.955962 3054549 processor.cc:820] Processor: start processing batch 6005820a-d74b-4371-9747-2787fbd376b7 into model nwt
+I0829 14:58:36.970045 3054549 processor.cc:925] Processor: complete processing batch 6005820a-d74b-4371-9747-2787fbd376b7 into model nwt
+I0829 14:58:36.970320 3054549 cuckoo_watch.h:45] 15ms in ProcessBatch(urnuuida3deed18-a3db-11f1-b895-085bd6902356/6005820a-d74b-4371-9747-2787fbd376b7.batch) [including 0ms in LoadMessage; 0ms in InitializeSparseNdw; 0ms in FindReuseThetaCacheEntry; 0ms in InitializeTheta; 0ms in CreateRegularizerAgents; 7ms in InferThetaAndUpdateNwtSparse; 0ms in UpdateCacheEntry; 3ms in CalculateScore(perp_score); 0ms in CalculateScore(sp_theta_score); 2ms in CalculateScore(^^^ItemsProcessedScore^^^); ]
+I0829 14:58:36.970541 3054500 master_component.cc:1436] RegularizeModelArgs: rwt_target_name=rwt, pwt_source_name=pwt, nwt_source_name=nwt
+I0829 14:58:36.970579 3054500 master_component.cc:976] MasterComponent: start regularizing model pwt
+I0829 14:58:36.976428 3054500 master_component.cc:1002] MasterComponent: complete regularizing model pwt
+I0829 14:58:36.976438 3054500 master_component.cc:1449] NormalizeModelArgs: pwt_target_name=pwt, nwt_source_name=nwt, rwt_source_name=rwt
+I0829 14:58:36.976445 3054500 master_component.cc:1006] MasterComponent: start normalizing model nwt
+I0829 14:58:36.979902 3054500 master_component.cc:1034] MasterComponent: complete normalizing model nwt
+I0829 14:58:36.980135 3054500 master_component.cc:1473] DisposeModel rwt
+I0829 14:58:36.980590 3054500 master_component.cc:1059] FitOffline: ItemsProcessed, num_items=99, num_batches=1, token_weight=14318, token_weight_in_effect=14318
+I0829 14:58:36.980839 3054500 c_interface.cc:389] Pass FitOfflineMasterModelArgs, batch_filename_size=1, batch_weight_size=1, num_collection_passes=1, reset_nwt=yes to MN4artm4core15MasterComponentEFvRKNS_25FitOfflineMasterModelArgsEE
+I0829 14:58:36.980854 3054500 master_component.cc:1398] ProcessBatchesArgs: nwt_target_name=nwt, batch_filename_size=1, batch_size=0, batch_weight_size=1, pwt_source_name=pwt, num_document_passes=10, regularizer=(name:lda_theta_reg, tau:0.1), regularizer=(name:lda_phi_reg, tau:0.05), reuse_theta=yes, opt_for_avx=yes, predict_class_id=, reset_nwt=yes
+I0829 14:58:36.983037 3054549 processor.cc:820] Processor: start processing batch 6005820a-d74b-4371-9747-2787fbd376b7 into model nwt
+I0829 14:58:36.993108 3054549 processor.cc:925] Processor: complete processing batch 6005820a-d74b-4371-9747-2787fbd376b7 into model nwt
+I0829 14:58:36.993278 3054549 cuckoo_watch.h:45] 11ms in ProcessBatch(urnuuida3deed18-a3db-11f1-b895-085bd6902356/6005820a-d74b-4371-9747-2787fbd376b7.batch) [including 0ms in LoadMessage; 0ms in InitializeSparseNdw; 0ms in FindReuseThetaCacheEntry; 0ms in InitializeTheta; 0ms in CreateRegularizerAgents; 6ms in InferThetaAndUpdateNwtSparse; 0ms in UpdateCacheEntry; 1ms in CalculateScore(perp_score); 0ms in CalculateScore(sp_theta_score); 1ms in CalculateScore(^^^ItemsProcessedScore^^^); ]
+I0829 14:58:36.994026 3054500 master_component.cc:1436] RegularizeModelArgs: rwt_target_name=rwt, pwt_source_name=pwt, nwt_source_name=nwt
+I0829 14:58:36.994063 3054500 master_component.cc:976] MasterComponent: start regularizing model pwt
+I0829 14:58:36.999943 3054500 master_component.cc:1002] MasterComponent: complete regularizing model pwt
+I0829 14:58:36.999956 3054500 master_component.cc:1449] NormalizeModelArgs: pwt_target_name=pwt, nwt_source_name=nwt, rwt_source_name=rwt
+I0829 14:58:36.999963 3054500 master_component.cc:1006] MasterComponent: start normalizing model nwt
+I0829 14:58:37.003407 3054500 master_component.cc:1034] MasterComponent: complete normalizing model nwt
+I0829 14:58:37.003660 3054500 master_component.cc:1473] DisposeModel rwt
+I0829 14:58:37.004137 3054500 master_component.cc:1059] FitOffline: ItemsProcessed, num_items=99, num_batches=1, token_weight=14318, token_weight_in_effect=14318
+I0829 14:58:37.004426 3054500 c_interface.cc:389] Pass FitOfflineMasterModelArgs, batch_filename_size=1, batch_weight_size=1, num_collection_passes=1, reset_nwt=yes to MN4artm4core15MasterComponentEFvRKNS_25FitOfflineMasterModelArgsEE
+I0829 14:58:37.004446 3054500 master_component.cc:1398] ProcessBatchesArgs: nwt_target_name=nwt, batch_filename_size=1, batch_size=0, batch_weight_size=1, pwt_source_name=pwt, num_document_passes=10, regularizer=(name:lda_theta_reg, tau:0.1), regularizer=(name:lda_phi_reg, tau:0.05), reuse_theta=yes, opt_for_avx=yes, predict_class_id=, reset_nwt=yes
+I0829 14:58:37.007517 3054549 processor.cc:820] Processor: start processing batch 6005820a-d74b-4371-9747-2787fbd376b7 into model nwt
+I0829 14:58:37.019878 3054549 processor.cc:925] Processor: complete processing batch 6005820a-d74b-4371-9747-2787fbd376b7 into model nwt
+I0829 14:58:37.020059 3054549 cuckoo_watch.h:45] 13ms in ProcessBatch(urnuuida3deed18-a3db-11f1-b895-085bd6902356/6005820a-d74b-4371-9747-2787fbd376b7.batch) [including 0ms in LoadMessage; 0ms in InitializeSparseNdw; 0ms in FindReuseThetaCacheEntry; 0ms in InitializeTheta; 0ms in CreateRegularizerAgents; 6ms in InferThetaAndUpdateNwtSparse; 0ms in UpdateCacheEntry; 3ms in CalculateScore(perp_score); 0ms in CalculateScore(sp_theta_score); 2ms in CalculateScore(^^^ItemsProcessedScore^^^); ]
+I0829 14:58:37.020920 3054500 master_component.cc:1436] RegularizeModelArgs: rwt_target_name=rwt, pwt_source_name=pwt, nwt_source_name=nwt
+I0829 14:58:37.020960 3054500 master_component.cc:976] MasterComponent: start regularizing model pwt
+I0829 14:58:37.027050 3054500 master_component.cc:1002] MasterComponent: complete regularizing model pwt
+I0829 14:58:37.027071 3054500 master_component.cc:1449] NormalizeModelArgs: pwt_target_name=pwt, nwt_source_name=nwt, rwt_source_name=rwt
+I0829 14:58:37.027081 3054500 master_component.cc:1006] MasterComponent: start normalizing model nwt
+I0829 14:58:37.030562 3054500 master_component.cc:1034] MasterComponent: complete normalizing model nwt
+I0829 14:58:37.030819 3054500 master_component.cc:1473] DisposeModel rwt
+I0829 14:58:37.031328 3054500 master_component.cc:1059] FitOffline: ItemsProcessed, num_items=99, num_batches=1, token_weight=14318, token_weight_in_effect=14318
+I0829 14:58:37.031635 3054500 c_interface.cc:389] Pass FitOfflineMasterModelArgs, batch_filename_size=1, batch_weight_size=1, num_collection_passes=1, reset_nwt=yes to MN4artm4core15MasterComponentEFvRKNS_25FitOfflineMasterModelArgsEE
+I0829 14:58:37.031656 3054500 master_component.cc:1398] ProcessBatchesArgs: nwt_target_name=nwt, batch_filename_size=1, batch_size=0, batch_weight_size=1, pwt_source_name=pwt, num_document_passes=10, regularizer=(name:lda_theta_reg, tau:0.1), regularizer=(name:lda_phi_reg, tau:0.05), reuse_theta=yes, opt_for_avx=yes, predict_class_id=, reset_nwt=yes
+I0829 14:58:37.034288 3054549 processor.cc:820] Processor: start processing batch 6005820a-d74b-4371-9747-2787fbd376b7 into model nwt
+I0829 14:58:37.046480 3054549 processor.cc:925] Processor: complete processing batch 6005820a-d74b-4371-9747-2787fbd376b7 into model nwt
+I0829 14:58:37.046756 3054549 cuckoo_watch.h:45] 13ms in ProcessBatch(urnuuida3deed18-a3db-11f1-b895-085bd6902356/6005820a-d74b-4371-9747-2787fbd376b7.batch) [including 0ms in LoadMessage; 0ms in InitializeSparseNdw; 0ms in FindReuseThetaCacheEntry; 0ms in InitializeTheta; 0ms in CreateRegularizerAgents; 5ms in InferThetaAndUpdateNwtSparse; 0ms in UpdateCacheEntry; 3ms in CalculateScore(perp_score); 0ms in CalculateScore(sp_theta_score); 2ms in CalculateScore(^^^ItemsProcessedScore^^^); ]
+I0829 14:58:37.047133 3054500 master_component.cc:1436] RegularizeModelArgs: rwt_target_name=rwt, pwt_source_name=pwt, nwt_source_name=nwt
+I0829 14:58:37.047174 3054500 master_component.cc:976] MasterComponent: start regularizing model pwt
+I0829 14:58:37.053483 3054500 master_component.cc:1002] MasterComponent: complete regularizing model pwt
+I0829 14:58:37.053503 3054500 master_component.cc:1449] NormalizeModelArgs: pwt_target_name=pwt, nwt_source_name=nwt, rwt_source_name=rwt
+I0829 14:58:37.053514 3054500 master_component.cc:1006] MasterComponent: start normalizing model nwt
+I0829 14:58:37.057029 3054500 master_component.cc:1034] MasterComponent: complete normalizing model nwt
+I0829 14:58:37.057291 3054500 master_component.cc:1473] DisposeModel rwt
+I0829 14:58:37.057811 3054500 master_component.cc:1059] FitOffline: ItemsProcessed, num_items=99, num_batches=1, token_weight=14318, token_weight_in_effect=14318
+I0829 14:58:37.058091 3054500 c_interface.cc:389] Pass FitOfflineMasterModelArgs, batch_filename_size=1, batch_weight_size=1, num_collection_passes=1, reset_nwt=yes to MN4artm4core15MasterComponentEFvRKNS_25FitOfflineMasterModelArgsEE
+I0829 14:58:37.058110 3054500 master_component.cc:1398] ProcessBatchesArgs: nwt_target_name=nwt, batch_filename_size=1, batch_size=0, batch_weight_size=1, pwt_source_name=pwt, num_document_passes=10, regularizer=(name:lda_theta_reg, tau:0.1), regularizer=(name:lda_phi_reg, tau:0.05), reuse_theta=yes, opt_for_avx=yes, predict_class_id=, reset_nwt=yes
+I0829 14:58:37.061101 3054549 processor.cc:820] Processor: start processing batch 6005820a-d74b-4371-9747-2787fbd376b7 into model nwt
+I0829 14:58:37.073180 3054549 processor.cc:925] Processor: complete processing batch 6005820a-d74b-4371-9747-2787fbd376b7 into model nwt
+I0829 14:58:37.073396 3054549 cuckoo_watch.h:45] 13ms in ProcessBatch(urnuuida3deed18-a3db-11f1-b895-085bd6902356/6005820a-d74b-4371-9747-2787fbd376b7.batch) [including 0ms in LoadMessage; 0ms in InitializeSparseNdw; 0ms in FindReuseThetaCacheEntry; 0ms in InitializeTheta; 0ms in CreateRegularizerAgents; 6ms in InferThetaAndUpdateNwtSparse; 0ms in UpdateCacheEntry; 2ms in CalculateScore(perp_score); 0ms in CalculateScore(sp_theta_score); 1ms in CalculateScore(^^^ItemsProcessedScore^^^); ]
+I0829 14:58:37.073565 3054500 master_component.cc:1436] RegularizeModelArgs: rwt_target_name=rwt, pwt_source_name=pwt, nwt_source_name=nwt
+I0829 14:58:37.073607 3054500 master_component.cc:976] MasterComponent: start regularizing model pwt
+I0829 14:58:37.079018 3054500 master_component.cc:1002] MasterComponent: complete regularizing model pwt
+I0829 14:58:37.079030 3054500 master_component.cc:1449] NormalizeModelArgs: pwt_target_name=pwt, nwt_source_name=nwt, rwt_source_name=rwt
+I0829 14:58:37.079037 3054500 master_component.cc:1006] MasterComponent: start normalizing model nwt
+I0829 14:58:37.082237 3054500 master_component.cc:1034] MasterComponent: complete normalizing model nwt
+I0829 14:58:37.082491 3054500 master_component.cc:1473] DisposeModel rwt
+I0829 14:58:37.082945 3054500 master_component.cc:1059] FitOffline: ItemsProcessed, num_items=99, num_batches=1, token_weight=14318, token_weight_in_effect=14318
+I0829 14:58:37.083348 3054500 phi_matrix_operations.cc:84] RetrieveExternalTopicModel() with 10 topics, 1309 tokens
+I0829 14:58:37.084795 3054500 c_interface.cc:231] ArtmCopyRequestedMessage is copying 39230 bytes...
+I0829 14:58:37.094399 3054549 processor.cc:740] No data in processing queue, waiting...
+I0829 14:58:37.103744 3054500 phi_matrix_operations.cc:84] RetrieveExternalTopicModel() with 10 topics, 1309 tokens
+I0829 14:58:37.104525 3054500 c_interface.cc:231] ArtmCopyRequestedMessage is copying 33994 bytes...
+I0829 14:58:37.108613 3054500 c_interface.cc:236] ArtmCopyRequestedObject is copying 52360 bytes...
+I0829 14:58:37.110342 3054500 c_interface.cc:231] ArtmCopyRequestedMessage is copying 1072 bytes...
+W0829 14:58:37.111477 3054500 check_messages.h:1082] Inconsistent fields size in ThetaMatrix: 99 vs 0 vs 99 vs 0;
+I0829 14:58:37.111642 3054500 c_interface.cc:231] ArtmCopyRequestedMessage is copying 676 bytes...
+I0829 14:58:37.111917 3054500 c_interface.cc:236] ArtmCopyRequestedObject is copying 3960 bytes...
+I0829 14:58:37.142509 3054549 processor.cc:732] Processor thread stopped
+I0829 14:58:37.142535 3054549 processor.cc:733] Total number of processed batches: 10
+I0829 14:58:37.143069 3054500 c_interface.cc:339] Disposing MasterComponent (id=2)...
+I0829 14:58:37.143185 3054500 c_interface.cc:375] Pass 07858c07-de84-463d-a66d-acfd26cfdf41 to MN4artm4core15MasterComponentEFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
+I0829 14:58:37.143362 3054500 c_interface.cc:339] Disposing MasterComponent (id=1)...
