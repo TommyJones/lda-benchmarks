@@ -84,20 +84,25 @@ knitr::kable(do.call(rbind, manifests), format.args = list(big.mark = ","),
 
 Three things this benchmark establishes, before the detailed charts.
 
-**1. tidylda is the fastest LDA sampler implemented natively in R — by about 3×.**
-The only implementations that beat it are a Python C++ extension and a Java program.
+**1. tidylda is the fastest implementation measured here** — single threaded *and*
+multithreaded, on both corpora.
 
 **2. It is the only implementation whose results do not change with thread count.**
 Every other threaded engine here gives a different answer depending on how many cores it
 happened to run on.
 
-**3. It is not the fastest overall.** tomotopy and MALLET are faster, and tomotopy is also
-the best on quality. Both are shown alongside throughout.
+**3. Model quality is broadly a wash.** Apart from gensim and scikit-learn, which fit
+noticeably worse, the engines land on top of each other on both coherence and R² — by
+margins comparable to the run-to-run noise. Read the quality columns as a cluster, not a
+ranking.
 
 ```{r headline-speed, fig.height = 4.6}
 LANG <- c(tidylda = "R", text2vec = "R", textmineR = "R", `topicmodels-gibbs` = "R",
           `topicmodels-vem` = "R", lda = "R", mallet = "Java",
-          gensim = "Python", sklearn = "Python", tomotopy = "Python")
+          gensim = "Python", sklearn = "Python", tomotopy = "Python",
+          pylda = "Python")
+stopifnot("every engine needs a language for the speed chart" =
+            all(names(ENGINES) %in% names(LANG)))
 
 # "Best achievable" = each engine's fastest median time at the shared work
 # setting, using as many threads as it can actually use. This is the number a
@@ -239,6 +244,14 @@ ggplot(d, aes(fit_sec, r2, color = family, group = engine)) +
   expand_limits(x = max(d$fit_sec) * 1.6)
 )
 ```
+
+**A note on reading the quality axes.** Re-running the same engine on the same configuration
+with a different seed moves mean coherence by up to 0.0104 (median 0.0039). The whole spread
+across the nine clustered engines is 0.0159 — barely above that, and less than a fifth of the
+topic-to-topic standard deviation within a single model (median 0.0891). So vertical ordering
+among the clustered curves is not a finding. What survives is the bottom: gensim and
+scikit-learn fit worse on coherence, and gensim and R's `lda` sit low on R². The two metrics
+disagree about who the outlier is, which is a further reason to hold the rest loosely.
 
 ## 2. Thread scaling
 

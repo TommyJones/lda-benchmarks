@@ -41,8 +41,11 @@ MALLET's 12.6s; single threaded it is 23.4s against MALLET's 38.0s.
 **2. It is the only implementation whose results do not change with thread count.** Every
 other threaded engine here gives a different answer depending on how many cores it ran on.
 
-**3. It is not the best on quality.** tomotopy leads on both coherence and R² on both corpora;
-tidylda sits mid-pack. Fastest and best are different packages here.
+**3. Model quality is broadly a wash.** Apart from gensim and scikit-learn, which fit
+noticeably worse, the implementations land on top of each other on both coherence and R² —
+by margins comparable to the run-to-run noise. This benchmark is about speed and
+reproducibility; it does not establish that any of these engines finds better topics than
+another.
 
 ### Speed
 
@@ -106,7 +109,8 @@ variational pass are different units of work. So each engine is run at a ladder 
 counts and we plot the quality it reached against how long it took. Up and to the left is
 better; a curve that sits above and left of another dominates it.
 
-At the top of each ladder (20 Newsgroups, k = 100, single threaded):
+At the top of each ladder (20 Newsgroups, k = 100, single threaded). **Read the quality
+columns as a cluster, not a ranking** — see the note below the table:
 
 | Implementation | Iterations | Time | Peak RSS | R² | Coherence |
 |---|---|---|---|---|---|
@@ -122,17 +126,28 @@ At the top of each ladder (20 Newsgroups, k = 100, single threaded):
 | sklearn | 25 | 177 s | 265 MB | 0.537 | 0.1236 |
 | gensim | 25 | 198 s | 244 MB | 0.481 | 0.1077 |
 
-R² lands in a tight band for everything except gensim and R's `lda`. Coherence spreads a
-little wider, with tomotopy ahead on both corpora and the variational engines trailing.
+**Do not rank these engines on quality.** Two things put the differences in perspective:
 
-**The two `lda` packages are worth reading against each other.** R's `lda` (Chang, in C) and
-Python's `pylda` (Riddell, in Cython) implement the same collapsed Gibbs sampler, so the pair
-isolates the binding rather than the algorithm. Python's is **3.9× slower** on 20 Newsgroups
-(585s vs 149s at 500 iterations) and 4.1× slower on AP, but reaches noticeably better
-quality — coherence 0.1591 vs 0.1504 and R² 0.552 vs 0.503 on 20NG, with the same pattern on
-AP. Same algorithm and same hyperparameters, so the quality gap points to a difference in
-initialization or in how each draws its chain, not to one being a better model. It is the
-cleanest same-algorithm comparison in the set and it is not a wash in either direction.
+- Re-running the *same* engine on the same configuration with a different seed moves mean
+  coherence by up to **0.0104** (median 0.0039 across replicates).
+- The whole spread across the nine clustered engines is **0.0159** — barely more than that
+  noise, and less than a fifth of the topic-to-topic standard deviation *within* a single
+  model (median 0.0891).
+
+So the ordering of the pack is not a finding. What does survive is the bottom of the table:
+**gensim and scikit-learn fit worse than the rest** on coherence (0.108 and 0.124 against a
+0.150–0.166 pack), and gensim and R's `lda` sit low on R² (0.481 and 0.503 against
+0.537–0.578). Note that the two metrics disagree about who the outlier is, which is a further
+reason to hold the rest loosely. Establishing real quality differences among the clustered
+engines would need repeated seeds and a significance test, which is beyond what a
+speed-focused benchmark should claim.
+
+**The two `lda` packages are still worth reading against each other on speed.** R's `lda`
+(Chang, in C) and Python's `pylda` (Riddell, in Cython) implement the same collapsed Gibbs
+sampler, so the pair isolates the binding rather than the algorithm: Python's is **3.9×
+slower** on 20 Newsgroups (585s vs 149s at 500 iterations) and 4.1× slower on AP. Their fit
+numbers differ too, but by less than the replicate noise above, so nothing should be read
+into that.
 
 ### Memory
 
@@ -254,7 +269,9 @@ benchmark the CRAN build instead.
 - The host is shared. Thread levels stop at 12 because another workload held roughly 7 cores
   throughout; higher counts would have measured contention rather than the samplers.
 - Metrics are in-sample. A held-out comparison would be a different, larger project.
-- Coherence and R² measure different things and need not agree; both are reported.
+- Coherence and R² measure different things and need not agree; both are reported. Neither
+  should be used to rank the clustered engines — the between-engine differences are on the
+  order of the run-to-run noise. See the note under the quality table.
 - Peak RSS includes interpreter and JVM baselines rather than subtracting them.
 - `fit_sec` for MALLET is measured around the `train-topics` subprocess and so includes JVM
   startup; its corpus import step is excluded as corpus preparation.
