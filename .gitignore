@@ -2,6 +2,7 @@
 # scored summary (results/runs.csv) and the environment records are committed.
 data/
 results/raw/
+results/raw-prev/
 .venv/
 *.mtx
 *.Rproj.user
@@ -16,3 +17,12 @@ linkedin-draft.md
 # Build/run transcripts: noisy, machine-specific, and superseded by
 # results/env/{sessionInfo,hardware,pip-freeze,tidylda-provenance}.txt
 results/env/*.log
+
+# BigARTM links glog, which writes its run transcripts into the working
+# directory: bigartm.<host>.<user>.log.<severity>.<timestamp>.<pid>, plus
+# bigartm.INFO/.WARNING symlinks to the newest of each. Same category as
+# results/env/*.log above -- noisy, machine-specific, rebuildable. The runner
+# now configures BigARTM's logging to write into results/raw/ instead, so these
+# should stop appearing; the pattern stays for older files and other entry
+# points.
+/bigartm.*

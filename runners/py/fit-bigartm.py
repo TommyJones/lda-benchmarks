@@ -25,10 +25,21 @@ import warnings
 import numpy as np
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from common import ALPHA, ETA, run_runner  # noqa: E402
+from common import ALPHA, ETA, ROOT, run_runner  # noqa: E402
 
 warnings.filterwarnings("ignore")
 import artm  # noqa: E402
+from artm.wrapper import LibArtm, messages  # noqa: E402
+
+# BigARTM links glog, which by default drops a transcript pair per run into the
+# working directory (bigartm.<host>.<user>.log.<severity>.<stamp>.<pid>, plus
+# .INFO/.WARNING symlinks). Configuring the library before any model is built
+# sends them to results/raw/, which is already untracked. Setting GLOG_log_dir
+# in the environment does not work here: glog is initialized inside the C++
+# library before it reads that variable.
+_LOG_DIR = os.path.join(ROOT, "results", "raw", "bigartm-logs")
+os.makedirs(_LOG_DIR, exist_ok=True)
+LibArtm(logging_config=messages.ConfigureLoggingArgs(log_dir=_LOG_DIR))
 
 
 def fit(dtm, vocab, k, iters, threads, seed, timer):

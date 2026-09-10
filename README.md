@@ -60,14 +60,14 @@ package supports:
 | tomotopy | Python | 7.7 s | 12 |
 | mallet | Java | 12.6 s | 12 |
 | sklearn | Python | 21.7 s | 12 |
-| text2vec | R | 45.0 s | 12 |
+| text2vec | R | 45.0 s | 1 |
 | gensim | Python | 59.1 s | 8 |
 | lda | R | 59.2 s | 1 |
 | bigartm | Python | 62.9 s | 12 |
 | pylda | Python | 235 s | 1 |
 | topicmodels-gibbs | R | 271 s | 1 |
 | topicmodels-vem | R | 955 s | 1 |
-| textmineR | R | 1660 s | 12 |
+| textmineR | R | 1660 s | 1 |
 
 `text2vec` and `textmineR` are single threaded and cannot use more cores: text2vec's warpLDA
 has no OpenMP anywhere in `src/mcemlda/`, and textmineR 3.0.6's `FitLdaModel()` has no
