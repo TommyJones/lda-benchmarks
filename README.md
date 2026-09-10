@@ -5,7 +5,7 @@ with identical hyperparameters, and scored by one common code path. Built to fin
 [tidylda](https://cran.r-project.org/package=tidylda) actually stands in the ecosystem.
 
 Blog-post rigor, not paper rigor: one machine, three replicates where the corpus is cheap
-enough, no statistical testing. 404 runs, zero failures. Every number below is in
+enough, no statistical testing. 398 runs, zero failures. Every number below is in
 [`results/runs.csv`](results/runs.csv).
 
 > **Correction, 2026-08-28.** The first published version of these results measured an
@@ -30,13 +30,36 @@ enough, no statistical testing. 404 runs, zero failures. Every number below is i
 > 0.578), exactly as expected. The other nine engines were then audited the same way and are
 > clean.
 
+> **Update, 2026-09-10.** tidylda was re-measured at **0.1.1.999**, the development version
+> after 0.1.1, which cut the post-sampler R work (`calc_prob_coherence()` takes one
+> co-occurrence crossproduct instead of one per topic; two large temporaries are gone). The
+> earlier numbers were 0.1.0.
+>
+> Re-running tidylda alone would not have been sound: the original grid ran while another
+> workload held roughly 7 of the host's 24 cores, and the host is now idle, which flatters
+> whatever is measured today. So **all six engines that can use more than one core were
+> re-measured together** — tidylda, tomotopy, mallet, sklearn, gensim and bigartm — along with
+> text2vec, seven in all. Every number in the headline table above for those engines therefore
+> comes from the same idle host.
+>
+> The five remaining engines (textmineR, topicmodels Gibbs and VEM, pylda, lda) are single
+> threaded and carried over unchanged: a single thread got a full core either way, and
+> re-running them costs ten of the grid's thirteen hours. Their rows are the older
+> measurements, and figures quoted inside the correction notes above are from the moment each
+> correction was made rather than from the current table.
+>
+> Engines whose code did not change moved by roughly 1.1× on the quieter host, which is the
+> scale of the machine effect; tidylda moved 1.34× at twelve threads, so most but not all of
+> its gain is the code. Quality is unaffected — the sampler did not change, only the R work
+> after it.
+
 ---
 
 ## Headline findings
 
 **1. tidylda is the fastest implementation measured here** — single threaded *and*
-multithreaded, on both corpora. On 20 Newsgroups it reaches 4.5s against tomotopy's 7.7s and
-MALLET's 12.6s; single threaded it is 23.4s against MALLET's 38.0s.
+multithreaded, on both corpora. On 20 Newsgroups it reaches 3.3s against tomotopy's 7.1s and
+MALLET's 11.0s; single threaded it is 20.2s against MALLET's 34.7s.
 
 **2. It is the only implementation whose results do not change with thread count.** Every
 other threaded engine here gives a different answer depending on how many cores it ran on.
@@ -56,14 +79,14 @@ package supports:
 
 | Implementation | Language | Best time | Cores used |
 |---|---|---|---|
-| **tidylda** | **R** | **4.5 s** | 12 |
-| tomotopy | Python | 7.7 s | 12 |
-| mallet | Java | 12.6 s | 12 |
-| sklearn | Python | 21.7 s | 12 |
-| text2vec | R | 45.0 s | 1 |
-| gensim | Python | 59.1 s | 8 |
+| **tidylda** | **R** | **3.3 s** | 12 |
+| tomotopy | Python | 7.1 s | 12 |
+| mallet | Java | 11.0 s | 12 |
+| sklearn | Python | 17.6 s | 12 |
+| text2vec | R | 41.8 s | 1 |
+| gensim | Python | 54.8 s | 8 |
 | lda | R | 59.2 s | 1 |
-| bigartm | Python | 62.9 s | 12 |
+| bigartm | Python | 59.6 s | 12 |
 | pylda | Python | 235 s | 1 |
 | topicmodels-gibbs | R | 271 s | 1 |
 | topicmodels-vem | R | 955 s | 1 |
@@ -97,9 +120,11 @@ scoring reproduces tidylda's own native R² and coherence exactly.
 
 ![Speedup from additional cores](results/figures/fig-scaling.png)
 
-tidylda is the best scaler in the set — 5.23× on 12 cores versus tomotopy's 4.93× and
-MALLET's 3.01×. The sweep stops at 12 because the benchmark host is shared and another
-workload held roughly 7 of its 24 cores throughout.
+tidylda is the best scaler in the set — 6.06× on 12 cores versus tomotopy's 4.56× and
+MALLET's 3.15×. The sweep stops at 12 because the grid was sized that way when the host was
+shared and another workload held roughly 7 of its 24 cores; the threaded engines were later
+re-measured with the host otherwise idle (see the 2026-09-10 note above), and the cap was kept
+so the two sets of runs stay comparable.
 
 ### Quality against wall-clock time
 

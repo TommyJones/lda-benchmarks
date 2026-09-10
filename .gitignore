@@ -26,3 +26,9 @@ results/env/*.log
 # should stop appearing; the pattern stays for older files and other entry
 # points.
 /bigartm.*
+
+# BigARTM's BatchVectorizer stages batches in a UUID-named directory in the
+# working directory and removes it when the run ends. A run killed by the
+# harness's `timeout --signal=KILL` never gets to clean up, so orphans are
+# possible.
+/urnuuid*
