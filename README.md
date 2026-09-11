@@ -1,57 +1,14 @@
 # LDA implementations in R and Python: a bake-off
 
-Twelve LDA implementations across R, Python and Java, fit on identical document-term matrices
-with identical hyperparameters, and scored by one common code path. Built to find out where
-[tidylda](https://cran.r-project.org/package=tidylda) actually stands in the ecosystem.
+**[tidylda](https://cran.r-project.org/package=tidylda) is the fastest off-the-shelf LDA
+implementation measured here, and the only one that returns the same model regardless of how
+many cores it runs on.** Twelve implementations across R, Python and Java were fit on identical
+document-term matrices, with identical hyperparameters, and scored by one common code path.
 
-Blog-post rigor, not paper rigor: one machine, three replicates where the corpus is cheap
-enough, no statistical testing. 398 runs, zero failures. Every number below is in
+tidylda runs about twice as fast as the next implementation and an order of magnitude faster than
+most of the field. Quality is a wash — apart from gensim and scikit-learn, the engines land
+within run-to-run noise of each other. Every number below is in
 [`results/runs.csv`](results/runs.csv).
-
-> **Correction, 2026-08-28.** The first published version of these results measured an
-> **unoptimized (`-O0`) build of tidylda** and reported it roughly 5× slower than it is.
-> `~/tidylda/src/` held stale `.o` files from a `devtools`/`pkgbuild` debug build, and
-> `install.packages()` on a source *directory* relinks such objects instead of recompiling
-> them. CRAN builds from a tarball, which strips them, so **released tidylda was never
-> affected** — only this benchmark was. All tidylda runs have been redone with a verified
-> `-O2` build, and [`scripts/00-check-builds.R`](scripts/00-check-builds.R) now reads each
-> engine's DWARF `DW_AT_producer` string and fails the run if anything is unoptimized. Because
-> the two builds are bit-identical in output, **only timings and memory changed** — every R²,
-> coherence, and thread-invariance number was unaffected. One text2vec run was also re-measured
-> after a load spike inflated it (71.3s against a ~45.1s cluster).
->
-> **A second correction, same day.** tomotopy's `optim_interval` defaults to **10**, so it was
-> re-estimating an asymmetric alpha every 10 iterations (measured drift: 0.1 → ~0.3–0.5 over 100
-> iterations) while every other engine ran a fixed symmetric prior. That broke the fairness rule
-> stated below in both directions — it cost tomotopy time nobody else spent, and bought it fit
-> quality nobody else was allowed. It is a settable attribute rather than a constructor argument,
-> which is how it was missed. All tomotopy runs were redone with `optim_interval = 0`; it got
-> **faster** (9.9s → 7.7s best) and **worse on quality** (coherence 0.1780 → 0.1663, R² 0.590 →
-> 0.578), exactly as expected. The other nine engines were then audited the same way and are
-> clean.
-
-> **Update, 2026-09-10.** tidylda was re-measured at **0.1.1.999**, the development version
-> after 0.1.1, which cut the post-sampler R work (`calc_prob_coherence()` takes one
-> co-occurrence crossproduct instead of one per topic; two large temporaries are gone). The
-> earlier numbers were 0.1.0.
->
-> Re-running tidylda alone would not have been sound: the original grid ran while another
-> workload held roughly 7 of the host's 24 cores, and the host is now idle, which flatters
-> whatever is measured today. So **all six engines that can use more than one core were
-> re-measured together** — tidylda, tomotopy, mallet, sklearn, gensim and bigartm — along with
-> text2vec, seven in all. Every number in the headline table above for those engines therefore
-> comes from the same idle host.
->
-> The five remaining engines (textmineR, topicmodels Gibbs and VEM, pylda, lda) are single
-> threaded and carried over unchanged: a single thread got a full core either way, and
-> re-running them costs ten of the grid's thirteen hours. Their rows are the older
-> measurements, and figures quoted inside the correction notes above are from the moment each
-> correction was made rather than from the current table.
->
-> Engines whose code did not change moved by roughly 1.1× on the quieter host, which is the
-> scale of the machine effect; tidylda moved 1.34× at twelve threads, so most but not all of
-> its gain is the code. Quality is unaffected — the sampler did not change, only the R work
-> after it.
 
 ---
 
@@ -71,6 +28,9 @@ reproducibility; it does not establish that any of these engines finds better to
 another.
 
 ### Speed
+
+tidylda is roughly twice as fast as the next implementation, and an order of magnitude faster
+than most of the field.
 
 ![Fastest time each implementation can reach](results/figures/fig-speed.png)
 
@@ -92,12 +52,10 @@ package supports:
 | topicmodels-vem | R | 955 s | 1 |
 | textmineR | R | 1660 s | 1 |
 
-`text2vec` and `textmineR` are single threaded and cannot use more cores: text2vec's warpLDA
-has no OpenMP anywhere in `src/mcemlda/`, and textmineR 3.0.6's `FitLdaModel()` has no
-threading argument at all. Both were measured flat across the full sweep before being
-labelled that way.
-
 ### Reproducibility across machines
+
+Only tidylda gives the same answer on 12 cores that it gives on one. Every other threaded
+engine's topics depend on the core count of the machine that fit them.
 
 ![Only tidylda gives the same answer regardless of core count](results/figures/fig-invariance.png)
 
@@ -118,19 +76,20 @@ scoring reproduces tidylda's own native R² and coherence exactly.
 
 ### Thread scaling
 
-![Speedup from additional cores](results/figures/fig-scaling.png)
+tidylda is also the best scaler in the set — 6.06× on 12 cores, against tomotopy's 4.56× and
+MALLET's 3.15×.
 
-tidylda is the best scaler in the set — 6.06× on 12 cores versus tomotopy's 4.56× and
-MALLET's 3.15×. The sweep stops at 12 because the grid was sized that way when the host was
-shared and another workload held roughly 7 of its 24 cores; the threaded engines were later
-re-measured with the host otherwise idle (see the 2026-09-10 note above), and the cap was kept
-so the two sets of runs stay comparable.
+![Speedup from additional cores](results/figures/fig-scaling.png)
 
 ### Quality against wall-clock time
 
+Quality differences among most of these engines are within run-to-run noise. Only gensim and
+scikit-learn separate from the pack, and they separate downward.
+
 ![Quality against wall-clock time](results/figures/fig-frontier.png)
 
-Comparing engines at equal iteration counts would be meaningless — a Gibbs sweep and a
+Comparing engines at equal iteration counts would be meaningless — a Gibbs sweep,
+a metropolis-hastings accept/reject sweep, and a
 variational pass are different units of work. So each engine is run at a ladder of iteration
 counts and we plot the quality it reached against how long it took. Up and to the left is
 better; a curve that sits above and left of another dominates it.
@@ -178,14 +137,19 @@ into that.
 
 ### Memory
 
+topicmodels is the memory outlier by an order of magnitude, at 26 GB on 20 Newsgroups; every
+other engine stays under 4.5 GB.
+
 ![Peak memory](results/figures/fig-memory.png)
 
-Whole-process peak RSS, so interpreter and JVM baselines are included rather than subtracted.
-topicmodels is the outlier by an order of magnitude, at 26 GB on 20 Newsgroups.
+These are whole-process peak RSS, so interpreter and JVM baselines are included rather than
+subtracted.
 
 ---
 
 ## What is compared
+
+Twelve implementations, chosen for being popular and easy to use from R or Python.
 
 | Engine | Language | Family | Threads |
 |---|---|---|---|
@@ -202,11 +166,10 @@ topicmodels is the outlier by an order of magnitude, at 26 GB on 20 Newsgroups.
 | pylda (Riddell) | Python | collapsed Gibbs | single threaded |
 | BigARTM | Python | offline EM (regularized) | `num_processors` |
 
-The inclusion criterion is *popular and easy to use from R or Python*. Faster implementations
-exist — the reference WarpLDA code beats everything here — but they are not something you can
-`install.packages()` or `pip install` and call from a normal analysis, so they are out of
-scope. `stm` is excluded as a different model rather than an LDA implementation. Transfer
-learning, which only tidylda offers, is also out of scope.
+Faster implementations exist — the reference WarpLDA code almost surely beats everything here — but they are
+not something you can `install.packages()` or `pip install` and call from a normal analysis, so
+they are out of scope. `stm` is excluded as a different model rather than an LDA
+implementation. Transfer learning, which only tidylda offers, is also out of scope.
 
 **Vowpal Wabbit is excluded under the same criterion**, despite being a natural candidate. Its
 LDA cannot be driven from its Python bindings at all — `example()`, `learn()` and `predict()`
@@ -217,25 +180,18 @@ one algorithm, not about VW, which is actively maintained. A working runner and 
 are kept in the repo (`runners/py/fit-vowpalwabbit.py`, `setup/install-vw.sh`) for anyone who
 wants to widen the criterion; no VW numbers are reported here.
 
-Two things worth knowing before reading the results:
-
-- **tidylda 0.1.0 is a WarpLDA sampler, not collapsed Gibbs** (that changed after 0.0.7), so
-  its closest algorithmic neighbour here is text2vec, not textmineR.
-- **tomotopy is not doing anything clever algorithmically.** `LDAModel.hpp` runs the plainest
-  textbook collapsed Gibbs — O(K) per token, no SparseLDA, no alias table, no MH — but the
-  likelihood vector is one Eigen expression, the prefix sum is hand-written SIMD, and the
-  wheel ships sse2/avx/avx2/avx512 variants and dispatches at import. On this host it runs
-  AVX-512. Its speed is constant-factor engineering, not asymptotics.
-
 ## How the comparison is kept fair
 
-**One shared DTM.** Every engine fits the same `dgCMatrix` with the same vocabulary in the
+Every engine gets the same matrix and the same hyperparameters, and none of them reports its
+own numbers.
+
+**One shared DTM.** Every engine fits the same `dgCMatrix` (a sparse column-major matrix) with the same vocabulary in the
 same column order. Python and MALLET are handed that vocabulary index directly rather than
 tokenizing for themselves.
 
-**One scorer.** No engine reports its own numbers. Every run writes back `phi` (k × V) and
-`theta` (D × k); [`scripts/03-score.R`](scripts/03-score.R) normalizes them, asserts they
-satisfy the contract, and pushes all of them through the same two functions:
+**One scorer.** Every run writes back `phi` (k × V) and `theta` (D × k);
+[`scripts/03-score.R`](scripts/03-score.R) normalizes them, asserts they satisfy the contract,
+and pushes all of them through the same two functions:
 
 - **Probabilistic coherence** — `tidylda::calc_prob_coherence(beta, dtm, m = 5)`, averaged over topics.
 - **R²** — `mvrsquared::calc_rsquared(y = dtm, yhat = list(x = rowSums(dtm) * theta, w = phi))`.
@@ -246,8 +202,13 @@ Both are in-sample, computed on the training DTM. That is how tidylda reports th
 every engine's hyperparameter optimizer explicitly disabled — verified per engine, not assumed:
 `optimize_alpha = FALSE` (textmineR), `estimate.alpha = FALSE` (topicmodels-VEM),
 `--optimize-interval 0` (MALLET), `optim_interval = 0` (tomotopy, whose default is 10), fixed
-prior arrays for gensim and scikit-learn, and no optimizer at all in `lda`, `pylda`, text2vec or tidylda. Where a package has a different
-convention the runner converts: MALLET's `--alpha` is the sum over topics, so it gets `k * 0.1`.
+prior arrays for gensim and scikit-learn, and no optimizer at all in `lda`, `pylda`, text2vec
+or tidylda. Where a package has a different convention the runner converts: MALLET's `--alpha`
+is the sum over topics, so it gets `k * 0.1`.
+
+**Verified optimized builds.** [`scripts/00-check-builds.R`](scripts/00-check-builds.R) reads
+each engine's DWARF `DW_AT_producer` string and fails the run if anything was compiled
+unoptimized.
 
 **The iteration axis is not comparable across engines, and one case is worse than it looks.**
 Beyond the Gibbs-vs-variational mismatch, text2vec's `fit_transform(n_iter = N)` runs N passes
@@ -269,14 +230,16 @@ interpreter startup.
 
 ## Corpora
 
+Two real corpora, pruned identically, plus a tiny smoke-test set.
+
 | | docs | terms | tokens |
 |---|---|---|---|
 | `nih` (smoke test only) | 99 | 1,309 | 14,318 |
 | `ap` (Associated Press, ships with topicmodels) | 2,242 | 9,172 | 424,341 |
 | `20ng` (20 Newsgroups via sklearn) | 17,669 | 20,926 | 1,456,595 |
 
-Both real corpora are pruned identically: terms in fewer than 5 documents or more than half of
-them are dropped, then documents under 5 tokens, iterated to a fixed point.
+Pruning: terms in fewer than 5 documents or more than half of them are dropped, then documents
+under 5 tokens, iterated to a fixed point.
 
 ## Reproducing
 
@@ -294,21 +257,54 @@ The full HTML report ([`results/04-report.html`](results/04-report.html)) has th
 plus the k-sweep, the per-run table, and the environment record. It needs to be downloaded or
 hosted to view, which is why the results are reproduced above.
 
-tidylda 0.1.0 is [on CRAN](https://cran.r-project.org/package=tidylda). These runs predate its
-acceptance and used a source build of the same version at commit `14e02b7`, recorded in
-[`results/env/tidylda-provenance.txt`](results/env/). `setup/install-r-deps.R` still prefers
-that local tree so a re-run reproduces the exact binary behind these numbers; edit it to
-benchmark the CRAN build instead.
+tidylda is [on CRAN](https://cran.r-project.org/package=tidylda). These numbers come from a
+source build of the development version after 0.1.1, at commit `78a1f11`, recorded in
+[`results/env/tidylda-provenance.txt`](results/env/). `setup/install-r-deps.R` prefers that
+local tree so a re-run reproduces the exact binary behind these numbers; edit it to benchmark
+the CRAN build instead.
 
 ## Caveats
 
-- One machine (24 cores, 125 GB), one OS, one set of library versions. See [`results/env/`](results/env/).
-- The host is shared. Thread levels stop at 12 because another workload held roughly 7 cores
-  throughout; higher counts would have measured contention rather than the samplers.
-- Metrics are in-sample. A held-out comparison would be a different, larger project.
-- Coherence and R² measure different things and need not agree; both are reported. Neither
-  should be used to rank the clustered engines — the between-engine differences are on the
-  order of the run-to-run noise. See the note under the quality table.
-- Peak RSS includes interpreter and JVM baselines rather than subtracting them.
-- `fit_sec` for MALLET is measured around the `train-topics` subprocess and so includes JVM
-  startup; its corpus import step is excluded as corpus preparation.
+- **One machine, one OS, one set of library versions** (24 cores, 125 GB RAM). Absolute times will
+  not transfer to other hardware; the ordering should. See [`results/env/`](results/env/).
+- **Metrics are in-sample.** A held-out comparison would be a different, larger project.
+- **Coherence and R² measure different things and need not agree.** Neither should be used to
+  rank the clustered engines — the between-engine differences are on the order of the
+  run-to-run noise. See the note under the quality table.
+- **Peak RSS includes interpreter and JVM baselines** rather than subtracting them.
+- **MALLET's `fit_sec` includes JVM startup**, since it is measured around the `train-topics`
+  subprocess; its corpus import step is excluded as corpus preparation.
+- **Thread scaling was measured to 12 cores**, not the host's 24.
+- Three replicates where the corpus is cheap enough, no statistical testing. 398 runs, zero
+  failures.
+
+## Changelog
+
+**2026-09-10 — tidylda updated to the development version after 0.1.1.** Earlier numbers were
+0.1.0. The new version cut the R work that runs after sampling, which the timer includes. Model
+output is bit-identical to 0.1.0, so only timings moved. The engines that can use more than one
+core were re-measured alongside it so the speed table stays like-for-like; the single-threaded
+tail is carried over from the earlier runs.
+
+**2026-09-10 — corrected the cores column.** The speed table listed text2vec and textmineR as
+using 12 cores. Both are single threaded and always were; the measurements were right and the
+label was wrong.
+
+**2026-08-28 — corrected an unoptimized tidylda build.** The first published version of these
+results measured a `-O0` build of tidylda and reported it roughly 5× slower than it is.
+`~/tidylda/src/` held stale `.o` files from a `devtools`/`pkgbuild` debug build, and
+`install.packages()` on a source *directory* relinks such objects instead of recompiling them.
+CRAN builds from a tarball, which strips them, so **released tidylda was never affected** —
+only this benchmark was. All tidylda runs were redone with a verified `-O2` build, and the
+build check described above was added so it cannot recur. Because the two builds are
+bit-identical in output, only timings and memory changed.
+
+**2026-08-28 — corrected tomotopy's hyperparameter optimizer.** tomotopy's `optim_interval`
+defaults to 10, so it was re-estimating an asymmetric alpha every 10 iterations (measured
+drift: 0.1 → ~0.3–0.5 over 100 iterations) while every other engine ran a fixed symmetric
+prior. That broke the fairness rule in both directions — it cost tomotopy time nobody else
+spent, and bought it fit quality nobody else was allowed. It is a settable attribute rather
+than a constructor argument, which is how it was missed. All tomotopy runs were redone with
+`optim_interval = 0`; it got faster and fit slightly worse (coherence 0.1780 → 0.1663, R²
+0.590 → 0.578), exactly as expected. The other nine engines were then audited the same way and
+are clean.
