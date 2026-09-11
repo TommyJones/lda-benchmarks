@@ -6,8 +6,8 @@ many cores it runs on.** Twelve implementations across R, Python and Java were f
 document-term matrices, with identical hyperparameters, and scored by one common code path.
 
 tidylda runs about twice as fast as the next implementation and an order of magnitude faster than
-most of the field. Quality is a wash — apart from gensim and scikit-learn, the engines land
-within run-to-run noise of each other. Every number below is in
+most of the field. Quality is a wash — apart from gensim, scikit-learn and BigARTM, the
+engines land within run-to-run noise of each other. Every number below is in
 [`results/runs.csv`](results/runs.csv).
 
 ---
@@ -21,8 +21,8 @@ MALLET's 11.0s; single threaded it is 20.2s against MALLET's 34.7s.
 **2. It is the only implementation whose results do not change with thread count.** Every
 other threaded engine here gives a different answer depending on how many cores it ran on.
 
-**3. Model quality is broadly a wash.** Apart from gensim and scikit-learn, which fit
-noticeably worse, the implementations land on top of each other on both coherence and R² —
+**3. Model quality is broadly a wash.** Apart from gensim, scikit-learn and BigARTM, which
+fit noticeably worse, the implementations land on top of each other on both coherence and R² —
 by margins comparable to the run-to-run noise. This benchmark is about speed and
 reproducibility; it does not establish that any of these engines finds better topics than
 another.
@@ -83,8 +83,8 @@ MALLET's 3.15×.
 
 ### Quality against wall-clock time
 
-Quality differences among most of these engines are within run-to-run noise. Only gensim and
-scikit-learn separate from the pack, and they separate downward.
+Quality differences among most of these engines are within run-to-run noise. Only gensim,
+scikit-learn and BigARTM separate from the pack, and all three separate downward.
 
 ![Quality against wall-clock time](results/figures/fig-frontier.png)
 
@@ -121,12 +121,13 @@ columns as a cluster, not a ranking** — see the note below the table:
   model (median 0.0891).
 
 So the ordering of the pack is not a finding. What does survive is the bottom of the table:
-**gensim and scikit-learn fit worse than the rest** on coherence (0.108 and 0.124 against a
-0.150–0.166 pack), and gensim and R's `lda` sit low on R² (0.481 and 0.503 against
-0.537–0.578). Note that the two metrics disagree about who the outlier is, which is a further
-reason to hold the rest loosely. Establishing real quality differences among the clustered
-engines would need repeated seeds and a significance test, which is beyond what a
-speed-focused benchmark should claim.
+**gensim, scikit-learn and BigARTM fit worse than the rest** on coherence (0.108, 0.124 and
+0.128 against a 0.150–0.166 pack), and gensim, BigARTM and R's `lda` sit low on R² (0.481,
+0.500 and 0.503 against 0.537–0.578). The two metrics disagree about the ordering —
+scikit-learn is near the bottom on coherence but inside the pack on R², while `lda` is the
+reverse — which is a further reason to hold the rest loosely. Establishing real quality
+differences among the clustered engines would need repeated seeds and a significance test,
+which is beyond what a speed-focused benchmark should claim.
 
 **The two `lda` packages are still worth reading against each other on speed.** R's `lda`
 (Chang, in C) and Python's `pylda` (Riddell, in Cython) implement the same collapsed Gibbs
